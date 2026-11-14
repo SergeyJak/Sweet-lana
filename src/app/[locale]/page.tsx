@@ -50,19 +50,21 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   return (
     <div className="min-h-screen bg-[#fffaf5] text-[#372b2b]">
       <header className="sticky top-0 z-50 border-b border-[#eaded7] bg-[#fffaf5]/95 backdrop-blur-md">
-        <div className="mx-auto flex min-h-[84px] max-w-7xl items-center justify-between gap-4 px-5 md:px-10">
-          <a href="#home" className="font-serif text-3xl font-semibold tracking-tight text-[#372b2b]">Sweet-lana<span className="text-[#c18d7f]">.</span></a>
+        <div className="relative mx-auto flex min-h-[72px] max-w-7xl items-center justify-between gap-2 px-4 sm:px-6 md:px-10">
+          <a href="#home" className="min-w-0 shrink-0 whitespace-nowrap font-serif text-[clamp(1.4rem,5vw,2rem)] font-semibold tracking-tight text-[#372b2b]">Sweet-lana<span className="text-[#c18d7f]">.</span></a>
           <nav aria-label={c.menu} className="hidden items-center gap-7 lg:flex">
             {ids.map((id, i) => <a key={id} href={`#${id}`} className="text-xs font-semibold uppercase tracking-[0.12em] text-[#635657] transition hover:text-[#bc8075]">{c.nav[i]}</a>)}
           </nav>
-          <div className="flex items-center gap-3">
-            <div className="flex gap-2 text-xs font-semibold tracking-wider">
-              {(['ru', 'lv', 'en'] as const).map((lang) => <a key={lang} href={`/${lang}`} aria-current={lang === locale ? 'page' : undefined} className={`rounded-full px-2 py-1 ${lang === locale ? 'bg-[#372b2b] text-white' : 'text-[#736767] hover:bg-[#f1e4df]'}`}>{lang.toUpperCase()}</a>)}
-            </div>
-            <details className="relative lg:hidden">
-              <summary className="cursor-pointer list-none rounded-full border border-[#d9c5bd] px-4 py-2 text-sm font-medium marker:hidden">{c.menu} ☰</summary>
-              <nav aria-label={c.menu} className="absolute right-0 top-12 flex min-w-48 flex-col gap-1 rounded-2xl border border-[#eaded7] bg-[#fffaf5] p-3 shadow-xl">
-                {ids.map((id, i) => <a key={id} href={`#${id}`} className="rounded-lg px-4 py-3 text-sm hover:bg-[#f5e9e3]">{c.nav[i]}</a>)}
+          <div className="flex shrink-0 items-center gap-2 sm:gap-4">
+            <nav aria-label="Language" className="flex items-center gap-0.5 text-[11px] font-semibold tracking-wide sm:gap-1 sm:text-xs">
+              {(['ru', 'lv', 'en'] as const).map((lang) => <a key={lang} href={`/${lang}`} aria-current={lang === locale ? 'page' : undefined} className={`flex h-9 w-9 items-center justify-center rounded-full sm:h-10 sm:w-10 ${lang === locale ? 'bg-[#372b2b] text-white' : 'text-[#736767] hover:bg-[#f1e4df]'}`}>{lang.toUpperCase()}</a>)}
+            </nav>
+            <details className="group lg:hidden">
+              <summary aria-label={c.menu} className="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-full border border-[#d9c5bd] text-lg text-[#372b2b] [&::-webkit-details-marker]:hidden">
+                <span aria-hidden="true" className="group-open:hidden">☰</span><span aria-hidden="true" className="hidden group-open:inline">×</span>
+              </summary>
+              <nav aria-label={c.menu} className="absolute left-0 right-0 top-full flex flex-col border-b border-[#eaded7] bg-[#fffaf5] px-4 py-3 shadow-xl sm:left-auto sm:right-4 sm:w-72 sm:rounded-b-2xl">
+                {ids.map((id, i) => <a key={id} href={`#${id}`} className="rounded-lg px-4 py-3 text-sm font-medium hover:bg-[#f5e9e3]">{c.nav[i]}</a>)}
               </nav>
             </details>
           </div>
@@ -74,7 +76,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div aria-hidden="true" className="pointer-events-none absolute -right-32 top-0 h-[540px] w-[540px] rounded-full bg-[#f4e1d8] opacity-60 blur-3xl" />
           <div className="relative mx-auto flex min-h-[620px] max-w-7xl flex-col justify-center px-6 py-28 md:px-12">
             <p className="mb-8 text-xs font-semibold uppercase tracking-[0.35em] text-[#a26c63]">{c.eyebrow}</p>
-            <h1 className="mb-7 max-w-5xl font-serif text-[clamp(5rem,14vw,11rem)] font-medium leading-[0.85] tracking-[-0.055em] text-[#372b2b]">Sweet-lana<span className="text-[#cb998a]">.</span></h1>
+            <h1 className="mb-7 max-w-5xl font-serif text-[clamp(3.1rem,12vw,10rem)] font-medium leading-[0.85] tracking-[-0.055em] text-[#372b2b]">Sweet-lana<span className="text-[#cb998a]">.</span></h1>
             <p className="mb-5 max-w-2xl font-serif text-3xl italic text-[#826963] md:text-5xl">{c.subtitle}</p>
             <p className="mb-10 max-w-lg text-base leading-8 text-[#756968]">{c.intro}</p>
             <a href="#about" className="inline-flex w-fit items-center gap-3 rounded-full bg-[#372b2b] px-7 py-4 text-sm font-semibold text-white transition hover:bg-[#6e504d]">{c.discover} <span aria-hidden="true">↓</span></a>
