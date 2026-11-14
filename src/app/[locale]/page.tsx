@@ -12,7 +12,7 @@ const copy = {
     gallery: 'Галерея', galleryText: 'Скоро здесь будут фотографии работ.',
     contact: 'Контакты', contactText: 'Рига, Иманта. Телефон и WhatsApp: +371 26830682. Также можно написать в Instagram.',
     soon: 'Скоро', footer: 'Косметология · Рига, Иманта',
-    menu: 'Меню', booking: 'Написать в Instagram', mapNote: 'Район Иманта, Рига. Точный адрес уточняйте при записи.', mapTitle: 'Как нас найти', call: 'Позвонить',
+    menu: 'Меню', booking: 'Написать в Instagram', mapNote: 'Dammes iela 46A, Рига, Иманта.', mapTitle: 'Как нас найти', call: 'Позвонить',
   },
   lv: {
     nav: ['Sākums', 'Par mums', 'Pakalpojumi', 'Galerija', 'Kontakti'],
@@ -22,7 +22,7 @@ const copy = {
     services: 'Pakalpojumi', servicesText: '3D sejas tīrīšana, vaksācija, šugarings, IPL Lumecca, Morpheus8, Ultraformer MPT, biorevitalizācija un lipolītiķi. Cenas precizējiet, piesakoties.',
     gallery: 'Galerija', galleryText: 'Drīzumā šeit būs darbu fotogrāfijas.',
     contact: 'Kontakti', contactText: 'Rīga, Imanta. Tālrunis un WhatsApp: +371 26830682. Varat arī rakstīt Instagram.',
-    soon: 'Drīzumā', footer: 'Kosmetoloģija · Rīga, Imanta', menu: 'Izvēlne', booking: 'Rakstīt Instagram', mapNote: 'Imanta, Rīga. Precīzu adresi lūdzam precizēt, piesakoties.', mapTitle: 'Kā mūs atrast', call: 'Zvanīt',
+    soon: 'Drīzumā', footer: 'Kosmetoloģija · Rīga, Imanta', menu: 'Izvēlne', booking: 'Rakstīt Instagram', mapNote: 'Dammes iela 46A, Rīga, Imanta.', mapTitle: 'Kā mūs atrast', call: 'Zvanīt',
   },
   en: {
     nav: ['Home', 'About', 'Services', 'Gallery', 'Contact'],
@@ -32,7 +32,7 @@ const copy = {
     services: 'Services', servicesText: '3D facial cleansing, waxing, sugaring, IPL Lumecca, Morpheus8, Ultraformer MPT, biorevitalization and lipolytics. Ask for prices when booking.',
     gallery: 'Gallery', galleryText: 'Photos of our work are coming soon.',
     contact: 'Contact', contactText: 'Riga, Imanta. Phone and WhatsApp: +371 26830682. You can also message us on Instagram.',
-    soon: 'Coming soon', footer: 'Cosmetology · Riga, Imanta', menu: 'Menu', booking: 'Message on Instagram', mapNote: 'Imanta, Riga. Please confirm the exact address when booking.', mapTitle: 'Find us', call: 'Call',
+    soon: 'Coming soon', footer: 'Cosmetology · Riga, Imanta', menu: 'Menu', booking: 'Message on Instagram', mapNote: 'Dammes iela 46A, Riga, Imanta.', mapTitle: 'Find us', call: 'Call',
   },
 } as const
 const ids = ['home', 'about', 'services', 'gallery', 'contact'] as const
@@ -114,7 +114,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               <a href="tel:+37126830682" className="w-fit rounded-full border border-[#e7cbd5] bg-white px-6 py-3 text-sm font-semibold text-[#241e20]">{c.call}: +371 26830682</a>
             </div>
             <div className="min-h-[320px] overflow-hidden rounded-2xl border border-[#f0dce4] bg-white md:min-h-[420px]">
-              <iframe title={c.mapTitle} src="https://www.google.com/maps?q=Imanta%2C%20Riga%2C%20Latvia&output=embed" className="h-full min-h-[320px] w-full md:min-h-[420px]" loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />
+              <iframe title={c.mapTitle} src="https://www.google.com/maps?q=Dammes%20iela%2046A%2C%20Riga%2C%20Latvia&output=embed" className="h-full min-h-[320px] w-full md:min-h-[420px]" loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />
             </div>
           </div>
         </section>
