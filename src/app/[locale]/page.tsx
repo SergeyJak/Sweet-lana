@@ -3,35 +3,35 @@ const copy = {
   ru: {
     nav: ['Главная', 'О нас', 'Услуги', 'Галерея', 'Контакты'],
     eyebrow: 'Добро пожаловать',
-    heading: 'Sweet-lana',
+    heading: 'Lana Sweet Perfect',
     subtitle: 'Красота начинается с деталей.',
     intro: 'Косметология в Риге, Иманта. Узнайте больше и запишитесь через Instagram.',
     discover: 'Посмотреть разделы',
-    about: 'О нас', aboutText: 'Sweet-lana — косметологические услуги в Риге, район Иманта.',
-    services: 'Услуги', servicesText: 'Описание услуг и цены добавим после согласования.',
+    about: 'О нас', aboutText: 'Lana Sweet Perfect — косметолог с 10-летним опытом и медицинским образованием. Рига, Иманта.',
+    services: 'Услуги', servicesText: '3D-чистка лица, ваксинг, шугаринг, IPL Lumecca, Morpheus8, Ultraformer MPT, биоревитализация и липолитики. Цены уточняйте при записи.',
     gallery: 'Галерея', galleryText: 'Скоро здесь будут фотографии работ.',
-    contact: 'Контакты', contactText: 'Рига, Иманта. Для вопросов и записи напишите нам в Instagram.',
+    contact: 'Контакты', contactText: 'Рига, Иманта. Телефон и WhatsApp: +371 26830682. Также можно написать в Instagram.',
     soon: 'Скоро', footer: 'Косметология · Рига, Иманта',
     menu: 'Меню', booking: 'Написать в Instagram',
   },
   lv: {
     nav: ['Sākums', 'Par mums', 'Pakalpojumi', 'Galerija', 'Kontakti'],
-    eyebrow: 'Laipni lūdzam', heading: 'Sweet-lana', subtitle: 'Skaistums sākas detaļās.',
+    eyebrow: 'Laipni lūdzam', heading: 'Lana Sweet Perfect', subtitle: 'Skaistums sākas detaļās.',
     intro: 'Kosmetoloģija Rīgā, Imantā. Uzziniet vairāk un piesakieties Instagram.',
-    discover: 'Apskatīt sadaļas', about: 'Par mums', aboutText: 'Sweet-lana — kosmetoloģijas pakalpojumi Rīgā, Imantā.',
-    services: 'Pakalpojumi', servicesText: 'Pakalpojumu aprakstus un cenas pievienosim pēc apstiprināšanas.',
+    discover: 'Apskatīt sadaļas', about: 'Par mums', aboutText: 'Lana Sweet Perfect — kosmetoloģe ar 10 gadu pieredzi un medicīnisko izglītību. Rīga, Imanta.',
+    services: 'Pakalpojumi', servicesText: '3D sejas tīrīšana, vaksācija, šugarings, IPL Lumecca, Morpheus8, Ultraformer MPT, biorevitalizācija un lipolītiķi. Cenas precizējiet, piesakoties.',
     gallery: 'Galerija', galleryText: 'Drīzumā šeit būs darbu fotogrāfijas.',
-    contact: 'Kontakti', contactText: 'Rīga, Imanta. Jautājumiem un pierakstam rakstiet mums Instagram.',
+    contact: 'Kontakti', contactText: 'Rīga, Imanta. Tālrunis un WhatsApp: +371 26830682. Varat arī rakstīt Instagram.',
     soon: 'Drīzumā', footer: 'Kosmetoloģija · Rīga, Imanta', menu: 'Izvēlne', booking: 'Rakstīt Instagram',
   },
   en: {
     nav: ['Home', 'About', 'Services', 'Gallery', 'Contact'],
-    eyebrow: 'Welcome', heading: 'Sweet-lana', subtitle: 'Beauty begins with the details.',
+    eyebrow: 'Welcome', heading: 'Lana Sweet Perfect', subtitle: 'Beauty begins with the details.',
     intro: 'Beauty and cosmetology in Imanta, Riga. Find out more and book through Instagram.',
-    discover: 'Explore the site', about: 'About us', aboutText: 'Sweet-lana offers cosmetology services in Imanta, Riga.',
-    services: 'Services', servicesText: 'Service descriptions and prices will be added once confirmed.',
+    discover: 'Explore the site', about: 'About us', aboutText: 'Lana Sweet Perfect — cosmetologist with 10 years of experience and a medical education. Imanta, Riga.',
+    services: 'Services', servicesText: '3D facial cleansing, waxing, sugaring, IPL Lumecca, Morpheus8, Ultraformer MPT, biorevitalization and lipolytics. Ask for prices when booking.',
     gallery: 'Gallery', galleryText: 'Photos of our work are coming soon.',
-    contact: 'Contact', contactText: 'Riga, Imanta. For enquiries and appointments, message us on Instagram.',
+    contact: 'Contact', contactText: 'Riga, Imanta. Phone and WhatsApp: +371 26830682. You can also message us on Instagram.',
     soon: 'Coming soon', footer: 'Cosmetology · Riga, Imanta', menu: 'Menu', booking: 'Message on Instagram',
   },
 } as const
@@ -56,7 +56,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </div>
       <header className="sticky top-0 z-50 border-b border-[#f0dce4] bg-white/95 backdrop-blur-md">
         <div className="relative mx-auto flex min-h-[72px] max-w-7xl items-center justify-between gap-2 px-4 sm:px-6 md:px-10">
-          <a href="#home" className="min-w-0 shrink-0 whitespace-nowrap font-serif text-[clamp(1.4rem,5vw,2rem)] font-semibold tracking-tight text-[#241e20]">Sweet-lana<span className="text-[#d9a3b7]">.</span></a>
+          <a href="#home" className="min-w-0 shrink-0 whitespace-nowrap font-serif text-[clamp(1.4rem,5vw,2rem)] font-semibold tracking-tight text-[#241e20]">Lana Sweet Perfect<span className="text-[#d9a3b7]">.</span></a>
           <nav aria-label={c.menu} className="hidden items-center gap-7 lg:flex">
             {ids.map((id, i) => <a key={id} href={`#${id}`} className="text-xs font-semibold uppercase tracking-[0.12em] text-[#635657] transition hover:text-[#bc8075]">{c.nav[i]}</a>)}
           </nav>
@@ -80,7 +80,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <section id="home" className="relative border-b border-[#f0dce4]/70">
           <div className="relative mx-auto flex min-h-[620px] max-w-7xl flex-col justify-center px-6 py-28 md:px-12">
             <p className="mb-8 text-xs font-semibold uppercase tracking-[0.35em] text-[#a05e78]">{c.eyebrow}</p>
-            <h1 className="mb-7 max-w-5xl font-serif text-[clamp(3.1rem,12vw,10rem)] font-medium leading-[0.85] tracking-[-0.055em] text-[#241e20]">Sweet-lana<span className="text-[#d9a3b7]">.</span></h1>
+            <h1 className="mb-7 max-w-5xl font-serif text-[clamp(3.1rem,12vw,10rem)] font-medium leading-[0.85] tracking-[-0.055em] text-[#241e20]">Lana Sweet Perfect<span className="text-[#d9a3b7]">.</span></h1>
             <p className="mb-5 max-w-2xl font-serif text-3xl italic text-[#7b5265] md:text-5xl">{c.subtitle}</p>
             <p className="mb-10 max-w-lg text-base leading-8 text-[#3f3539]">{c.intro}</p>
             <div className="flex flex-wrap items-center gap-3">
@@ -100,6 +100,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               <div>
                 <h2 className="mb-5 font-serif text-5xl font-medium text-[#241e20] md:text-6xl">{panel.title}</h2>
                 <p className="max-w-md text-base leading-7 text-[#4f4148]">{panel.text}</p>
+                {panel.id === 'contact' && <div className="mt-5 flex flex-wrap gap-3"><a href="tel:+37126830682" className="inline-flex rounded-full border border-[#e7cbd5] bg-white/85 px-5 py-3 text-sm font-semibold text-[#241e20]">+371 26830682</a><a href="https://wa.me/37126830682" target="_blank" rel="noopener noreferrer" className="inline-flex rounded-full border border-[#e7cbd5] bg-white/85 px-5 py-3 text-sm font-semibold text-[#241e20]">WhatsApp ↗</a></div>}
                 {panel.id === 'contact' && <a href="https://www.instagram.com/lanasweetperfect/" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex rounded-full bg-[#241e20] px-5 py-3 text-sm font-semibold text-white hover:bg-[#7e5267]">{c.booking} ↗</a>}
               </div>
             </article>
@@ -108,10 +109,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </main>
       <footer className="relative z-10 border-t border-[#f0dce4] bg-white/80 px-6 py-10 backdrop-blur-sm">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 text-sm text-[#786b69] md:flex-row">
-          <span className="font-serif text-2xl text-[#241e20]">Sweet-lana.</span>
+          <span className="font-serif text-2xl text-[#241e20]">Lana Sweet Perfect.</span>
           <span>{c.footer}</span>
           <a href="https://www.instagram.com/lanasweetperfect/" target="_blank" rel="noopener noreferrer" className="font-medium text-[#241e20] underline underline-offset-4">@lanasweetperfect</a>
-          <span>© {new Date().getFullYear()} Sweet-lana</span>
+          <span>© {new Date().getFullYear()} Lana Sweet Perfect</span>
         </div>
       </footer>
     </div>
