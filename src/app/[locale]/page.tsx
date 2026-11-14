@@ -1,43 +1,42 @@
 import BeforeAfterSlider from '@/components/BeforeAfterSlider'
-import ProcedureCarousel from '@/components/ProcedureCarousel'
 type Locale = 'ru' | 'lv' | 'en'
 const copy = {
   ru: {
-    nav: ['Главная', 'О нас', 'Услуги', 'Галерея', 'Контакты'],
+    nav: ['Главная', 'О специалисте', 'Кабинеты', 'Галерея', 'Контакты'],
     eyebrow: 'Добро пожаловать',
     heading: 'Lana Sweet Perfect',
     subtitle: 'Красота начинается с деталей.',
-    intro: 'Косметология в Риге, Иманта. Узнайте больше и запишитесь через Instagram.',
-    discover: 'Посмотреть разделы',
+    intro: 'Два кабинета в Риге. Выберите удобное место и посмотрите услуги, которые проводятся именно там.',
+    discover: 'Выбрать кабинет',
     about: 'О нас', aboutText: 'Lana Sweet Perfect — косметолог с 10-летним опытом и медицинским образованием. Рига, Иманта.',
     services: 'Услуги', servicesText: '3D-чистка лица, ваксинг, шугаринг, IPL Lumecca, Morpheus8, Ultraformer MPT, биоревитализация и липолитики. Цены уточняйте при записи.',
-    gallery: 'Галерея', galleryText: 'Фото результатов до и после скоро появятся здесь.', galleryLink: 'Открыть галерею',
-    contact: 'Контакты', contactText: 'Рига, Иманта. Телефон и WhatsApp: +371 26830682. Также можно написать в Instagram.',
-    soon: 'Скоро', footer: 'Косметология · Рига, Иманта',
+    gallery: 'Галерея', galleryText: 'Фото результатов до и после скоро появятся здесь.', galleryLink: 'Открыть галерею', choose: 'Посмотреть услуги и адрес', cabinetsTitle: 'Два кабинета · Два направления', cabinetsIntro: 'Выберите кабинет, чтобы увидеть только его услуги, адрес и запись.', imantaTitle: 'Иманта', imantaDetail: 'Уход за кожей, подготовка к аппаратным процедурам, инъекции, пилинги и ваксинг', centerTitle: 'Центр', centerDetail: 'Аппаратная косметология', centerAddress: 'Адрес уточняется',
+    contact: 'Контакты', contactText: 'Два кабинета: Иманта и Центр. Телефон и WhatsApp: +371 26830682. При записи укажите нужный кабинет.',
+    soon: 'Скоро', footer: 'Косметология · Рига',
     menu: 'Меню', booking: 'Написать в Instagram', mapNote: 'Dammes iela 46A, Рига, Иманта.', mapTitle: 'Как нас найти', call: 'Позвонить',
   },
   lv: {
-    nav: ['Sākums', 'Par mums', 'Pakalpojumi', 'Galerija', 'Kontakti'],
+    nav: ['Sākums', 'Par speciālistu', 'Kabineti', 'Galerija', 'Kontakti'],
     eyebrow: 'Laipni lūdzam', heading: 'Lana Sweet Perfect', subtitle: 'Skaistums sākas detaļās.',
-    intro: 'Kosmetoloģija Rīgā, Imantā. Uzziniet vairāk un piesakieties Instagram.',
-    discover: 'Apskatīt sadaļas', about: 'Par mums', aboutText: 'Lana Sweet Perfect — kosmetoloģe ar 10 gadu pieredzi un medicīnisko izglītību. Rīga, Imanta.',
+    intro: 'Divi kabineti Rīgā. Izvēlieties vietu un apskatiet tieši tur pieejamos pakalpojumus.',
+    discover: 'Izvēlēties kabinetu', about: 'Par mums', aboutText: 'Lana Sweet Perfect — kosmetoloģe ar 10 gadu pieredzi un medicīnisko izglītību. Rīga, Imanta.',
     services: 'Pakalpojumi', servicesText: '3D sejas tīrīšana, vaksācija, šugarings, IPL Lumecca, Morpheus8, Ultraformer MPT, biorevitalizācija un lipolītiķi. Cenas precizējiet, piesakoties.',
-    gallery: 'Galerija', galleryText: 'Rezultātu fotogrāfijas pirms un pēc drīzumā būs šeit.', galleryLink: 'Atvērt galeriju',
-    contact: 'Kontakti', contactText: 'Rīga, Imanta. Tālrunis un WhatsApp: +371 26830682. Varat arī rakstīt Instagram.',
-    soon: 'Drīzumā', footer: 'Kosmetoloģija · Rīga, Imanta', menu: 'Izvēlne', booking: 'Rakstīt Instagram', mapNote: 'Dammes iela 46A, Rīga, Imanta.', mapTitle: 'Kā mūs atrast', call: 'Zvanīt',
+    gallery: 'Galerija', galleryText: 'Rezultātu fotogrāfijas pirms un pēc drīzumā būs šeit.', galleryLink: 'Atvērt galeriju', choose: 'Pakalpojumi un adrese', cabinetsTitle: 'Divi kabineti · Divi virzieni', cabinetsIntro: 'Izvēlieties kabinetu, lai redzētu pakalpojumus, adresi un pierakstu.', imantaTitle: 'Imanta', imantaDetail: 'Ādas kopšana, sagatavošana aparātu procedūrām, injekcijas, pīlingi un vaksācija', centerTitle: 'Centrs', centerDetail: 'Aparātu kosmetoloģija', centerAddress: 'Adrese tiks precizēta',
+    contact: 'Kontakti', contactText: 'Divi kabineti: Imanta un Centrs. Tālrunis un WhatsApp: +371 26830682. Pierakstoties norādiet kabinetu.',
+    soon: 'Drīzumā', footer: 'Kosmetoloģija · Rīga', menu: 'Izvēlne', booking: 'Rakstīt Instagram', mapNote: 'Dammes iela 46A, Rīga, Imanta.', mapTitle: 'Kā mūs atrast', call: 'Zvanīt',
   },
   en: {
-    nav: ['Home', 'About', 'Services', 'Gallery', 'Contact'],
+    nav: ['Home', 'About', 'Locations', 'Gallery', 'Contact'],
     eyebrow: 'Welcome', heading: 'Lana Sweet Perfect', subtitle: 'Beauty begins with the details.',
-    intro: 'Beauty and cosmetology in Imanta, Riga. Find out more and book through Instagram.',
-    discover: 'Explore the site', about: 'About us', aboutText: 'Lana Sweet Perfect — cosmetologist with 10 years of experience and a medical education. Imanta, Riga.',
+    intro: 'Two studios in Riga. Choose a location to see the treatments available there.',
+    discover: 'Choose a location', about: 'About us', aboutText: 'Lana Sweet Perfect — cosmetologist with 10 years of experience and a medical education. Imanta, Riga.',
     services: 'Services', servicesText: '3D facial cleansing, waxing, sugaring, IPL Lumecca, Morpheus8, Ultraformer MPT, biorevitalization and lipolytics. Ask for prices when booking.',
-    gallery: 'Gallery', galleryText: 'Real before-and-after results will appear here soon.', galleryLink: 'View gallery',
-    contact: 'Contact', contactText: 'Riga, Imanta. Phone and WhatsApp: +371 26830682. You can also message us on Instagram.',
-    soon: 'Coming soon', footer: 'Cosmetology · Riga, Imanta', menu: 'Menu', booking: 'Message on Instagram', mapNote: 'Dammes iela 46A, Riga, Imanta.', mapTitle: 'Find us', call: 'Call',
+    gallery: 'Gallery', galleryText: 'Real before-and-after results will appear here soon.', galleryLink: 'View gallery', choose: 'View treatments and address', cabinetsTitle: 'Two studios · Two specialties', cabinetsIntro: 'Choose a studio to see only its treatments, address and booking details.', imantaTitle: 'Imanta', imantaDetail: 'Skincare, preparation for device treatments, injections, peels and waxing', centerTitle: 'City Centre', centerDetail: 'Device-based cosmetology', centerAddress: 'Address to be confirmed',
+    contact: 'Contact', contactText: 'Two studios: Imanta and City Centre. Phone and WhatsApp: +371 26830682. Please specify your preferred location.',
+    soon: 'Coming soon', footer: 'Cosmetology · Riga', menu: 'Menu', booking: 'Message on Instagram', mapNote: 'Dammes iela 46A, Riga, Imanta.', mapTitle: 'Find us', call: 'Call',
   },
 } as const
-const ids = ['home', 'about', 'services', 'gallery', 'contact'] as const
+const ids = ['home', 'about', 'cabinets', 'gallery', 'contact'] as const
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: requested } = await params
@@ -45,9 +44,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   const c = copy[locale]
   const panels = [
     { id: 'about', title: c.about, text: c.aboutText, number: '01' },
-    { id: 'services', title: c.services, text: c.servicesText, number: '02' },
-    { id: 'gallery', title: c.gallery, text: c.galleryText, number: '03' },
-    { id: 'contact', title: c.contact, text: c.contactText, number: '04' },
+    { id: 'gallery', title: c.gallery, text: c.galleryText, number: '02' },
+    { id: 'contact', title: c.contact, text: c.contactText, number: '03' },
   ]
   return (
     <div className="relative min-h-screen bg-white text-[#241e20]">
@@ -87,17 +85,42 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <p className="mb-10 max-w-lg text-base leading-8 text-[#3f3539]">{c.intro}</p>
             <div className="flex flex-wrap items-center gap-3">
               <a href="https://www.instagram.com/lanasweetperfect/" target="_blank" rel="noopener noreferrer" className="inline-flex w-fit items-center gap-3 rounded-full bg-[#241e20] px-7 py-4 text-sm font-semibold text-white transition hover:bg-[#7e5267]">{c.booking} <span aria-hidden="true">↗</span></a>
-              <a href="#about" className="inline-flex w-fit items-center gap-3 rounded-full border border-[#e7cbd5] bg-white/80 px-7 py-4 text-sm font-semibold text-[#241e20] transition hover:bg-[#fbeef3]">{c.discover} <span aria-hidden="true">↓</span></a>
+              <a href="#cabinets" className="inline-flex w-fit items-center gap-3 rounded-full border border-[#e7cbd5] bg-white/80 px-7 py-4 text-sm font-semibold text-[#241e20] transition hover:bg-[#fbeef3]">{c.discover} <span aria-hidden="true">↓</span></a>
             </div>
           </div>
         </section>
 
-        <ProcedureCarousel locale={locale} />
-        <section className="mx-auto grid max-w-7xl gap-5 px-5 py-16 md:grid-cols-2 md:px-10 md:py-24">
+        <section id="cabinets" aria-labelledby="cabinets-title" className="relative mx-auto max-w-7xl px-5 pt-12 pb-8 md:px-10 md:pt-20">
+          <div className="mb-8 max-w-3xl">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.26em] text-[#a05e78]">Lana Sweet Perfect</p>
+            <h2 id="cabinets-title" className="font-serif text-4xl !text-[#241e20] sm:text-5xl md:text-6xl">{c.cabinetsTitle}</h2>
+            <p className="mt-4 text-base leading-7 text-[#4f4148]">{c.cabinetsIntro}</p>
+          </div>
+          <div className="grid gap-5 md:grid-cols-2">
+            <a href={`/${locale}/cabinet/imanta`} className="group flex min-h-72 flex-col justify-between rounded-[2rem] border border-[#ebd3dd] bg-white/95 p-7 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-xl sm:p-10">
+              <div className="flex items-center justify-between"><span className="text-xs font-bold tracking-[0.25em] text-[#a05e78]">01</span><span className="rounded-full bg-[#faedf2] px-4 py-2 text-xs font-semibold text-[#8e526d]">Dammes iela 46A</span></div>
+              <div className="mt-10">
+                <h3 className="font-serif text-5xl !text-[#241e20]">{c.imantaTitle}</h3>
+                <p className="mt-5 max-w-lg text-base leading-7 text-[#4f4148]">{c.imantaDetail}</p>
+                <p className="mt-7 text-sm font-semibold text-[#8e526d]">{c.choose} ↗</p>
+              </div>
+            </a>
+            <a href={`/${locale}/cabinet/center`} className="group flex min-h-72 flex-col justify-between rounded-[2rem] border border-[#ebd3dd] bg-[#fff7fa]/95 p-7 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-xl sm:p-10">
+              <div className="flex items-center justify-between"><span className="text-xs font-bold tracking-[0.25em] text-[#a05e78]">02</span><span className="rounded-full bg-white/90 px-4 py-2 text-xs font-semibold text-[#8e526d]">{c.centerAddress}</span></div>
+              <div className="mt-10">
+                <h3 className="font-serif text-5xl !text-[#241e20]">{c.centerTitle}</h3>
+                <p className="mt-5 max-w-lg text-base leading-7 text-[#4f4148]">{c.centerDetail}</p>
+                <p className="mt-7 text-sm font-semibold text-[#8e526d]">{c.choose} ↗</p>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <section className="mx-auto grid max-w-7xl gap-5 px-5 py-10 md:grid-cols-3 md:px-10 md:py-16">
           {panels.map((panel) => (
-            <article key={panel.id} id={panel.id} className="group relative flex min-h-72 flex-col justify-between overflow-hidden rounded-[2rem] border border-[#f0dce4] bg-white/85 backdrop-blur-sm p-8 shadow-[0_8px_35px_rgba(55,43,43,0.035)] md:p-11">
+            <article key={panel.id} id={panel.id} className="group relative flex min-h-64 flex-col justify-between overflow-hidden rounded-[2rem] border border-[#f0dce4] bg-white/85 backdrop-blur-sm p-8 shadow-[0_8px_35px_rgba(55,43,43,0.035)] md:p-11">
               <div className="flex items-start justify-between">
-                <span className="text-xs font-semibold tracking-[0.3em] text-[#c5829e]">{panel.number} / 04</span>
+                <span className="text-xs font-semibold tracking-[0.3em] text-[#c5829e]">{panel.number} / 03</span>
                 <span className="rounded-full bg-[#fceef4] px-4 py-2 text-xs text-[#9b627b]">{c.soon}</span>
               </div>
               <div>
@@ -123,18 +146,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </div>
           </div>
         </section>
-        <section aria-labelledby="location-heading" className="relative mx-auto max-w-7xl px-5 pb-5 md:px-10 md:pb-8">
-          <div className="grid gap-7 overflow-hidden rounded-[2rem] border border-[#f0dce4] bg-white/90 p-5 shadow-lg backdrop-blur-sm md:grid-cols-[0.8fr_1.2fr] md:p-9">
-            <div className="flex flex-col justify-center gap-5 py-4">
-              <h2 id="location-heading" className="font-serif text-4xl text-[#241e20]">{c.mapTitle}</h2>
-              <p className="text-lg text-[#4f4148]">{c.mapNote}</p>
-              <a href="tel:+37126830682" className="w-fit rounded-full border border-[#e7cbd5] bg-white px-6 py-3 text-sm font-semibold text-[#241e20]">{c.call}: +371 26830682</a>
-            </div>
-            <div className="min-h-[320px] overflow-hidden rounded-2xl border border-[#f0dce4] bg-white md:min-h-[420px]">
-              <iframe title={c.mapTitle} src="https://www.google.com/maps?q=Dammes%20iela%2046A%2C%20Riga%2C%20Latvia&output=embed" className="h-full min-h-[320px] w-full md:min-h-[420px]" loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />
-            </div>
-          </div>
-        </section>
+
       </main>
       <nav aria-label="WhatsApp and Instagram" className="fixed inset-x-0 bottom-0 z-40 border-t border-[#e7cbd5] bg-white/95 px-3 pt-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] shadow-[0_-12px_35px_rgba(35,20,27,0.12)] backdrop-blur-md md:inset-x-auto md:bottom-7 md:right-7 md:flex md:flex-col md:gap-3 md:rounded-2xl md:border md:p-3">
         <div className="grid grid-cols-2 gap-3 md:flex md:flex-col">
