@@ -49,8 +49,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   ]
   return (
     <div className="relative min-h-screen bg-white text-[#241e20]">
-      {/* Sticky background avoids mobile browser viewport jumps caused by position: fixed. */}
-      <div aria-hidden="true" className="pointer-events-none sticky top-0 z-0 -mb-[100svh] h-[100svh] overflow-hidden">
+      {/* Stable large viewport height prevents background resizing when mobile browser chrome changes. */}
+      <div aria-hidden="true" className="pointer-events-none fixed left-0 top-0 z-0 h-[100lvh] w-full overflow-hidden [transform:translateZ(0)]">
         <div className="absolute inset-0 bg-[url('/background.jpeg')] bg-cover bg-[position:57%_center] bg-no-repeat md:bg-center" />
         <div className="absolute inset-0 bg-white/25 md:bg-white/15" />
       </div>
