@@ -1,3 +1,4 @@
+import ProcedureCarousel from '@/components/ProcedureCarousel'
 type Locale = 'ru' | 'lv' | 'en'
 const copy = {
   ru: {
@@ -90,6 +91,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </div>
         </section>
 
+        <ProcedureCarousel locale={locale} />
         <section className="mx-auto grid max-w-7xl gap-5 px-5 py-16 md:grid-cols-2 md:px-10 md:py-24">
           {panels.map((panel) => (
             <article key={panel.id} id={panel.id} className="group relative flex min-h-72 flex-col justify-between overflow-hidden rounded-[2rem] border border-[#f0dce4] bg-white/85 backdrop-blur-sm p-8 shadow-[0_8px_35px_rgba(55,43,43,0.035)] md:p-11">
