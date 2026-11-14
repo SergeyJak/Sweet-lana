@@ -3,24 +3,24 @@ type Locale = 'ru' | 'lv' | 'en'
 const copy = {
   ru: {
     title: 'Что говорят клиенты',
-    description: 'Фрагменты реальных отзывов из Google о кабинете в Иманте. Публикуем без имён авторов, поскольку их не удалось проверить.',
+    description: 'Ниже выдержки из отзывов клиентов. Всего в Google 30 оценок, здесь опубликованы только доступные фрагменты без имён авторов.',
     location: 'Иманта · Google Maps',
     source: 'Фрагмент отзыва',
-    all: 'Карточка в Google Maps',
+    all: 'Открыть все отзывы Google',
   },
   lv: {
     title: 'Ko saka klienti',
-    description: 'Īsi fragmenti no Google atsauksmēm par Imantas kabinetu. Autoru vārdus nenorādām, jo tos nevarējām pārbaudīt.',
+    description: 'Šeit redzami pieejamo atsauksmju fragmenti. Google ir 30 vērtējumi, bet autoru vārdus nevarējām pārbaudīt.',
     location: 'Imanta · Google Maps',
     source: 'Atsauksmes fragments',
-    all: 'Profils Google Maps',
+    all: 'Skatīt visas Google atsauksmes',
   },
   en: {
     title: 'What clients say',
-    description: 'Short excerpts from actual Google reviews for the Imanta studio. Names are omitted because attribution could not be verified.',
+    description: 'Excerpts of available Google reviews. Google lists 30 ratings; these are only the accessible excerpts, without unverified author names.',
     location: 'Imanta · Google Maps',
     source: 'Review excerpt',
-    all: 'Google Maps listing',
+    all: 'Read all Google reviews',
   },
 } as const
 
@@ -32,9 +32,14 @@ const excerpts = [
   { quote: 'Vienmēr pajautās, kā jūs jūtaties pēc procedūrām.', lang: 'LV' },
   { quote: 'Уютный кабинет', lang: 'RU' },
   { quote: 'Результат просто потрясающий', lang: 'RU' },
+  { quote: 'Izskaidro ādas problēmas un kā tās risināt', lang: 'LV' },
+  { quote: 'iesaka piemērotākās kopšanas procedūras', lang: 'LV' },
+  { quote: 'Lieliska speciāliste ar personalizētu pieeju', lang: 'LV' },
+  { quote: 'профессионально и аккуратно провел процедуру, все объяснил, ответил на мои вопросы', lang: 'RU' },
+  { quote: 'Рядом бесплатная парковка', lang: 'RU' },
 ]
 
-const placeUrl = 'https://www.google.com/maps/place/?q=place_id:ChIJS-9SPebF7kYR7-LRQgp4ifY'
+const placeUrl = 'https://search.google.com/local/reviews?placeid=ChIJS-9SPebF7kYR7-LRQgp4ifY'
 
 export default function GoogleReviews({ locale }: { locale: Locale }) {
   const t = copy[locale]
@@ -62,8 +67,7 @@ export default function GoogleReviews({ locale }: { locale: Locale }) {
               </div>
               <figcaption className="mt-6 flex justify-between gap-3 text-xs text-[#7b5b69]">
                 <span>{t.source} · {item.lang}</span>
-                <span aria-label="5 stars" className="text-[#ad6987]">★★★★★</span>
-              </figcaption>
+                </figcaption>
             </figure>
           ))}
         </div>
