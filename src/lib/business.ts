@@ -4,7 +4,7 @@ export const BUSINESS = {
   siteUrl: process.env.NEXT_PUBLIC_BASE_URL || DEFAULT_SITE_URL,
   streetAddress: '', addressLocality: 'Riga', postalCode: '', addressCountry: 'LV',
   geo: { latitude: 0, longitude: 0 },
-  phoneDisplay: '', phoneE164: '', email: '', whatsappNumber: '',
+  phoneDisplay: '+371 26830682', phoneE164: '+37126830682', email: '', whatsappNumber: '37126830682',
   instagram: 'https://www.instagram.com/lanasweetperfect/', tiktok: '', facebook: '', priceRange: '',
   googleMapsEmbed: '', googleMapsDirections: '',
 } as const
