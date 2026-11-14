@@ -6,21 +6,21 @@ const copy = {
     description: 'Доступные выдержки и темы из отзывов о кабинете в Иманте. Это не 15 отдельных отзывов: некоторые фразы могут быть из одного сообщения. Полные отзывы и авторы пока недоступны.',
     location: 'Иманта · Google Maps',
     source: 'Фрагмент отзыва',
-    all: 'Открыть карточку в Google Maps', summary: 'По отзывам',
+    all: 'Открыть карточку в Google Maps',
   },
   lv: {
     title: 'Ko saka klienti',
     description: 'Pieejamie atsauksmju fragmenti un tēmu apkopojumi par Imantas kabinetu. Tās nav atsevišķas atsauksmes; vairāki fragmenti var būt no viena autora.',
     location: 'Imanta · Google Maps',
     source: 'Atsauksmes fragments',
-    all: 'Atvērt Google Maps profilu', summary: 'Atsauksmju apkopojums',
+    all: 'Atvērt Google Maps profilu',
   },
   en: {
     title: 'What clients say',
     description: 'Available review excerpts and themes about the Imanta studio. These are not separate reviews: multiple excerpts may come from the same author.',
     location: 'Imanta · Google Maps',
     source: 'Review excerpt',
-    all: 'Open Google Maps listing', summary: 'Review summary',
+    all: 'Open Google Maps listing',
   },
 } as const
 
@@ -38,14 +38,6 @@ const excerpts = [
   { quote: 'профессионально и аккуратно провел процедуру, все объяснил, ответил на мои вопросы', lang: 'RU' },
   { quote: 'Рядом бесплатная парковка', lang: 'RU' },
 ]
-
-const summaries = [
-  { ru: 'Помогают подобрать домашний уход и косметику.', lv: 'Palīdz izvēlēties mājas kopšanu un kosmētiku.', en: 'Clients mention help choosing at-home skincare.' },
-  { ru: 'Объясняют особенности кожи и варианты ухода.', lv: 'Izskaidro ādas vajadzības un kopšanas iespējas.', en: 'Visitors appreciate explanations of skin concerns and care options.' },
-  { ru: 'Спрашивают о самочувствии после процедур.', lv: 'Interesējas par pašsajūtu pēc procedūrām.', en: 'Follow-up about comfort after treatments is appreciated.' },
-  { ru: 'Отмечают спокойную, расслабляющую атмосферу.', lv: 'Atsauksmēs minēta mierīga un relaksējoša atmosfēra.', en: 'Reviews mention a calm and relaxing atmosphere.' },
-  { ru: 'Некоторые замечают изменения состояния кожи после процедур.', lv: 'Daļa klientu pamana ādas stāvokļa izmaiņas pēc procedūrām.', en: 'Some clients report changes in how their skin looks after treatment.' },
-] as const
 
 const placeUrl = 'https://www.google.com/maps/search/?api=1&query=Sweet%20Perfect%20Kosmetologs%20Vaksacija&query_place_id=ChIJS-9SPebF7kYR7-LRQgp4ifY'
 
@@ -77,14 +69,6 @@ export default function GoogleReviews({ locale }: { locale: Locale }) {
                 <span>{t.source} · {item.lang}</span>
                 </figcaption>
             </figure>
-          ))}
-        </div>
-        <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {summaries.map((summary, index) => (
-            <div key={index} className="rounded-xl border border-[#efd9e3] bg-white/90 p-5">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-[#9b627b]">{t.summary}</p>
-              <p className="text-sm leading-6 text-[#30262b]">{summary[locale]}</p>
-            </div>
           ))}
         </div>
         <a href={placeUrl} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex rounded-full border border-[#dfbdcd] px-5 py-3 text-sm font-medium text-[#33232b] hover:bg-[#fbeef3]">{t.all} ↗</a>
