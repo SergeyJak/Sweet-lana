@@ -72,8 +72,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </header>
 
       <main>
-        <section id="home" className="relative overflow-hidden border-b border-[#eaded7]">
-          <div aria-hidden="true" className="pointer-events-none absolute -right-32 top-0 h-[540px] w-[540px] rounded-full bg-[#f4e1d8] opacity-60 blur-3xl" />
+        <section id="home" className="relative isolate overflow-hidden border-b border-[#eaded7] bg-[#fffaf5]">
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[url('/background.jpeg')] bg-cover bg-center bg-no-repeat" />
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-[#fffaf5]/95 via-[#fffaf5]/80 to-[#fffaf5]/35 max-md:bg-[#fffaf5]/70" />
           <div className="relative mx-auto flex min-h-[620px] max-w-7xl flex-col justify-center px-6 py-28 md:px-12">
             <p className="mb-8 text-xs font-semibold uppercase tracking-[0.35em] text-[#a26c63]">{c.eyebrow}</p>
             <h1 className="mb-7 max-w-5xl font-serif text-[clamp(3.1rem,12vw,10rem)] font-medium leading-[0.85] tracking-[-0.055em] text-[#372b2b]">Sweet-lana<span className="text-[#cb998a]">.</span></h1>
