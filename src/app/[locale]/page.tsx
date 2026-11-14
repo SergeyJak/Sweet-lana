@@ -13,7 +13,7 @@ const copy = {
     gallery: 'Галерея', galleryText: 'Фото результатов до и после скоро появятся здесь.', galleryLink: 'Открыть галерею', choose: 'Посмотреть услуги и адрес', cabinetsTitle: 'Два кабинета · Два направления', cabinetsIntro: 'Выберите кабинет, чтобы увидеть только его услуги, адрес и запись.', imantaTitle: 'Иманта', imantaDetail: 'Уход за кожей, подготовка к аппаратным процедурам, инъекции, пилинги и ваксинг', centerTitle: 'Центр', centerDetail: 'Аппаратная косметология', centerAddress: 'Адрес уточняется',
     contact: 'Контакты', contactText: 'Два кабинета: Иманта и Центр. Телефон и WhatsApp: +371 26830682. При записи укажите нужный кабинет.',
     soon: 'Скоро', footer: 'Косметология · Рига',
-    menu: 'Меню', booking: 'Написать в Instagram', mapNote: 'Dammes iela 46A, Рига, Иманта.', mapTitle: 'Как нас найти', call: 'Позвонить',
+    reviewsTitle: 'Отзывы клиентов в Google', reviewsLink: 'Читать отзывы в Google Maps', reviewsNote: 'Рейтинг кабинета в Иманте. Данные проверены 14.11.2026.', menu: 'Меню', booking: 'Написать в Instagram', mapNote: 'Dammes iela 46A, Рига, Иманта.', mapTitle: 'Как нас найти', call: 'Позвонить',
   },
   lv: {
     nav: ['Sākums', 'Par speciālistu', 'Kabineti', 'Galerija', 'Kontakti'],
@@ -23,7 +23,7 @@ const copy = {
     services: 'Pakalpojumi', servicesText: '3D sejas tīrīšana, vaksācija, šugarings, IPL Lumecca, Morpheus8, Ultraformer MPT, biorevitalizācija un lipolītiķi. Cenas precizējiet, piesakoties.',
     gallery: 'Galerija', galleryText: 'Rezultātu fotogrāfijas pirms un pēc drīzumā būs šeit.', galleryLink: 'Atvērt galeriju', choose: 'Pakalpojumi un adrese', cabinetsTitle: 'Divi kabineti · Divi virzieni', cabinetsIntro: 'Izvēlieties kabinetu, lai redzētu pakalpojumus, adresi un pierakstu.', imantaTitle: 'Imanta', imantaDetail: 'Ādas kopšana, sagatavošana aparātu procedūrām, injekcijas, pīlingi un vaksācija', centerTitle: 'Centrs', centerDetail: 'Aparātu kosmetoloģija', centerAddress: 'Adrese tiks precizēta',
     contact: 'Kontakti', contactText: 'Divi kabineti: Imanta un Centrs. Tālrunis un WhatsApp: +371 26830682. Pierakstoties norādiet kabinetu.',
-    soon: 'Drīzumā', footer: 'Kosmetoloģija · Rīga', menu: 'Izvēlne', booking: 'Rakstīt Instagram', mapNote: 'Dammes iela 46A, Rīga, Imanta.', mapTitle: 'Kā mūs atrast', call: 'Zvanīt',
+    soon: 'Drīzumā', footer: 'Kosmetoloģija · Rīga', reviewsTitle: 'Klientu atsauksmes Google', reviewsLink: 'Lasīt atsauksmes Google Maps', reviewsNote: 'Imantas kabineta vērtējums. Pārbaudīts 14.11.2026.', menu: 'Izvēlne', booking: 'Rakstīt Instagram', mapNote: 'Dammes iela 46A, Rīga, Imanta.', mapTitle: 'Kā mūs atrast', call: 'Zvanīt',
   },
   en: {
     nav: ['Home', 'About', 'Locations', 'Gallery', 'Contact'],
@@ -33,7 +33,7 @@ const copy = {
     services: 'Services', servicesText: '3D facial cleansing, waxing, sugaring, IPL Lumecca, Morpheus8, Ultraformer MPT, biorevitalization and lipolytics. Ask for prices when booking.',
     gallery: 'Gallery', galleryText: 'Real before-and-after results will appear here soon.', galleryLink: 'View gallery', choose: 'View treatments and address', cabinetsTitle: 'Two studios · Two specialties', cabinetsIntro: 'Choose a studio to see only its treatments, address and booking details.', imantaTitle: 'Imanta', imantaDetail: 'Skincare, preparation for device treatments, injections, peels and waxing', centerTitle: 'City Centre', centerDetail: 'Device-based cosmetology', centerAddress: 'Address to be confirmed',
     contact: 'Contact', contactText: 'Two studios: Imanta and City Centre. Phone and WhatsApp: +371 26830682. Please specify your preferred location.',
-    soon: 'Coming soon', footer: 'Cosmetology · Riga', menu: 'Menu', booking: 'Message on Instagram', mapNote: 'Dammes iela 46A, Riga, Imanta.', mapTitle: 'Find us', call: 'Call',
+    soon: 'Coming soon', footer: 'Cosmetology · Riga', reviewsTitle: 'Google customer reviews', reviewsLink: 'Read reviews on Google Maps', reviewsNote: 'Rating for the Imanta studio. Verified on 14 Nov 2026.', menu: 'Menu', booking: 'Message on Instagram', mapNote: 'Dammes iela 46A, Riga, Imanta.', mapTitle: 'Find us', call: 'Call',
   },
 } as const
 const ids = ['home', 'about', 'cabinets', 'gallery', 'contact'] as const
@@ -132,6 +132,21 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </div>
             </article>
           ))}
+        </section>
+        <section id="reviews" aria-labelledby="google-reviews-title" className="relative mx-auto max-w-7xl px-5 pb-10 md:px-10 md:pb-16">
+          <div className="flex flex-col items-start justify-between gap-6 rounded-[2rem] border border-[#f0dce4] bg-white/95 p-7 shadow-sm backdrop-blur-sm sm:flex-row sm:items-center sm:p-10">
+            <div>
+              <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-[#a05e78]">Google Maps · Sweet Perfect</p>
+              <h2 id="google-reviews-title" className="font-serif text-3xl !text-[#241e20] md:text-4xl">{c.reviewsTitle}</h2>
+              <div className="mt-4 flex items-center gap-3">
+                <span className="text-4xl font-bold text-[#241e20]">5,0</span>
+                <span className="text-xl tracking-[0.08em] text-[#b77f94]" aria-label="5 stars">★★★★★</span>
+                <span className="text-sm text-[#594a50]">30 Google</span>
+              </div>
+              <p className="mt-3 text-xs text-[#70656b]">{c.reviewsNote}</p>
+            </div>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Sweet%20Perfect%20Kosmetologs%20Vaksacija&amp;query_place_id=ChIJS-9SPebF7kYR7-LRQgp4ifY" target="_blank" rel="noopener noreferrer" className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#241e20] px-6 py-4 text-center text-sm font-semibold text-white transition hover:bg-[#7e5267]">{c.reviewsLink} ↗</a>
+          </div>
         </section>
         <section aria-labelledby="before-after-heading" className="relative mx-auto max-w-7xl px-5 pb-10 md:px-10">
           <div className="grid items-center gap-8 rounded-[2rem] border border-[#f0dce4] bg-white/90 p-6 backdrop-blur-sm md:grid-cols-2 md:p-10">
