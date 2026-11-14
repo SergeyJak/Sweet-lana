@@ -1,0 +1,174 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import OptimizedImage from '@/components/OptimizedImage'
+import { SOCIAL_LINKS } from '@/lib/constants'
+import { useT } from '@/lib/LanguageContext'
+import specialistPhoto from '@/components/foto/340949596_3542884339364963_3036902857413467716_n.jpg'
+
+const HERO_IMAGE =
+  'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=2100&h=1300&fit=crop&q=80'
+
+type HeroProps = {
+  title?: string
+  description?: string
+}
+
+export default function Hero({ title, description }: HeroProps) {
+  const t = useT()
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: 'easeOut' },
+    },
+  }
+
+  return (
+    <section className="relative min-h-[calc(94vh-7rem)] overflow-hidden bg-ivory pt-4 md:min-h-[calc(100vh-7rem)] md:pt-5">
+      <div className="absolute inset-0 z-0">
+        <OptimizedImage
+          src={HERO_IMAGE}
+          alt={t('hero.sidecard.imageAlt')}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center motion-safe:animate-slow-zoom"
+        />
+        <div className="absolute inset-0 bg-[rgba(255,255,255,0.84)] md:bg-[linear-gradient(90deg,rgba(255,255,255,0.98)_0%,rgba(255,255,255,0.92)_40%,rgba(255,255,255,0.3)_70%,rgba(45,42,40,0.15)_100%)] dark:bg-[rgba(20,19,18,0.82)] md:dark:bg-[linear-gradient(90deg,rgba(20,19,18,0.98)_0%,rgba(20,19,18,0.94)_40%,rgba(20,19,18,0.36)_72%,rgba(45,42,40,0.42)_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-ivory via-ivory/60 to-transparent dark:from-ivory dark:via-ivory/58" />
+        <div className="absolute right-[8%] top-28 hidden h-[68%] w-px bg-accent/35 lg:block" />
+      </div>
+
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="relative z-10 grid min-h-[calc(94vh-9rem)] max-w-7xl grid-cols-1 items-center gap-10 px-4 pb-24 sm:px-6 md:min-h-[calc(100vh-11rem)] md:pb-16 lg:mx-auto lg:grid-cols-[1.12fr_0.88fr] lg:px-8"
+      >
+        <div className="max-w-4xl">
+          <motion.div variants={itemVariants} className="mb-4 flex items-center gap-3">
+            <span className="h-px w-8 bg-accent/60" />
+            <span className="eyebrow text-accent">{t('hero.eyebrow')}</span>
+          </motion.div>
+
+          <motion.h1 variants={itemVariants} className="hero-heading mb-6 max-w-4xl tracking-tighter">
+            {title || t('hero.title')}
+          </motion.h1>
+
+          <motion.p
+            variants={itemVariants}
+            className="mb-8 max-w-2xl text-base leading-relaxed text-primary/80 md:text-lg md:leading-relaxed"
+          >
+            {description || t('hero.description')}
+          </motion.p>
+
+          <motion.div variants={itemVariants} className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-stretch">
+            <a href={SOCIAL_LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="group w-full sm:w-auto sm:min-w-[16rem]">
+              <button className="relative h-12 w-full overflow-hidden border border-accent/60 bg-transparent px-8 text-[0.7rem] font-bold uppercase tracking-[0.2em] text-primary shadow-[inset_0_0_0_1px_rgba(172,145,110,0.3)] transition-all duration-500 hover:border-accent hover:shadow-[0_8px_30px_rgba(172,145,110,0.25)] sm:min-w-[14rem]">
+                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-accent/10 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+                <span className="relative flex items-center justify-center gap-2">
+                  {t('hero.primaryCTA')}
+                  <svg className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
+              </button>
+            </a>
+            <a
+              href="#how-it-works"
+              className="flex h-12 w-full items-center justify-center border border-primary/20 bg-ivory/40 px-8 text-[0.7rem] font-bold uppercase tracking-[0.2em] text-primary backdrop-blur-md transition-all hover:border-primary/40 sm:w-auto"
+            >
+              {t('hero.secondaryCTA')}
+            </a>
+          </motion.div>
+
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-primary/10 pt-8"
+          >
+            <div className="flex items-center gap-2">
+              <svg className="h-5 w-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              <span className="text-xs font-bold uppercase tracking-widest text-primary/80">{t('hero.included')}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="h-5 w-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+              </svg>
+              <span className="text-xs font-bold uppercase tracking-widest text-primary/80">{t('hero.location')}</span>
+            </div>
+          </motion.div>
+
+          <motion.div
+            variants={itemVariants}
+            className="mt-1 w-full max-w-md border-t border-primary/15 pt-3"
+          >
+            <div className="grid gap-2 sm:grid-cols-3 sm:gap-0">
+              {[
+                {
+                  value: t('hero.stats.experienceNumber'),
+                  label: t('hero.stats.experience'),
+                },
+                {
+                  value: t('hero.stats.approvedNumber'),
+                  label: t('hero.stats.approved'),
+                },
+                {
+                  value: t('hero.stats.permanentNumber'),
+                  label: t('hero.stats.permanent'),
+                },
+              ].map((stat, index) => (
+                <div
+                  key={stat.label}
+                  data-testid="hero-stat-card"
+                  className={`flex min-w-0 items-center justify-between gap-4 border-primary/10 bg-white/80 dark:bg-secondary/80 px-3 py-2.5 backdrop-blur-sm sm:block sm:bg-transparent sm:py-0 ${
+                    index > 0 ? 'sm:border-l sm:px-4' : 'sm:pr-4'
+                  }`}
+                >
+                  <p className="shrink-0 font-serif text-xl font-medium leading-none tracking-tight text-[#8c6d4b] sm:text-2xl">
+                    {stat.value}
+                  </p>
+                  <p className="min-w-0 text-right text-[0.58rem] font-bold uppercase leading-snug tracking-[0.12em] text-primary/85 sm:mt-2 sm:text-left sm:text-[0.54rem] sm:tracking-[0.16em]">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        <motion.div variants={itemVariants} className="hidden lg:block">
+          <div className="premium-sheen relative ml-auto max-w-sm border border-ivory/70 bg-ivory/78 p-4 shadow-[0_35px_120px_rgba(45,42,40,0.24)] backdrop-blur">
+            <div className="relative aspect-[4/5] w-full overflow-hidden">
+              <OptimizedImage
+                src={specialistPhoto}
+                alt={t('hero.sidecard.imageAlt')}
+                fill
+                sizes="(max-width: 1024px) 0vw, 400px"
+                className="object-cover"
+              />
+            </div>
+            <div className="flex items-center justify-between px-2 pt-4">
+              <p className="eyebrow text-primary/60">{t('hero.sidecard.location')}</p>
+              <p className="text-sm text-primary/70">{t('hero.sidecard.specialist')}</p>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+    </section>
+  )
+}

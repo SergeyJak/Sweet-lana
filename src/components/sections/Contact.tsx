@@ -1,0 +1,113 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import ActionLink from '@/components/ActionLink'
+import Reveal from '@/components/Reveal'
+import SectionHeader from '@/components/SectionHeader'
+import { BUSINESS } from '@/lib/business'
+import { useLanguage } from '@/lib/LanguageContext'
+
+type ContactMethod = {
+  title: string
+  label: string
+  content: string
+  action?: string
+}
+
+type SocialLink = {
+  id: string
+  label: string
+  href: string
+}
+
+export default function Contact() {
+  const { t, list } = useLanguage()
+  const contactMethods = list<ContactMethod>('contact.methods')
+  const socialLinks = list<SocialLink>('contact.social')
+  const whatsappMessage = encodeURIComponent(t('contact.whatsappMessage'))
+
+  const resolveSocialHref = (link: SocialLink) => {
+    if (link.id === 'whatsapp') {
+      const base = link.href.split('?')[0]
+      return `${base}?text=${whatsappMessage}`
+    }
+    return link.href
+  }
+
+  return (
+    <section id="contact" className="bg-ivory py-20 md:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <SectionHeader
+          eyebrow={t('contact.eyebrow')}
+          title={t('contact.title')}
+          description={t('contact.description')}
+          className="lg:grid-cols-[0.85fr_1.15fr]"
+        />
+
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+          <Reveal className="divide-y divide-primary/8">
+            {contactMethods.map((method: ContactMethod) => (
+              <div
+                key={method.title}
+                className="flex items-center gap-4 py-4"
+              >
+                <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center border border-accent/30 text-[0.6rem] font-bold tracking-wider text-accent">
+                  {method.label}
+                </div>
+
+                <div className="min-w-0">
+                  <p className="text-[0.65rem] font-bold uppercase tracking-widest text-primary/40">
+                    {method.title}
+                  </p>
+
+                  {method.action ? (
+                    <a
+                      href={method.action}
+                      className="block truncate text-sm font-medium text-primary transition-colors hover:text-accent"
+                    >
+                      {method.content}
+                    </a>
+                  ) : (
+                    <p className="text-sm font-medium text-primary">
+                      {method.content}
+                    </p>
+                  )}
+                </div>
+              </div>
+            ))}
+
+            <div className="pt-5">
+              <p className="eyebrow mb-3 text-primary/40">{t('contact.follow')}</p>
+              <div className="flex gap-2">
+                {socialLinks.map((link) => (
+                  <ActionLink key={link.id} href={resolveSocialHref(link)} compact>
+                    {link.label}
+                  </ActionLink>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="min-h-[28rem] border border-primary/10 bg-soft-beige p-3 shadow-[0_28px_90px_rgba(23,19,15,0.08)]"
+          >
+            <iframe
+              width="100%"
+              height="100%"
+              className="min-h-[26.5rem]"
+              style={{ border: 0 }}
+              loading="lazy"
+              allowFullScreen
+              src={BUSINESS.googleMapsEmbed}
+              title={t('contact.title')}
+            />
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  )
+}
