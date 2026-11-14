@@ -1,3 +1,4 @@
+import GoogleReviews from '@/components/GoogleReviews'
 import BeforeAfterSlider from '@/components/BeforeAfterSlider'
 type Locale = 'ru' | 'lv' | 'en'
 const copy = {
@@ -133,21 +134,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </article>
           ))}
         </section>
-        <section id="reviews" aria-labelledby="google-reviews-title" className="relative mx-auto max-w-7xl px-5 pb-10 md:px-10 md:pb-16">
-          <div className="flex flex-col items-start justify-between gap-6 rounded-[2rem] border border-[#f0dce4] bg-white/95 p-7 shadow-sm backdrop-blur-sm sm:flex-row sm:items-center sm:p-10">
-            <div>
-              <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-[#a05e78]">Google Maps · Sweet Perfect</p>
-              <h2 id="google-reviews-title" className="font-serif text-3xl !text-[#241e20] md:text-4xl">{c.reviewsTitle}</h2>
-              <div className="mt-4 flex items-center gap-3">
-                <span className="text-4xl font-bold text-[#241e20]">5,0</span>
-                <span className="text-xl tracking-[0.08em] text-[#b77f94]" aria-label="5 stars">★★★★★</span>
-                <span className="text-sm text-[#594a50]">30 Google</span>
-              </div>
-              <p className="mt-3 text-xs text-[#70656b]">{c.reviewsNote}</p>
-            </div>
-            <a href="https://www.google.com/maps/search/?api=1&amp;query=Sweet%20Perfect%20Kosmetologs%20Vaksacija&amp;query_place_id=ChIJS-9SPebF7kYR7-LRQgp4ifY" target="_blank" rel="noopener noreferrer" className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#241e20] px-6 py-4 text-center text-sm font-semibold text-white transition hover:bg-[#7e5267]">{c.reviewsLink} ↗</a>
-          </div>
-        </section>
+        <GoogleReviews locale={locale} />
+
         <section aria-labelledby="before-after-heading" className="relative mx-auto max-w-7xl px-5 pb-10 md:px-10">
           <div className="grid items-center gap-8 rounded-[2rem] border border-[#f0dce4] bg-white/90 p-6 backdrop-blur-sm md:grid-cols-2 md:p-10">
             <div className="max-w-lg">
