@@ -25,34 +25,34 @@ export default async function Gallery({ params }: { params: Promise<{ locale: st
     : [[], []]
 
   return (
-    <div className="relative min-h-screen bg-white text-[#241e20]">
-      <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 bg-[url('/background.jpeg')] bg-cover bg-center opacity-35" />
-      <header className="relative z-10 border-b border-[#f0dce4] bg-white/90 px-5 py-5 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3">
-          <a href={`/${locale}`} className="font-serif text-2xl text-[#241e20]">Lana Sweet Perfect.</a>
-          <div className="flex items-center gap-3">
-            {(['ru','lv','en'] as const).map(lang => <a href={`/${lang}/gallery`} key={lang} aria-current={lang === locale ? 'page' : undefined} className={`rounded-full px-3 py-2 text-xs font-semibold ${lang === locale ? 'bg-[#241e20] text-white' : 'bg-white/80 text-[#241e20]'}`}>{lang.toUpperCase()}</a>)}
-            <a href={`/${locale}`} className="rounded-full border border-[#e7cbd5] px-4 py-2 text-sm">{c.home}</a>
+    <div className="sweet-gallery relative min-h-screen bg-white text-[#241e20]">
+      <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 bg-[url('/background.jpeg')] bg-cover bg-center opacity-25" />
+      <header className="relative z-10 border-b border-[#f0dce4] bg-white/95 px-4 py-3 backdrop-blur-md sm:px-6">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <a href={`/${locale}`} className="max-w-full whitespace-nowrap font-serif text-xl font-semibold tracking-tight text-[#241e20] sm:text-2xl">Lana Sweet Perfect.</a>
+          <div className="flex w-full items-center justify-between gap-2 sm:w-auto sm:justify-end">
+            {(['ru','lv','en'] as const).map(lang => <a href={`/${lang}/gallery`} key={lang} aria-current={lang === locale ? 'page' : undefined} className={`flex h-9 w-9 items-center justify-center rounded-full text-xs font-semibold sm:h-10 sm:w-10 ${lang === locale ? 'bg-[#241e20] text-white' : 'bg-white/80 text-[#241e20]'}`}>{lang.toUpperCase()}</a>)}
+            <a href={`/${locale}`} className="ml-auto shrink-0 rounded-full border border-[#e7cbd5] px-3 py-2 text-xs font-semibold text-[#241e20] sm:px-4 sm:text-sm">{c.home}</a>
           </div>
         </div>
       </header>
-      <main className="relative z-10 mx-auto max-w-7xl px-5 py-12 pb-36 md:px-10 md:py-20">
-        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#a05e78]">{c.caption}</p>
-        <h1 className="mt-3 font-serif text-5xl md:text-7xl">{c.title}</h1>
+      <main className="relative z-10 mx-auto max-w-7xl px-4 pb-36 pt-9 sm:px-6 md:px-10 md:pt-14">
+        <p className="text-xs font-semibold uppercase leading-6 tracking-[0.18em] text-[#93516d] sm:tracking-[0.25em]">{c.caption}</p>
+        <h1 className="mt-2 font-serif text-5xl leading-tight !text-[#241e20] sm:text-6xl md:text-7xl">{c.title}</h1>
         {items.length === 0 ? (
-          <div className="mt-10 grid items-center gap-8 rounded-[2rem] border border-[#f0dce4] bg-white/90 p-6 backdrop-blur-sm md:grid-cols-2 md:p-10">
+          <div className="mt-7 grid items-center gap-6 rounded-[1.5rem] border border-[#f0dce4] bg-white/95 p-5 backdrop-blur-sm sm:p-7 md:mt-10 md:grid-cols-2 md:rounded-[2rem] md:p-10">
             <div className="max-w-lg">
-              <p className="text-lg leading-8 text-[#4f4148]">{c.empty}</p>
-              <p className="mt-5 text-sm text-[#9b627b]">{c.before} / {c.after}</p>
+              <p className="text-base leading-7 text-[#4f4148] sm:text-lg sm:leading-8">{c.empty}</p>
+              <p className="mt-3 text-sm font-semibold text-[#9b627b]">{c.before} / {c.after}</p>
             </div>
-            <div className="mx-auto w-full max-w-sm"><BeforeAfterSlider beforeLabel={c.before} afterLabel={c.after} emptyLabel={c.empty} /></div>
+            <div className="mx-auto w-full max-w-[280px] sm:max-w-sm"><BeforeAfterSlider beforeLabel={c.before} afterLabel={c.after} emptyLabel={locale === "ru" ? "Фото скоро" : locale === "lv" ? "Foto drīzumā" : "Photos coming soon"} /></div>
           </div>
         ) : (
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {items.filter(item => item.before?.url && item.after?.url).map(item => (
               <article key={item.id} className="overflow-hidden rounded-2xl border border-[#f0dce4] bg-white/90 shadow-sm">
                 <BeforeAfterSlider beforeImage={item.before.url} afterImage={item.after.url} beforeLabel={c.before} afterLabel={c.after} />
-                <p className="p-5 font-serif text-xl">{item.text?.[locale]?.title || categories.find(cat => cat.id === item.categoryId)?.name?.[locale] || c.title}</p>
+                <p className="p-5 font-serif text-xl !text-[#241e20]">{item.text?.[locale]?.title || categories.find(cat => cat.id === item.categoryId)?.name?.[locale] || c.title}</p>
               </article>
             ))}
           </div>
