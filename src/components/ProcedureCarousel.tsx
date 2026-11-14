@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 type Locale = 'ru' | 'lv' | 'en'
 const content = {
@@ -15,6 +15,23 @@ export default function ProcedureCarousel({ locale }: { locale: Locale }) {
   const [dragging, setDragging] = useState(false)
   const track = useRef<HTMLDivElement>(null)
   const start = useRef<{ x: number; scroll: number } | null>(null)
+  useEffect(() => {
+    const el = track.current
+    if (!el || paused || dragging || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    let frame = 0
+    let previous = 0
+    const move = (time: number) => {
+      if (previous) {
+        el.scrollLeft += Math.min(time - previous, 60) * 0.025
+        const half = el.scrollWidth / 2
+        if (el.scrollLeft >= half) el.scrollLeft -= half
+      }
+      previous = time
+      frame = requestAnimationFrame(move)
+    }
+    frame = requestAnimationFrame(move)
+    return () => cancelAnimationFrame(frame)
+  }, [paused, dragging])
   return (
     <section aria-labelledby="procedure-carousel-title" className="relative z-10 overflow-hidden py-12 md:py-20">
       <div className="mx-auto max-w-7xl px-5 md:px-10">
@@ -47,11 +64,6 @@ export default function ProcedureCarousel({ locale }: { locale: Locale }) {
           ))}
         </div>
       </div>
-      <style jsx>{`
-        @media (prefers-reduced-motion: no-preference) {
-          section :global(.carousel-auto) { animation: none; }
-        }
-      `}</style>
     </section>
   )
 }
