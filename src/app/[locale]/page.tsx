@@ -131,12 +131,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </a>
         </div>
       </nav>
-      <footer className="relative z-10 border-t border-[#f0dce4] bg-white/80 px-6 py-10 pb-32 backdrop-blur-sm md:pb-10">
-        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 text-sm text-[#786b69] md:flex-row">
-          <span className="font-serif text-2xl text-[#241e20]">Lana Sweet Perfect.</span>
-          <span>{c.footer}</span>
-          <a href="https://www.instagram.com/lanasweetperfect/" target="_blank" rel="noopener noreferrer" className="font-medium text-[#241e20] underline underline-offset-4">@lanasweetperfect</a>
-          <span>© {new Date().getFullYear()} Lana Sweet Perfect</span>
+      <footer className="relative z-10 border-t border-[#f0dce4] bg-white/85 px-5 py-4 pb-24 backdrop-blur-sm md:px-10 md:py-5 md:pb-5">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-5 gap-y-2 text-xs text-[#786b69] sm:text-sm">
+          <span className="font-serif text-lg text-[#241e20]">Lana Sweet Perfect.</span>
+          <span className="hidden sm:inline">{c.footer}</span>
+          <span>© {new Date().getFullYear()}</span>
         </div>
       </footer>
     </div>
