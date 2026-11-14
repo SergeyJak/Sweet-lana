@@ -54,7 +54,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       {/* Stable large viewport height prevents background resizing when mobile browser chrome changes. */}
       <div aria-hidden="true" className="pointer-events-none fixed left-0 top-0 z-0 h-[100lvh] w-full overflow-hidden [transform:translateZ(0)]">
         <div className="absolute inset-0 bg-[url('/background.jpeg')] bg-cover bg-[position:57%_center] bg-no-repeat md:bg-center" />
-        <div className="absolute inset-0 bg-white/25 md:bg-white/15" />
+        <div className="absolute inset-0 bg-white/30 md:bg-white/20" />
       </div>
       <header className="sticky top-0 z-50 border-b border-[#f0dce4] bg-white/95 backdrop-blur-md">
         <div className="relative mx-auto flex min-h-[72px] max-w-7xl items-center justify-between gap-2 px-4 sm:px-6 md:px-10">
