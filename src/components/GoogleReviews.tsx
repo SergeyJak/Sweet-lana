@@ -3,23 +3,23 @@ type Locale = 'ru' | 'lv' | 'en'
 const copy = {
   ru: {
     title: 'Что говорят клиенты',
-    description: 'Доступные выдержки и темы из отзывов о кабинете в Иманте. Это не 15 отдельных отзывов: некоторые фразы могут быть из одного сообщения. Полные отзывы и авторы пока недоступны.',
+    description: 'Отзывы о кабинете в Иманте. Пока показываем доступные фрагменты без имён и дат авторов.',
     location: 'Иманта · Google Maps',
-    source: 'Фрагмент отзыва',
+    source: 'Отзыв Google · фрагмент',
     all: 'Открыть карточку в Google Maps',
   },
   lv: {
     title: 'Ko saka klienti',
-    description: 'Pieejamie atsauksmju fragmenti un tēmu apkopojumi par Imantas kabinetu. Tās nav atsevišķas atsauksmes; vairāki fragmenti var būt no viena autora.',
+    description: 'Atsauksmes par Imantas kabinetu. Pagaidām redzami pieejamie fragmenti bez autoru vārdiem un datumiem.',
     location: 'Imanta · Google Maps',
-    source: 'Atsauksmes fragments',
+    source: 'Google atsauksme · fragments',
     all: 'Atvērt Google Maps profilu',
   },
   en: {
     title: 'What clients say',
-    description: 'Available review excerpts and themes about the Imanta studio. These are not separate reviews: multiple excerpts may come from the same author.',
+    description: 'Reviews of the Imanta studio. Available excerpts are shown without unverified author names or dates.',
     location: 'Imanta · Google Maps',
-    source: 'Review excerpt',
+    source: 'Google review · excerpt',
     all: 'Open Google Maps listing',
   },
 } as const
@@ -58,16 +58,17 @@ export default function GoogleReviews({ locale }: { locale: Locale }) {
             <span className="text-xs text-[#61535a]">30 Google</span>
           </div>
         </div>
-        <div className="mt-7 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 sm:grid sm:grid-cols-2 sm:overflow-visible lg:grid-cols-3">
+        <div className="mt-7 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-4 sm:grid sm:grid-cols-2 sm:overflow-visible lg:grid-cols-3">
           {excerpts.map((item, index) => (
-            <figure key={index} className="flex min-h-52 w-[min(82vw,320px)] shrink-0 snap-start flex-col justify-between rounded-2xl border border-[#efd9e3] bg-[#fff9fb] p-6 sm:w-auto">
-              <div>
-                <span aria-hidden="true" className="font-serif text-4xl leading-none text-[#b8849a]">“</span>
-                <blockquote className="mt-2 text-lg font-medium leading-7 text-[#30262b]">{item.quote}</blockquote>
+            <figure key={index} className="flex min-h-44 w-[min(82vw,310px)] shrink-0 snap-start flex-col rounded-2xl border border-[#e9e3e5] bg-white p-5 shadow-[0_2px_12px_rgba(0,0,0,0.04)] sm:w-auto">
+              <div className="flex items-center gap-3">
+                <div aria-hidden="true" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#f4f0f2] text-lg font-bold text-[#4285f4]">G</div>
+                <div className="min-w-0">
+                  <p className="text-sm font-semibold text-[#30262b]">Google Maps</p>
+                  <p className="text-xs text-[#786f73]">{t.source} · {item.lang}</p>
+                </div>
               </div>
-              <figcaption className="mt-6 flex justify-between gap-3 text-xs text-[#7b5b69]">
-                <span>{t.source} · {item.lang}</span>
-                </figcaption>
+              <blockquote className="mt-5 flex-1 text-base leading-7 text-[#30262b]">{item.quote}</blockquote>
             </figure>
           ))}
         </div>
