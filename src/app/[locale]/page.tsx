@@ -119,7 +119,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               <a href={`/${locale}/gallery`} className="mt-7 inline-flex rounded-full bg-[#241e20] px-6 py-3 text-sm font-semibold text-white hover:bg-[#7e5267]">{c.galleryLink} ↗</a>
             </div>
             <div className="mx-auto w-full max-w-sm">
-              <BeforeAfterSlider beforeLabel={locale === 'ru' ? 'До' : locale === 'lv' ? 'Pirms' : 'Before'} afterLabel={locale === 'ru' ? 'После' : locale === 'lv' ? 'Pēc' : 'After'} />
+              <BeforeAfterSlider beforeLabel={locale === 'ru' ? 'До' : locale === 'lv' ? 'Pirms' : 'Before'} afterLabel={locale === 'ru' ? 'После' : locale === 'lv' ? 'Pēc' : 'After'} emptyLabel={c.galleryText} />
             </div>
           </div>
         </section>
