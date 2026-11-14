@@ -49,8 +49,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   ]
   return (
     <div className="relative min-h-screen bg-white text-[#241e20]">
-      <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 bg-[url('/background.jpeg')] bg-cover bg-[position:57%_center] bg-no-repeat md:bg-center" />
-      <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 bg-white/25 md:bg-white/15" />
+      {/* Sticky background avoids mobile browser viewport jumps caused by position: fixed. */}
+      <div aria-hidden="true" className="pointer-events-none sticky top-0 z-0 -mb-[100svh] h-[100svh] overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/background.jpeg')] bg-cover bg-[position:57%_center] bg-no-repeat md:bg-center" />
+        <div className="absolute inset-0 bg-white/25 md:bg-white/15" />
+      </div>
       <header className="sticky top-0 z-50 border-b border-[#f0dce4] bg-white/95 backdrop-blur-md">
         <div className="relative mx-auto flex min-h-[72px] max-w-7xl items-center justify-between gap-2 px-4 sm:px-6 md:px-10">
           <a href="#home" className="min-w-0 shrink-0 whitespace-nowrap font-serif text-[clamp(1.4rem,5vw,2rem)] font-semibold tracking-tight text-[#241e20]">Sweet-lana<span className="text-[#d9a3b7]">.</span></a>
