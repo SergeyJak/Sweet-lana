@@ -1,3 +1,4 @@
+import BeforeAfterSlider from '@/components/BeforeAfterSlider'
 import ProcedureCarousel from '@/components/ProcedureCarousel'
 type Locale = 'ru' | 'lv' | 'en'
 const copy = {
@@ -10,7 +11,7 @@ const copy = {
     discover: 'Посмотреть разделы',
     about: 'О нас', aboutText: 'Lana Sweet Perfect — косметолог с 10-летним опытом и медицинским образованием. Рига, Иманта.',
     services: 'Услуги', servicesText: '3D-чистка лица, ваксинг, шугаринг, IPL Lumecca, Morpheus8, Ultraformer MPT, биоревитализация и липолитики. Цены уточняйте при записи.',
-    gallery: 'Галерея', galleryText: 'Скоро здесь будут фотографии работ.',
+    gallery: 'Галерея', galleryText: 'Фото результатов до и после скоро появятся здесь.', galleryLink: 'Открыть галерею',
     contact: 'Контакты', contactText: 'Рига, Иманта. Телефон и WhatsApp: +371 26830682. Также можно написать в Instagram.',
     soon: 'Скоро', footer: 'Косметология · Рига, Иманта',
     menu: 'Меню', booking: 'Написать в Instagram', mapNote: 'Dammes iela 46A, Рига, Иманта.', mapTitle: 'Как нас найти', call: 'Позвонить',
@@ -21,7 +22,7 @@ const copy = {
     intro: 'Kosmetoloģija Rīgā, Imantā. Uzziniet vairāk un piesakieties Instagram.',
     discover: 'Apskatīt sadaļas', about: 'Par mums', aboutText: 'Lana Sweet Perfect — kosmetoloģe ar 10 gadu pieredzi un medicīnisko izglītību. Rīga, Imanta.',
     services: 'Pakalpojumi', servicesText: '3D sejas tīrīšana, vaksācija, šugarings, IPL Lumecca, Morpheus8, Ultraformer MPT, biorevitalizācija un lipolītiķi. Cenas precizējiet, piesakoties.',
-    gallery: 'Galerija', galleryText: 'Drīzumā šeit būs darbu fotogrāfijas.',
+    gallery: 'Galerija', galleryText: 'Rezultātu fotogrāfijas pirms un pēc drīzumā būs šeit.', galleryLink: 'Atvērt galeriju',
     contact: 'Kontakti', contactText: 'Rīga, Imanta. Tālrunis un WhatsApp: +371 26830682. Varat arī rakstīt Instagram.',
     soon: 'Drīzumā', footer: 'Kosmetoloģija · Rīga, Imanta', menu: 'Izvēlne', booking: 'Rakstīt Instagram', mapNote: 'Dammes iela 46A, Rīga, Imanta.', mapTitle: 'Kā mūs atrast', call: 'Zvanīt',
   },
@@ -31,7 +32,7 @@ const copy = {
     intro: 'Beauty and cosmetology in Imanta, Riga. Find out more and book through Instagram.',
     discover: 'Explore the site', about: 'About us', aboutText: 'Lana Sweet Perfect — cosmetologist with 10 years of experience and a medical education. Imanta, Riga.',
     services: 'Services', servicesText: '3D facial cleansing, waxing, sugaring, IPL Lumecca, Morpheus8, Ultraformer MPT, biorevitalization and lipolytics. Ask for prices when booking.',
-    gallery: 'Gallery', galleryText: 'Photos of our work are coming soon.',
+    gallery: 'Gallery', galleryText: 'Real before-and-after results will appear here soon.', galleryLink: 'View gallery',
     contact: 'Contact', contactText: 'Riga, Imanta. Phone and WhatsApp: +371 26830682. You can also message us on Instagram.',
     soon: 'Coming soon', footer: 'Cosmetology · Riga, Imanta', menu: 'Menu', booking: 'Message on Instagram', mapNote: 'Dammes iela 46A, Riga, Imanta.', mapTitle: 'Find us', call: 'Call',
   },
@@ -59,7 +60,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <div className="relative mx-auto flex min-h-[72px] max-w-7xl items-center justify-between gap-2 px-4 sm:px-6 md:px-10">
           <a href="#home" className="min-w-0 shrink-0 whitespace-nowrap font-serif text-[clamp(1.4rem,5vw,2rem)] font-semibold tracking-tight text-[#241e20]">Lana Sweet Perfect<span className="text-[#d9a3b7]">.</span></a>
           <nav aria-label={c.menu} className="hidden items-center gap-7 lg:flex">
-            {ids.map((id, i) => <a key={id} href={`#${id}`} className="text-xs font-semibold uppercase tracking-[0.12em] text-[#635657] transition hover:text-[#bc8075]">{c.nav[i]}</a>)}
+            {ids.map((id, i) => <a key={id} href={id === 'gallery' ? `/${locale}/gallery` : `#${id}`} className="text-xs font-semibold uppercase tracking-[0.12em] text-[#635657] transition hover:text-[#bc8075]">{c.nav[i]}</a>)}
           </nav>
           <div className="flex shrink-0 items-center gap-2 sm:gap-4">
             <nav aria-label="Language" className="flex items-center gap-0.5 text-[11px] font-semibold tracking-wide sm:gap-1 sm:text-xs">
@@ -70,7 +71,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 <span aria-hidden="true" className="group-open:hidden">☰</span><span aria-hidden="true" className="hidden group-open:inline">×</span>
               </summary>
               <nav aria-label={c.menu} className="absolute left-0 right-0 top-full flex flex-col border-b border-[#f0dce4] bg-white px-4 py-3 shadow-xl sm:left-auto sm:right-4 sm:w-72 sm:rounded-b-2xl">
-                {ids.map((id, i) => <a key={id} href={`#${id}`} className="rounded-lg px-4 py-3 text-sm font-medium hover:bg-[#fbeef3]">{c.nav[i]}</a>)}
+                {ids.map((id, i) => <a key={id} href={id === 'gallery' ? `/${locale}/gallery` : `#${id}`} className="rounded-lg px-4 py-3 text-sm font-medium hover:bg-[#fbeef3]">{c.nav[i]}</a>)}
               </nav>
             </details>
           </div>
@@ -102,11 +103,25 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               <div>
                 <h2 className="mb-5 font-serif text-5xl font-medium text-[#241e20] md:text-6xl">{panel.title}</h2>
                 <p className="max-w-md text-base leading-7 text-[#4f4148]">{panel.text}</p>
+                {panel.id === 'gallery' && <a href={`/${locale}/gallery`} className="mt-6 inline-flex rounded-full bg-[#241e20] px-5 py-3 text-sm font-semibold text-white hover:bg-[#7e5267]">{c.galleryLink} ↗</a>}
                 {panel.id === 'contact' && <div className="mt-5 flex flex-wrap gap-3"><a href="tel:+37126830682" className="inline-flex rounded-full border border-[#e7cbd5] bg-white/85 px-5 py-3 text-sm font-semibold text-[#241e20]">+371 26830682</a><a href="https://wa.me/37126830682" target="_blank" rel="noopener noreferrer" className="inline-flex rounded-full border border-[#e7cbd5] bg-white/85 px-5 py-3 text-sm font-semibold text-[#241e20]">WhatsApp ↗</a></div>}
                 {panel.id === 'contact' && <a href="https://www.instagram.com/lanasweetperfect/" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex rounded-full bg-[#241e20] px-5 py-3 text-sm font-semibold text-white hover:bg-[#7e5267]">{c.booking} ↗</a>}
               </div>
             </article>
           ))}
+        </section>
+        <section aria-labelledby="before-after-heading" className="relative mx-auto max-w-7xl px-5 pb-10 md:px-10">
+          <div className="grid items-center gap-8 rounded-[2rem] border border-[#f0dce4] bg-white/90 p-6 backdrop-blur-sm md:grid-cols-2 md:p-10">
+            <div className="max-w-lg">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-[#a05e78]">Lana Sweet Perfect</p>
+              <h2 id="before-after-heading" className="font-serif text-4xl text-[#241e20] md:text-5xl">{c.gallery}</h2>
+              <p className="mt-5 text-base leading-7 text-[#4f4148]">{c.galleryText}</p>
+              <a href={`/${locale}/gallery`} className="mt-7 inline-flex rounded-full bg-[#241e20] px-6 py-3 text-sm font-semibold text-white hover:bg-[#7e5267]">{c.galleryLink} ↗</a>
+            </div>
+            <div className="mx-auto w-full max-w-sm">
+              <BeforeAfterSlider beforeLabel={locale === 'ru' ? 'До' : locale === 'lv' ? 'Pirms' : 'Before'} afterLabel={locale === 'ru' ? 'После' : locale === 'lv' ? 'Pēc' : 'After'} />
+            </div>
+          </div>
         </section>
         <section aria-labelledby="location-heading" className="relative mx-auto max-w-7xl px-5 pb-5 md:px-10 md:pb-8">
           <div className="grid gap-7 overflow-hidden rounded-[2rem] border border-[#f0dce4] bg-white/90 p-5 shadow-lg backdrop-blur-sm md:grid-cols-[0.8fr_1.2fr] md:p-9">
