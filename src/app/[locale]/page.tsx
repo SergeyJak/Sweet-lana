@@ -5,34 +5,34 @@ const copy = {
     eyebrow: 'Добро пожаловать',
     heading: 'Sweet-lana',
     subtitle: 'Красота начинается с деталей.',
-    intro: 'Мы готовим новый сайт. Скоро здесь появятся услуги, фотографии и вся необходимая информация.',
+    intro: 'Косметология в Риге, Иманта. Узнайте больше и запишитесь через Instagram.',
     discover: 'Посмотреть разделы',
-    about: 'О нас', aboutText: 'Здесь появится история Sweet-lana и информация о мастере.',
+    about: 'О нас', aboutText: 'Sweet-lana — косметологические услуги в Риге, район Иманта.',
     services: 'Услуги', servicesText: 'Описание услуг и цены добавим после согласования.',
     gallery: 'Галерея', galleryText: 'Скоро здесь будут фотографии работ.',
-    contact: 'Контакты', contactText: 'Контактные данные и способы записи появятся здесь.',
-    soon: 'Скоро', footer: 'Сайт находится в разработке.',
-    menu: 'Меню',
+    contact: 'Контакты', contactText: 'Рига, Иманта. Для вопросов и записи напишите нам в Instagram.',
+    soon: 'Скоро', footer: 'Косметология · Рига, Иманта',
+    menu: 'Меню', booking: 'Написать в Instagram',
   },
   lv: {
     nav: ['Sākums', 'Par mums', 'Pakalpojumi', 'Galerija', 'Kontakti'],
     eyebrow: 'Laipni lūdzam', heading: 'Sweet-lana', subtitle: 'Skaistums sākas detaļās.',
-    intro: 'Mēs gatavojam jaunu mājaslapu. Drīzumā šeit būs pakalpojumi, fotogrāfijas un informācija.',
-    discover: 'Apskatīt sadaļas', about: 'Par mums', aboutText: 'Šeit būs Sweet-lana stāsts un informācija par speciālistu.',
+    intro: 'Kosmetoloģija Rīgā, Imantā. Uzziniet vairāk un piesakieties Instagram.',
+    discover: 'Apskatīt sadaļas', about: 'Par mums', aboutText: 'Sweet-lana — kosmetoloģijas pakalpojumi Rīgā, Imantā.',
     services: 'Pakalpojumi', servicesText: 'Pakalpojumu aprakstus un cenas pievienosim pēc apstiprināšanas.',
     gallery: 'Galerija', galleryText: 'Drīzumā šeit būs darbu fotogrāfijas.',
-    contact: 'Kontakti', contactText: 'Šeit būs kontaktinformācija un pieraksta iespējas.',
-    soon: 'Drīzumā', footer: 'Mājaslapa tiek izstrādāta.', menu: 'Izvēlne',
+    contact: 'Kontakti', contactText: 'Rīga, Imanta. Jautājumiem un pierakstam rakstiet mums Instagram.',
+    soon: 'Drīzumā', footer: 'Kosmetoloģija · Rīga, Imanta', menu: 'Izvēlne', booking: 'Rakstīt Instagram',
   },
   en: {
     nav: ['Home', 'About', 'Services', 'Gallery', 'Contact'],
     eyebrow: 'Welcome', heading: 'Sweet-lana', subtitle: 'Beauty begins with the details.',
-    intro: 'Our new website is taking shape. Services, photographs and essential information will be added soon.',
-    discover: 'Explore the site', about: 'About us', aboutText: 'The Sweet-lana story and specialist introduction will appear here.',
+    intro: 'Beauty and cosmetology in Imanta, Riga. Find out more and book through Instagram.',
+    discover: 'Explore the site', about: 'About us', aboutText: 'Sweet-lana offers cosmetology services in Imanta, Riga.',
     services: 'Services', servicesText: 'Service descriptions and prices will be added once confirmed.',
     gallery: 'Gallery', galleryText: 'Photos of our work are coming soon.',
-    contact: 'Contact', contactText: 'Contact details and booking options will appear here.',
-    soon: 'Coming soon', footer: 'Website under construction.', menu: 'Menu',
+    contact: 'Contact', contactText: 'Riga, Imanta. For enquiries and appointments, message us on Instagram.',
+    soon: 'Coming soon', footer: 'Cosmetology · Riga, Imanta', menu: 'Menu', booking: 'Message on Instagram',
   },
 } as const
 const ids = ['home', 'about', 'services', 'gallery', 'contact'] as const
@@ -83,7 +83,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <h1 className="mb-7 max-w-5xl font-serif text-[clamp(3.1rem,12vw,10rem)] font-medium leading-[0.85] tracking-[-0.055em] text-[#241e20]">Sweet-lana<span className="text-[#d9a3b7]">.</span></h1>
             <p className="mb-5 max-w-2xl font-serif text-3xl italic text-[#7b5265] md:text-5xl">{c.subtitle}</p>
             <p className="mb-10 max-w-lg text-base leading-8 text-[#3f3539]">{c.intro}</p>
-            <a href="#about" className="inline-flex w-fit items-center gap-3 rounded-full bg-[#241e20] px-7 py-4 text-sm font-semibold text-white transition hover:bg-[#7e5267]">{c.discover} <span aria-hidden="true">↓</span></a>
+            <div className="flex flex-wrap items-center gap-3">
+              <a href="https://www.instagram.com/lanasweetperfect/" target="_blank" rel="noopener noreferrer" className="inline-flex w-fit items-center gap-3 rounded-full bg-[#241e20] px-7 py-4 text-sm font-semibold text-white transition hover:bg-[#7e5267]">{c.booking} <span aria-hidden="true">↗</span></a>
+              <a href="#about" className="inline-flex w-fit items-center gap-3 rounded-full border border-[#e7cbd5] bg-white/80 px-7 py-4 text-sm font-semibold text-[#241e20] transition hover:bg-[#fbeef3]">{c.discover} <span aria-hidden="true">↓</span></a>
+            </div>
           </div>
         </section>
 
@@ -97,6 +100,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               <div>
                 <h2 className="mb-5 font-serif text-5xl font-medium text-[#241e20] md:text-6xl">{panel.title}</h2>
                 <p className="max-w-md text-base leading-7 text-[#4f4148]">{panel.text}</p>
+                {panel.id === 'contact' && <a href="https://www.instagram.com/lanasweetperfect/" target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex rounded-full bg-[#241e20] px-5 py-3 text-sm font-semibold text-white hover:bg-[#7e5267]">{c.booking} ↗</a>}
               </div>
             </article>
           ))}
@@ -106,6 +110,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 text-sm text-[#786b69] md:flex-row">
           <span className="font-serif text-2xl text-[#241e20]">Sweet-lana.</span>
           <span>{c.footer}</span>
+          <a href="https://www.instagram.com/lanasweetperfect/" target="_blank" rel="noopener noreferrer" className="font-medium text-[#241e20] underline underline-offset-4">@lanasweetperfect</a>
           <span>© {new Date().getFullYear()} Sweet-lana</span>
         </div>
       </footer>
