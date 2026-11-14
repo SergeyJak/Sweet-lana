@@ -21,8 +21,8 @@ const emptyForm: FormState = {
   seoDescription: '',
 }
 
-const ADMIN_SECTION_STORAGE_KEY = 'crystal-admin-section'
-const ADMIN_LOCALE_STORAGE_KEY = 'crystal-admin-locale'
+const ADMIN_SECTION_STORAGE_KEY = 'sweet-lana-admin-section'
+const ADMIN_LOCALE_STORAGE_KEY = 'sweet-lana-admin-locale'
 
 const localeLabels: Record<Locale, string> = {
   lv: 'Latviešu',
@@ -174,7 +174,7 @@ export default function AdminPage() {
       <header className="sticky top-0 z-40 border-b border-[#ded8d1] bg-white/95 px-4 py-4 backdrop-blur-xl sm:px-6">
         <div className="relative mx-auto flex max-w-4xl items-center justify-between gap-4">
           <div className="min-w-0">
-            <p className="eyebrow mb-1 text-accent">Crystal E Studio</p>
+            <p className="eyebrow mb-1 text-accent">Sweet-lana</p>
             <div className="flex items-baseline gap-3">
               <h1 className="font-serif text-2xl sm:text-3xl">CMS</h1>
               <span

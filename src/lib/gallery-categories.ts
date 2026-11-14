@@ -14,7 +14,7 @@ type CategoryDocument = Omit<GalleryCategory, 'id' | 'createdAt'> & {
   createdAt: Date
 }
 
-const DB_NAME = process.env.MONGODB_DB || 'beauty_prod'
+const DB_NAME = process.env.MONGODB_DB || 'sweet_lana_prod'
 const COLLECTION = 'gallery_categories'
 
 async function getDb() {

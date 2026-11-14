@@ -13,7 +13,7 @@ export type Testimonial = {
 
 export function getTestimonials(locale: Locale): Testimonial[] {
   const assets = images as Record<string, TestimonialImage>
-  return records.map((record) => ({
+  return (records as Array<{ id: string; featured: boolean; text: Record<Locale, string>; topic: Record<Locale, string> }>).map((record) => ({
     id: record.id,
     featured: record.featured,
     text: record.text[locale],

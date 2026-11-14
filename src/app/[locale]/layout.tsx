@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import { isValidLocale } from '@/lib/i18n'
 
 export const metadata: Metadata = {
-  title: 'Sweet-lnana | Coming soon',
+  title: 'Sweet-lana | Coming soon',
   description: 'A new website is on its way.',
   robots: { index: false, follow: false },
 }

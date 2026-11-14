@@ -32,7 +32,7 @@ type GalleryDocument = Omit<GalleryItem, 'id' | 'createdAt' | 'categoryId'> & {
   createdAt: Date
 }
 
-const DB_NAME = process.env.MONGODB_DB || 'beauty_prod'
+const DB_NAME = process.env.MONGODB_DB || 'sweet_lana_prod'
 const COLLECTION = 'gallery'
 
 async function getDb() {

@@ -14,7 +14,7 @@ type EditablePageContentDocument = Omit<EditablePageContent, 'updatedAt'> & {
   updatedAt?: Date
 }
 
-const DB_NAME = process.env.MONGODB_DB || 'beauty_prod'
+const DB_NAME = process.env.MONGODB_DB || 'sweet_lana_prod'
 const COLLECTION = 'site_content'
 
 export function sanitizeEditableContent(
