@@ -2,10 +2,10 @@
 export const DEFAULT_SITE_URL = 'http://localhost:3000'
 export const BUSINESS = {
   siteUrl: process.env.NEXT_PUBLIC_BASE_URL || DEFAULT_SITE_URL,
-  streetAddress: '', addressLocality: '', postalCode: '', addressCountry: '',
+  streetAddress: '', addressLocality: 'Riga', postalCode: '', addressCountry: 'LV',
   geo: { latitude: 0, longitude: 0 },
   phoneDisplay: '', phoneE164: '', email: '', whatsappNumber: '',
-  instagram: '', tiktok: '', facebook: '', priceRange: '',
+  instagram: 'https://www.instagram.com/lanasweetperfect/', tiktok: '', facebook: '', priceRange: '',
   googleMapsEmbed: '', googleMapsDirections: '',
 } as const
 export function buildWhatsAppUrl(message: string): string {
