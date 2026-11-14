@@ -5,7 +5,7 @@ import { isValidLocale } from '@/lib/i18n'
 
 export const metadata: Metadata = {
   title: 'Sweet-lana',
-  description: 'Sweet-lana. A new website is taking shape.',
+  description: 'Sweet-lana — cosmetology in Riga, Imanta. Contact us via Instagram @lanasweetperfect.',
   robots: { index: false, follow: false },
 }
 export default async function LocaleLayout({ children, params }: {
