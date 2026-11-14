@@ -106,7 +106,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </article>
           ))}
         </section>
-        <section aria-labelledby="location-heading" className="relative mx-auto max-w-7xl px-5 pb-20 md:px-10">
+        <section aria-labelledby="location-heading" className="relative mx-auto max-w-7xl px-5 pb-5 md:px-10 md:pb-8">
           <div className="grid gap-7 overflow-hidden rounded-[2rem] border border-[#f0dce4] bg-white/90 p-5 shadow-lg backdrop-blur-sm md:grid-cols-[0.8fr_1.2fr] md:p-9">
             <div className="flex flex-col justify-center gap-5 py-4">
               <h2 id="location-heading" className="font-serif text-4xl text-[#241e20]">{c.mapTitle}</h2>
