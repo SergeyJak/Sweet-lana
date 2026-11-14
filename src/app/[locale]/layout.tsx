@@ -4,8 +4,8 @@ import { notFound } from 'next/navigation'
 import { isValidLocale } from '@/lib/i18n'
 
 export const metadata: Metadata = {
-  title: 'Sweet-lana',
-  description: 'Sweet-lana — cosmetology in Riga, Imanta. Contact us via Instagram @lanasweetperfect.',
+  title: 'Lana Sweet Perfect | Косметология, Рига, Иманта',
+  description: 'Lana Sweet Perfect — cosmetology in Riga, Imanta. 10 years of experience. Phone +371 26830682, Instagram @lanasweetperfect.',
   robots: { index: false, follow: false },
 }
 export default async function LocaleLayout({ children, params }: {
