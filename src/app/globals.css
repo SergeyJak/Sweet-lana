@@ -69,7 +69,8 @@ body.menu-open {
 
 @media (max-width: 767px) {
   /* The inherited mobile booking-bar spacer must not extend Sweet-lana below its footer. */
-  body:has(#home) {
+  body:has(#home),
+  body:has(.sweet-gallery) {
     padding-bottom: 0;
   }
 }
