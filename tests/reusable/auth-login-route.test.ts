@@ -1,4 +1,4 @@
-import { afterEach, describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { NextRequest } from 'next/server'
 import { POST } from '@/app/api/auth/login/route'
 import { ADMIN_SESSION_COOKIE } from '@/lib/admin-auth'
@@ -14,7 +14,10 @@ function request(body: unknown) {
   })
 }
 
+beforeEach(() => vi.stubEnv('ENABLE_ADMIN', 'true'))
+
 afterEach(() => {
+  vi.unstubAllEnvs()
   if (originalUsername === undefined) delete process.env.ADMIN_USERNAME
   else process.env.ADMIN_USERNAME = originalUsername
 

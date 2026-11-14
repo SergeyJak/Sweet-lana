@@ -1,3 +1,4 @@
+import { isAdminEnabled, isBookingEnabled } from '@/lib/features'
 import { type NextRequest, NextResponse } from 'next/server'
 import { DEFAULT_LOCALE, LOCALE_COOKIE, isValidLocale } from '@/lib/i18n'
 import {
@@ -31,6 +32,14 @@ async function hasAdminSession(request: NextRequest) {
 
 export async function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname
+  const adminRoute = pathname === '/admin' || pathname.startsWith('/admin/') ||
+    pathname === '/login' || pathname === '/api/admin' || pathname.startsWith('/api/admin/') ||
+    pathname === '/api/auth' || pathname.startsWith('/api/auth/')
+
+  if ((adminRoute && !isAdminEnabled()) ||
+      (pathname === '/api/booking' && !isBookingEnabled())) {
+    return new NextResponse(null, { status: 404 })
+  }
 
   if (
     pathname === '/login' ||

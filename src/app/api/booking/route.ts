@@ -1,3 +1,4 @@
+import { isBookingEnabled } from '@/lib/features'
 import { NextRequest, NextResponse } from 'next/server'
 import { getTranslations, resolveLocale, t } from '@/lib/i18n'
 import type { BookingRequest } from '@/types'
@@ -41,6 +42,8 @@ function escapeHtml(value: string) {
 }
 
 export async function POST(request: NextRequest) {
+  if (!isBookingEnabled()) return new Response(null, { status: 404 })
+
   try {
     const body: BookingPayload = await request.json()
     const locale = resolveLocale(body.locale)

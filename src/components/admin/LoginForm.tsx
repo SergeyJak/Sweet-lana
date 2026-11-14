@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from 'react'
 import Link from 'next/link'
+import { BUSINESS } from '@/lib/business'
 
 export type LoginLocale = 'lv' | 'ru' | 'en'
 
@@ -109,9 +110,9 @@ export default function LoginForm({
         <section className="admin-card w-full p-7 sm:p-9">
           <div className="mb-8 text-center">
             <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center border border-accent/40">
-              <span className="font-serif text-2xl text-primary">E</span>
+              <span className="font-serif text-2xl text-primary">L</span>
             </div>
-            <p className="eyebrow admin-accent mb-2">Crystal E Studio</p>
+            <p className="eyebrow admin-accent mb-2">{BUSINESS.name}</p>
             <h1 className="font-serif text-4xl font-medium">{copy.admin}</h1>
             <p className="admin-muted mt-3 text-sm leading-relaxed">
               {copy.subtitle}

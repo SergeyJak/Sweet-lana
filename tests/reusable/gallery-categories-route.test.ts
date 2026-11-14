@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { NextRequest } from 'next/server'
 
 const mocks = vi.hoisted(() => ({
@@ -28,8 +28,11 @@ function request(body: unknown) {
   })
 }
 
+afterEach(() => vi.unstubAllEnvs())
+
 describe('PUT /api/admin/gallery-categories', () => {
   beforeEach(() => {
+    vi.stubEnv('ENABLE_ADMIN', 'true')
     mocks.reorderGalleryCategories.mockReset()
     mocks.revalidatePath.mockReset()
   })

@@ -1,3 +1,4 @@
+import { isAdminEnabled } from '@/lib/features'
 import { NextRequest, NextResponse } from 'next/server'
 import {
   ADMIN_SESSION_COOKIE,
@@ -6,6 +7,8 @@ import {
 } from '@/lib/admin-auth'
 
 export async function POST(request: NextRequest) {
+  if (!isAdminEnabled()) return new Response(null, { status: 404 })
+
   const configuredUsername = process.env.ADMIN_USERNAME
   const configuredPassword = process.env.ADMIN_PASSWORD
 

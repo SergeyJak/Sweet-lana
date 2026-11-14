@@ -32,8 +32,9 @@ export default defineConfig({
     timeout: 120_000,
     env: {
       ...process.env,
-      ADMIN_USERNAME: 'e2e-admin',
-      ADMIN_PASSWORD: 'e2e-password',
+      ENABLE_ADMIN: 'false',
+      ENABLE_PUBLIC_GALLERY: 'false',
+      ENABLE_BOOKING_API: 'false',
       NEXT_PUBLIC_BASE_URL: 'http://127.0.0.1:3000',
     },
   },

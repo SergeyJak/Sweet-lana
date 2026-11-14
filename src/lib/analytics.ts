@@ -35,7 +35,7 @@ export function initializeAnalytics(
 
   const browser = window as AnalyticsWindow
 
-  if (googleAnalyticsId && !document.getElementById('crystal-google-analytics')) {
+  if (googleAnalyticsId && !document.getElementById('sweet-lana-google-analytics')) {
     browser.dataLayer = browser.dataLayer || []
     browser.gtag = browser.gtag || function () {
       browser.dataLayer!.push(arguments)
@@ -43,12 +43,12 @@ export function initializeAnalytics(
     browser.gtag('js', new Date())
     browser.gtag('config', googleAnalyticsId)
     appendScript(
-      'crystal-google-analytics',
+      'sweet-lana-google-analytics',
       `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(googleAnalyticsId)}`
     )
   }
 
-  if (facebookPixelId && !document.getElementById('crystal-facebook-pixel')) {
+  if (facebookPixelId && !document.getElementById('sweet-lana-facebook-pixel')) {
     if (!browser.fbq) {
       const pixel = function (...args: unknown[]) {
         if (pixel.callMethod) pixel.callMethod(...args)
@@ -63,6 +63,6 @@ export function initializeAnalytics(
     }
     browser.fbq('init', facebookPixelId)
     browser.fbq('track', 'PageView')
-    appendScript('crystal-facebook-pixel', 'https://connect.facebook.net/en_US/fbevents.js')
+    appendScript('sweet-lana-facebook-pixel', 'https://connect.facebook.net/en_US/fbevents.js')
   }
 }

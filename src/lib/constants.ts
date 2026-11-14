@@ -4,14 +4,14 @@ export const CONTACT_INFO = {
   phone: BUSINESS.phoneDisplay,
   email: BUSINESS.email,
   address: `${BUSINESS.streetAddress}, ${BUSINESS.addressLocality}, ${BUSINESS.postalCode}`,
-  hours: 'Tue-Fri: 10am-6pm | Sat: 10am-4pm | Sun-Mon: Closed',
+  hours: '',
 }
 
 export const SOCIAL_LINKS = {
   whatsapp: buildWhatsAppUrl(
-    'Hello! I would like to book a free electrolysis consultation in Riga.'
+    'Hello! I would like to book an appointment.'
   ),
-  telegram: process.env.NEXT_PUBLIC_TELEGRAM || 'https://t.me/electrolizeriga',
+  telegram: process.env.NEXT_PUBLIC_TELEGRAM || '',
   instagram: BUSINESS.instagram,
   facebook: BUSINESS.facebook,
   tiktok: BUSINESS.tiktok,

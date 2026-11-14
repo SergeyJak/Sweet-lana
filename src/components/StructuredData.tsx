@@ -1,3 +1,4 @@
+import { BUSINESS } from '@/lib/business'
 import {
   buildFaqPageSchema,
   buildLocalBusinessSchema,
@@ -22,7 +23,7 @@ export default function StructuredData({ locale }: StructuredDataProps) {
     id: item.id ?? String(index + 1),
   }))
 
-  const businessName = brand?.name || 'Crystal E Studio'
+  const businessName = brand?.name || BUSINESS.name
   const graphs = [
     buildWebSiteSchema(locale, businessName),
     buildLocalBusinessSchema(locale, {
