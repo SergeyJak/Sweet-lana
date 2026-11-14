@@ -45,7 +45,7 @@ export default async function Gallery({ params }: { params: Promise<{ locale: st
               <p className="text-lg leading-8 text-[#4f4148]">{c.empty}</p>
               <p className="mt-5 text-sm text-[#9b627b]">{c.before} / {c.after}</p>
             </div>
-            <div className="mx-auto w-full max-w-sm"><BeforeAfterSlider beforeLabel={c.before} afterLabel={c.after} /></div>
+            <div className="mx-auto w-full max-w-sm"><BeforeAfterSlider beforeLabel={c.before} afterLabel={c.after} emptyLabel={c.empty} /></div>
           </div>
         ) : (
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
