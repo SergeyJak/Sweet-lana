@@ -26,7 +26,7 @@ export default async function Gallery({ params }: { params: Promise<{ locale: st
 
   return (
     <div className="sweet-gallery relative min-h-screen bg-white text-[#241e20]">
-      <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 bg-[url('/background.jpeg')] bg-cover bg-center opacity-25" />
+      <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 bg-[url('/background.jpeg')] bg-cover bg-center opacity-20" />
       <header className="relative z-10 border-b border-[#f0dce4] bg-white/95 px-4 py-3 backdrop-blur-md sm:px-6">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <a href={`/${locale}`} className="max-w-full whitespace-nowrap font-serif text-xl font-semibold tracking-tight text-[#241e20] sm:text-2xl">Lana Sweet Perfect.</a>
