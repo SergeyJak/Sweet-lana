@@ -8,6 +8,7 @@ type Props = {
   beforeLabel?: string
   afterLabel?: string
   className?: string
+  emptyLabel?: string
 }
 
 export default function BeforeAfterSlider({
@@ -16,6 +17,7 @@ export default function BeforeAfterSlider({
   beforeLabel = 'Before',
   afterLabel = 'After',
   className = '',
+  emptyLabel = 'Photos coming soon',
 }: Props) {
   const [position, setPosition] = useState(50)
   const frame = useRef<HTMLDivElement>(null)
@@ -54,7 +56,7 @@ export default function BeforeAfterSlider({
           <div className="absolute inset-0 bg-gradient-to-br from-[#fdf4f8] via-[#ead1dc] to-[#d5a9bd]" style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }} />
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center p-8 text-center">
             <span className="rounded-2xl bg-white/80 px-5 py-4 text-sm font-medium text-[#715965] shadow-sm backdrop-blur-sm">
-              {beforeLabel} / {afterLabel} · Фото скоро
+              {emptyLabel}
             </span>
           </div>
         </>
