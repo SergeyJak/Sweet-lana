@@ -1,4 +1,4 @@
-export const ADMIN_SESSION_COOKIE = 'crystal_admin_session'
+export const ADMIN_SESSION_COOKIE = 'sweet_lana_admin_session'
 export const ADMIN_SESSION_MAX_AGE = 60 * 60 * 24 * 7
 
 type SessionPayload = {

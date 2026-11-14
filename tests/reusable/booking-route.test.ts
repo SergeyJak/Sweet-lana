@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { NextRequest } from 'next/server'
 
 const fetchMock = vi.fn()
-const body = { name: 'Client', phone: '+37128821341', service: 'Consultation', locale: 'en' }
+const body = { name: 'Client', phone: '+37120000000', service: 'Consultation', locale: 'en' }
 async function submit(overrides = {}) {
   const { POST } = await import('@/app/api/booking/route')
   return POST(new NextRequest('http://localhost/api/booking', {
@@ -12,6 +12,7 @@ async function submit(overrides = {}) {
 }
 beforeEach(() => {
   vi.resetModules()
+  vi.stubEnv('ENABLE_BOOKING_API', 'true')
   vi.stubEnv('TELEGRAM_BOT_TOKEN', 'test-token')
   vi.stubEnv('TELEGRAM_CHAT_ID', 'test-chat')
   vi.stubGlobal('fetch', fetchMock)

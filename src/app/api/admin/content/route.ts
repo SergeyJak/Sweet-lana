@@ -1,3 +1,4 @@
+import { isAdminEnabled } from '@/lib/features'
 import { NextRequest, NextResponse } from 'next/server'
 import { revalidatePath } from 'next/cache'
 import {
@@ -26,6 +27,8 @@ function getFallbackContent(locale: 'lv' | 'ru' | 'en'): EditablePageContent {
 }
 
 export async function GET(request: NextRequest) {
+  if (!isAdminEnabled()) return new Response(null, { status: 404 })
+
   const locale = request.nextUrl.searchParams.get('locale') || 'lv'
 
   if (!isValidLocale(locale)) {
@@ -40,6 +43,8 @@ export async function GET(request: NextRequest) {
 }
 
 export async function PUT(request: NextRequest) {
+  if (!isAdminEnabled()) return new Response(null, { status: 404 })
+
   const locale = request.nextUrl.searchParams.get('locale') || 'lv'
 
   if (!isValidLocale(locale)) {

@@ -14,11 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
-      ADMIN_USERNAME: e2e-admin
-      ADMIN_PASSWORD: e2e-password
       NEXT_PUBLIC_BASE_URL: http://127.0.0.1:3000
-      NEXT_PUBLIC_GA_ID: G-CONSENTTEST
-      NEXT_PUBLIC_FB_PIXEL_ID: '1234567890'
+      ENABLE_ADMIN: 'false'
+      ENABLE_PUBLIC_GALLERY: 'false'
+      ENABLE_BOOKING_API: 'false'
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -33,8 +32,10 @@ jobs:
         run: npm audit --audit-level=moderate
       - name: Typecheck
         run: npm run typecheck
-      - name: Unit tests
-        run: npm run test:unit
+      - name: Current site unit tests
+        run: npm run test:site
+      - name: Reusable feature unit tests
+        run: npm run test:reusable
       - name: Build
         run: npm run build
       - name: Upload Next build
@@ -52,11 +53,10 @@ jobs:
     timeout-minutes: 15
     env:
       CI: true
-      ADMIN_USERNAME: e2e-admin
-      ADMIN_PASSWORD: e2e-password
       NEXT_PUBLIC_BASE_URL: http://127.0.0.1:3000
-      NEXT_PUBLIC_GA_ID: G-CONSENTTEST
-      NEXT_PUBLIC_FB_PIXEL_ID: '1234567890'
+      ENABLE_ADMIN: 'false'
+      ENABLE_PUBLIC_GALLERY: 'false'
+      ENABLE_BOOKING_API: 'false'
     steps:
       - name: Checkout
         uses: actions/checkout@v7

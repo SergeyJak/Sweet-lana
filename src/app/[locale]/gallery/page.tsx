@@ -1,3 +1,6 @@
+import { isGalleryEnabled } from '@/lib/features'
+import { GALLERY_COPY } from '@/content/site'
+import { BUSINESS, buildWhatsAppUrl } from '@/lib/business'
 import BeforeAfterSlider from '@/components/BeforeAfterSlider'
 import { getGallery } from '@/lib/gallery'
 import { getGalleryCategories } from '@/lib/gallery-categories'
@@ -6,20 +9,14 @@ import { notFound } from 'next/navigation'
 
 export const dynamic = 'force-dynamic'
 
-const copy = {
-  ru: { title: 'Галерея', caption: 'Результаты до и после', empty: 'Первые фотографии работ Ланы появятся здесь. Пока галерея пуста.', home: 'На главную', before: 'До', after: 'После' },
-  lv: { title: 'Galerija', caption: 'Rezultāti pirms un pēc', empty: 'Lanas darbu fotogrāfijas drīzumā būs šeit. Pagaidām galerija ir tukša.', home: 'Uz sākumu', before: 'Pirms', after: 'Pēc' },
-  en: { title: 'Gallery', caption: 'Before & after results', empty: "Lana's real work will appear here soon. The gallery is currently empty.", home: 'Back home', before: 'Before', after: 'After' },
-} as const
-
 export default async function Gallery({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: requested } = await params
   if (!isValidLocale(requested)) notFound()
   const locale = requested as Locale
-  const c = copy[locale]
+  const c = GALLERY_COPY[locale]
 
-  // A new, independent database is required. Never import old customer images.
-  const configured = Boolean(process.env.MONGODB_URI && process.env.MONGODB_DB === 'sweet_lana_prod')
+  // Opt in only after configuring independent storage for this project.
+  const configured = isGalleryEnabled() && Boolean(process.env.MONGODB_URI)
   const [items, categories] = configured
     ? await Promise.all([getGallery(), getGalleryCategories().catch(() => [])])
     : [[], []]
@@ -29,7 +26,7 @@ export default async function Gallery({ params }: { params: Promise<{ locale: st
       <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 bg-[url('/background.jpeg')] bg-cover bg-center opacity-20" />
       <header className="relative z-10 border-b border-[#f0dce4] bg-white/95 px-4 py-3 backdrop-blur-md sm:px-6">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <a href={`/${locale}`} className="max-w-full whitespace-nowrap font-serif text-xl font-semibold tracking-tight text-[#241e20] sm:text-2xl">Lana Sweet Perfect.</a>
+          <a href={`/${locale}`} className="max-w-full whitespace-nowrap font-serif text-xl font-semibold tracking-tight text-[#241e20] sm:text-2xl">{BUSINESS.name}.</a>
           <div className="flex w-full items-center justify-between gap-2 sm:w-auto sm:justify-end">
             {(['ru','lv','en'] as const).map(lang => <a href={`/${lang}/gallery`} key={lang} aria-current={lang === locale ? 'page' : undefined} className={`flex h-9 w-9 items-center justify-center rounded-full text-xs font-semibold sm:h-10 sm:w-10 ${lang === locale ? 'bg-[#241e20] text-white' : 'bg-white/80 text-[#241e20]'}`}>{lang.toUpperCase()}</a>)}
             <a href={`/${locale}`} className="ml-auto shrink-0 rounded-full border border-[#e7cbd5] px-3 py-2 text-xs font-semibold text-[#241e20] sm:px-4 sm:text-sm">{c.home}</a>
@@ -59,8 +56,8 @@ export default async function Gallery({ params }: { params: Promise<{ locale: st
         )}
       </main>
       <nav aria-label="WhatsApp and Instagram" className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-3 border-t border-[#e7cbd5] bg-white/95 p-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] shadow-lg backdrop-blur md:inset-x-auto md:bottom-6 md:right-6 md:flex md:flex-col md:rounded-2xl md:border">
-        <a href="https://wa.me/37126830682" target="_blank" rel="noopener noreferrer" className="rounded-full bg-[#241e20] px-6 py-3 text-center text-sm font-semibold text-white">WhatsApp</a>
-        <a href="https://www.instagram.com/lanasweetperfect/" target="_blank" rel="noopener noreferrer" className="rounded-full border border-[#d9a3b7] bg-[#fceef4] px-6 py-3 text-center text-sm font-semibold text-[#241e20]">Instagram</a>
+        <a href={buildWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="rounded-full bg-[#241e20] px-6 py-3 text-center text-sm font-semibold text-white">WhatsApp</a>
+        <a href={BUSINESS.instagram} target="_blank" rel="noopener noreferrer" className="rounded-full border border-[#d9a3b7] bg-[#fceef4] px-6 py-3 text-center text-sm font-semibold text-[#241e20]">Instagram</a>
       </nav>
     </div>
   )

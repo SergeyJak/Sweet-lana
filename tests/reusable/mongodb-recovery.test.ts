@@ -18,11 +18,11 @@ const client = { db: () => ({ collection: () => ({
 beforeEach(() => {
   vi.resetModules()
   mocks.connect.mockReset()
-  delete global.__beautyMongoClientPromise
+  delete global.__sweetLanaMongoClientPromise
   vi.stubEnv('MONGODB_URI', 'mongodb://unused.invalid')
   vi.spyOn(console, 'error').mockImplementation(() => {})
 })
-afterEach(() => { delete global.__beautyMongoClientPromise; vi.unstubAllEnvs() })
+afterEach(() => { delete global.__sweetLanaMongoClientPromise; vi.unstubAllEnvs() })
 
 describe('shared MongoDB connection recovery', () => {
   it.each(['content', 'gallery', 'categories'])('recovers after a failed first attempt from %s', async (source) => {

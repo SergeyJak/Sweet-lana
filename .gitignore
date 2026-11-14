@@ -41,3 +41,8 @@ Thumbs.db
 
 # Private testimonial source material
 /private-review-sources/
+
+# Generated checks
+/playwright-report/
+/test-results/
+*.tsbuildinfo

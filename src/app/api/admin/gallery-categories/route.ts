@@ -1,3 +1,4 @@
+import { isAdminEnabled } from '@/lib/features'
 import { NextRequest, NextResponse } from 'next/server'
 import { revalidatePath } from 'next/cache'
 import {
@@ -23,10 +24,14 @@ function revalidateGallery() {
 }
 
 export async function GET() {
+  if (!isAdminEnabled()) return new Response(null, { status: 404 })
+
   return NextResponse.json({ categories: await getGalleryCategories() })
 }
 
 export async function POST(request: NextRequest) {
+  if (!isAdminEnabled()) return new Response(null, { status: 404 })
+
   const locale = localeFrom(request)
   if (!locale) {
     return NextResponse.json({ error: 'Invalid locale' }, { status: 400 })
@@ -48,6 +53,8 @@ export async function POST(request: NextRequest) {
 }
 
 export async function PATCH(request: NextRequest) {
+  if (!isAdminEnabled()) return new Response(null, { status: 404 })
+
   const locale = localeFrom(request)
   const id = request.nextUrl.searchParams.get('id')
   if (!locale || !id) {
@@ -68,6 +75,8 @@ export async function PATCH(request: NextRequest) {
 
 
 export async function PUT(request: NextRequest) {
+  if (!isAdminEnabled()) return new Response(null, { status: 404 })
+
   const body = await request.json().catch(() => null)
   const orderedIds = Array.isArray(body?.orderedIds)
     ? body.orderedIds.filter((id: unknown): id is string => typeof id === 'string')
@@ -90,6 +99,8 @@ export async function PUT(request: NextRequest) {
 }
 
 export async function DELETE(request: NextRequest) {
+  if (!isAdminEnabled()) return new Response(null, { status: 404 })
+
   const id = request.nextUrl.searchParams.get('id')
   if (!id) {
     return NextResponse.json({ error: 'Missing id' }, { status: 400 })

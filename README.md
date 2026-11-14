@@ -1,18 +1,55 @@
 # Sweet-lana
 
-Independent Next.js website. Based on a reusable layout and CMS architecture.
+Новый сайт Lana Sweet Perfect на Next.js. Возможности проекта-основы сохранены для дальнейшего подключения. Неиспользуемые маршруты по умолчанию отключены.
 
-## Local development
+## Разработка
+
+Используйте Node из `.nvmrc` (24.21.0); `.npmrc` проверяет совместимость версии.
+
 ```bash
+nvm use
 npm ci
+cp .env.example .env.local
 npm run dev
 ```
 
-## Production
-Deployed from `main` to Railway. The public website is a temporary multilingual coming-soon page. Search indexing is disabled until the business content is approved.
+Для текущего сайта MongoDB, R2, Telegram и учётные данные администратора не нужны.
 
-## Data isolation
-Configure new, independent MongoDB and R2 credentials before enabling the admin CMS or gallery. Do not reuse credentials, database names, analytics IDs, or customer data from the previous site.
+## Где редактировать
 
-## Content
-The original site's reviews, screenshots, public photographs, translations, contact details and branding have been cleared from the current working tree. Keep them out of new commits.
+- `src/content/site.ts` — тексты LV/RU/EN, услуги и описания кабинетов, содержимое блока Google-отзывов.
+- `src/lib/business.ts` — бренд, контакты, адрес и внешние ссылки.
+- `src/app/[locale]/` — текущие страницы и их оформление.
+- `messages/` — пустые словари для сохранённых секций; текущие страницы используют `site.ts`.
+- [Карта функций](docs/features.md) — что сохранено и как подключать позже.
+
+## Проверки
+
+```bash
+npm run typecheck
+npm run test:site       # Текущий сайт, отключённые маршруты
+npm run test:reusable   # Сохранённые возможности без реальных сервисов
+npm run test:unit       # Обе группы; также npm test
+npm run build
+npm run test:e2e        # Сначала нужна production-сборка
+```
+
+`npm run quality` запускает типы, обе группы unit-тестов и сборку. CI дополнительно запускает Playwright в мобильном и настольном Chromium. Неработавший `next lint` удалён: отдельный ESLint сейчас не установлен.
+
+Старые проверки, привязанные к прежнему содержимому, находятся в [docs/reference-tests](docs/reference-tests/README.md) как справочные сценарии. Проверки общей логики остаются исполняемыми.
+
+## Отложенные функции
+
+| Переменная | По умолчанию | Что включает |
+| --- | --- | --- |
+| `ENABLE_ADMIN` | `false` | `/admin`, `/login`, `/api/admin/*`, `/api/auth/*` |
+| `ENABLE_PUBLIC_GALLERY` | `false` | Чтение базы на публичной странице галереи |
+| `ENABLE_BOOKING_API` | `false` | `/api/booking`, отправку в Telegram |
+
+Только точное значение `true` включает функцию. Флаги независимы и читаются на сервере. Публичная галерея остаётся доступна как пустая страница при выключенном чтении базы. Отключённые административные маршруты и API возвращают 404, даже если заданы ключи.
+
+## Данные и публикация
+
+Используйте отдельные MongoDB и R2 для Sweet-lana. Не переносите ключи, базу, аналитику, фотографии и личные отзывы прежнего бизнеса. Пустые манифесты отзывов оставлены намеренно; новый блок Google-отзывов хранится отдельно в `site.ts`.
+
+По имеющейся конфигурации `main` используется для публикации на Railway. Изменения следует проверять в PR до слияния. Индексация намеренно отключена через `robots.ts`, пустой sitemap и `noindex` до утверждения содержимого. Подключение CMS к Hero/SEO — отдельный этап; сейчас публичные страницы берут контент из файлов.
