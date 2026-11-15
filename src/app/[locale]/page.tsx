@@ -55,8 +55,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </div>
             </div>
             <div className="order-1 md:order-2">
-              <div className="relative mx-auto aspect-[4/4.4] max-w-[500px] overflow-hidden rounded-[2rem] border border-white/90 bg-[#f5edf0] shadow-[0_18px_55px_rgba(69,40,53,0.12)] sm:aspect-[4/4.5]">
-                <img src="/svetlana-portrait.png" alt={c.heroName} width="1024" height="1536" fetchPriority="high" decoding="async" className="h-full w-full object-cover object-center" />
+              <div className="relative mx-auto aspect-[2/3] w-full max-w-[250px] overflow-hidden rounded-[2rem] border border-white/90 bg-[#f5edf0] shadow-[0_18px_55px_rgba(69,40,53,0.12)] sm:max-w-[320px] lg:max-w-[370px]">
+                <img src="/svetlana-portrait.png" alt={c.heroName} width="1024" height="1536" fetchPriority="high" decoding="async" className="h-full w-full object-contain" />
                 <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#241e20]/[0.16] via-transparent to-white/[0.04]" />
               </div>
             </div>
