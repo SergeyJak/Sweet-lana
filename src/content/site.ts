@@ -18,7 +18,7 @@ export const HOME_COPY = {
   },
   lv: {
     nav: ['Sākums', 'Par speciālistu', 'Kabineti', 'Kosmētika', 'Kontakti'],
-    eyebrow: 'Iepazīstieties ar speciālisti', heroName: 'Svetlana Petrova', heroRole: 'Kosmetoloģe · Medicīniskā izglītība · 10 gadu pieredze', heroBlurb: 'Palīdzu rūpēties par ādas veselību un skaistumu: no individuālas kopšanas un pīlingiem līdz mūsdienīgām estētiskām metodēm. Pieņemu divās vietās Rīgā.', heading: BUSINESS.name, subtitle: 'Skaistums sākas detaļās.',
+    eyebrow: 'Iepazīstieties ar speciālisti', heroName: 'Svetlana Petrova', heroRole: 'Kosmetoloģe · Medicīniskā izglītība · 10 gadu pieredze', heroBlurb: 'Palīdzu rūpēties par ādas veselību un skaistumu: no individuālas kopšanas un pīlingiem līdz mūsdienīgām estētiskām metodēm. Divas lokācijas, kur pieņem speciālists.', heading: BUSINESS.name, subtitle: 'Skaistums sākas detaļās.',
     intro: 'Divi kabineti Rīgā. Izvēlieties vietu un apskatiet tieši tur pieejamos pakalpojumus.',
     discover: 'Izvēlēties kabinetu', about: 'Par Svetlanu', aboutText: 'Svetlana Petrova ir kosmetoloģe ar medicīnisko izglītību un 10 gadu pieredzi. Specializējos plašā sejas procedūru klāstā: no klasiskām kopšanas metodēm līdz mikroadatu terapijai, mezoterapijai, ķīmiskajiem pīlingiem un sejas masāžai. Piedāvāju arī vaksāciju un šugaringu. Procedūras un mājas kopšanu pielāgoju individuāli.',
     services: 'Pakalpojumi', servicesText: '3D sejas tīrīšana, vaksācija, šugarings, IPL Lumecca, Morpheus8, Ultraformer MPT, biorevitalizācija un lipolītiķi. Cenas precizējiet, piesakoties.',
