@@ -49,7 +49,12 @@ export default async function CabinetPage({ params }: { params: Promise<{ locale
       <SiteHeader locale={locale} path={`/cabinet/${slug}`} />
       <main className="relative z-10 mx-auto max-w-6xl px-5 pb-40 pt-12 sm:px-8 md:pt-20">
         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-[#93516d]">{t.locations} · {slug === 'imanta' ? '01' : '02'}</p>
-        <h1 className="max-w-3xl [overflow-wrap:anywhere] font-serif text-[clamp(2rem,7vw,3rem)] leading-tight !text-[#241e20] sm:text-7xl">{office.title}</h1>
+        <div className="flex flex-wrap items-center gap-5 sm:gap-7">
+          {slug === 'imanta' && (
+            <img src="/sweet-perfect-logo.webp" alt="Sweet Perfect Cosmetology" width="300" height="300" decoding="async" className="h-28 w-28 shrink-0 rounded-full border border-[#f0dce4] bg-white object-contain sm:h-36 sm:w-36" />
+          )}
+          <h1 className="max-w-3xl [overflow-wrap:anywhere] font-serif text-[clamp(2rem,7vw,3rem)] leading-tight !text-[#241e20] sm:text-7xl">{office.title}</h1>
+        </div>
         <p className="mt-4 max-w-3xl font-serif text-2xl italic text-[#8a5e72] sm:text-3xl">{office.subtitle}</p>
         <p className="mt-6 max-w-2xl text-base leading-8 text-[#4f4148]">{office.description}</p>
         <div className="mt-8 flex flex-wrap gap-3">
