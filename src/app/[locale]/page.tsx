@@ -34,7 +34,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </div>
             <div className="order-1 md:order-2">
               <div className="relative mx-auto aspect-[4/4.4] max-w-[500px] overflow-hidden rounded-[2rem] border border-white/90 bg-[#f5edf0] shadow-[0_18px_55px_rgba(69,40,53,0.12)] sm:aspect-[4/4.5]">
-                <img src="/svetlana-portrait.webp" alt={c.heroName} width="600" height="600" className="h-full w-full object-cover object-center" />
+                <img src="/svetlana-portrait.jpg" alt={c.heroName} width="1079" height="1080" fetchPriority="high" decoding="async" className="h-full w-full object-cover object-center" />
                 <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#241e20]/[0.16] via-transparent to-white/[0.04]" />
               </div>
             </div>
