@@ -80,7 +80,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </div>
           <div className="grid gap-5 md:grid-cols-2">
             <a href={`/${locale}/cabinet/imanta`} className="group flex min-h-72 flex-col justify-between rounded-[2rem] border border-[#ebd3dd] bg-white/95 p-7 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-xl sm:p-10">
-              <div className="flex items-center justify-between"><span className="text-xs font-bold tracking-[0.25em] text-[#a05e78]">01</span><span className="rounded-full bg-[#faedf2] px-4 py-2 text-xs font-semibold text-[#8e526d]">{BUSINESS.streetAddress}</span></div>
+              <div className="flex items-center justify-between"><span className="text-xs font-bold tracking-[0.25em] text-[#a05e78]">01</span><span className="rounded-full bg-[#faedf2] px-4 py-2 text-xs font-semibold text-[#8e526d]">{c.imantaArea} · {BUSINESS.streetAddress}</span></div>
               <div className="mt-10">
                 <h3 className="font-serif text-5xl !text-[#241e20]">{c.imantaTitle}</h3>
                 <p className="mt-5 max-w-lg text-base leading-7 text-[#4f4148]">{c.imantaDetail}</p>
@@ -88,7 +88,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </div>
             </a>
             <a href={`/${locale}/cabinet/center`} className="group flex min-h-72 flex-col justify-between rounded-[2rem] border border-[#ebd3dd] bg-[#fff7fa]/95 p-7 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-xl sm:p-10">
-              <div className="flex items-center justify-between"><span className="text-xs font-bold tracking-[0.25em] text-[#a05e78]">02</span><span className="rounded-full bg-white/90 px-4 py-2 text-xs font-semibold text-[#8e526d]">{c.centerAddress}</span></div>
+              <div className="flex items-center justify-between"><span className="text-xs font-bold tracking-[0.25em] text-[#a05e78]">02</span><span className="rounded-full bg-white/90 px-4 py-2 text-xs font-semibold text-[#8e526d]">{c.centerArea} · {c.centerAddress}</span></div>
               <div className="mt-10">
                 <h3 className="font-serif text-5xl !text-[#241e20]">{c.centerTitle}</h3>
                 <p className="mt-5 max-w-lg text-base leading-7 text-[#4f4148]">{c.centerDetail}</p>
