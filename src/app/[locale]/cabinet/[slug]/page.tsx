@@ -1,3 +1,4 @@
+import SiteHeader from '@/components/SiteHeader'
 import BeforeAfterSlider from '@/components/BeforeAfterSlider'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
@@ -33,24 +34,19 @@ export default async function CabinetPage({ params }: { params: Promise<{ locale
   return (
     <div className="relative min-h-screen bg-white text-[#241e20]">
       <div aria-hidden="true" className="pointer-events-none fixed inset-0 bg-[url('/background.jpeg')] bg-cover bg-center opacity-20" />
-      <header className="relative z-10 border-b border-[#f0dce4] bg-white/95 px-4 py-3 backdrop-blur-sm">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3">
-          <Link href={`/${locale}`} className="font-serif text-xl font-semibold text-[#241e20] sm:text-2xl">{BUSINESS.name}.</Link>
-          <nav aria-label="Language" className="flex items-center gap-2">
-            {(['ru','lv','en'] as const).map(lang => <Link key={lang} href={`/${lang}/cabinet/${slug}`} aria-current={locale === lang ? 'page' : undefined} className={`flex h-9 w-9 items-center justify-center rounded-full text-xs font-semibold ${locale === lang ? 'bg-[#241e20] text-white' : 'bg-white/90 text-[#241e20]'}`}>{lang.toUpperCase()}</Link>)}
-            <Link href={`/${locale}#cabinets`} className="ml-1 rounded-full border border-[#e7cbd5] px-3 py-2 text-xs font-semibold text-[#241e20] sm:text-sm">{t.home}</Link>
-          </nav>
-        </div>
-      </header>
+      <SiteHeader locale={locale} path={`/cabinet/${slug}`} />
       <main className="relative z-10 mx-auto max-w-6xl px-5 pb-40 pt-12 sm:px-8 md:pt-20">
         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-[#93516d]">{t.locations} · {slug === 'imanta' ? '01' : '02'}</p>
-        <h1 className="max-w-3xl font-serif text-5xl leading-tight !text-[#241e20] sm:text-7xl">{office.title}</h1>
+        <h1 className="max-w-3xl [overflow-wrap:anywhere] font-serif text-[clamp(2rem,7vw,3rem)] leading-tight !text-[#241e20] sm:text-7xl">{office.title}</h1>
         <p className="mt-4 max-w-3xl font-serif text-2xl italic text-[#8a5e72] sm:text-3xl">{office.subtitle}</p>
         <p className="mt-6 max-w-2xl text-base leading-8 text-[#4f4148]">{office.description}</p>
         <div className="mt-8 flex flex-wrap gap-3">
           <a href={whatsapp} target="_blank" rel="noopener noreferrer" className="rounded-full bg-[#241e20] px-6 py-4 text-sm font-semibold text-white">{t.booking} ↗</a>
           <a href={`tel:${BUSINESS.phoneE164}`} className="rounded-full border border-[#e7cbd5] bg-white/90 px-6 py-4 text-sm font-semibold text-[#241e20]">{BUSINESS.phoneDisplay}</a>
         </div>
+        <a href="#gallery" className="mt-6 inline-flex min-h-12 items-center rounded-full border border-[#e7cbd5] bg-white/90 px-5 py-3 text-sm font-semibold text-[#40353b]">
+          {locale === 'ru' ? 'Результаты до и после' : locale === 'lv' ? 'Rezultāti pirms un pēc' : 'Before & after results'} ↓
+        </a>
         <div className="mt-12 grid gap-7 md:grid-cols-2">
           <section className="rounded-[2rem] border border-[#f0dce4] bg-white/90 p-7 backdrop-blur-sm md:p-10">
             <h2 className="font-serif text-4xl !text-[#241e20]">{t.services}</h2>

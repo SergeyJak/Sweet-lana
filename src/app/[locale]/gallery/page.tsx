@@ -1,3 +1,4 @@
+import SiteHeader from '@/components/SiteHeader'
 import { isGalleryEnabled } from '@/lib/features'
 import { GALLERY_COPY } from '@/content/site'
 import { BUSINESS, buildWhatsAppUrl } from '@/lib/business'
@@ -24,15 +25,7 @@ export default async function Gallery({ params }: { params: Promise<{ locale: st
   return (
     <div className="sweet-gallery relative min-h-screen bg-white text-[#241e20]">
       <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 bg-[url('/background.jpeg')] bg-cover bg-center opacity-20" />
-      <header className="relative z-10 border-b border-[#f0dce4] bg-white/95 px-4 py-3 backdrop-blur-md sm:px-6">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <a href={`/${locale}`} className="max-w-full whitespace-nowrap font-serif text-xl font-semibold tracking-tight text-[#241e20] sm:text-2xl">{BUSINESS.name}.</a>
-          <div className="flex w-full items-center justify-between gap-2 sm:w-auto sm:justify-end">
-            {(['ru','lv','en'] as const).map(lang => <a href={`/${lang}/gallery`} key={lang} aria-current={lang === locale ? 'page' : undefined} className={`flex h-9 w-9 items-center justify-center rounded-full text-xs font-semibold sm:h-10 sm:w-10 ${lang === locale ? 'bg-[#241e20] text-white' : 'bg-white/80 text-[#241e20]'}`}>{lang.toUpperCase()}</a>)}
-            <a href={`/${locale}`} className="ml-auto shrink-0 rounded-full border border-[#e7cbd5] px-3 py-2 text-xs font-semibold text-[#241e20] sm:px-4 sm:text-sm">{c.home}</a>
-          </div>
-        </div>
-      </header>
+      <SiteHeader locale={locale} path="/gallery" />
       <main className="relative z-10 mx-auto max-w-7xl px-4 pb-36 pt-9 sm:px-6 md:px-10 md:pt-14">
         <p className="text-xs font-semibold uppercase leading-6 tracking-[0.18em] text-[#93516d] sm:tracking-[0.25em]">{c.caption}</p>
         <h1 className="mt-2 font-serif text-5xl leading-tight !text-[#241e20] sm:text-6xl md:text-7xl">{c.title}</h1>

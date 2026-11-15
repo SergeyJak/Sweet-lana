@@ -26,7 +26,8 @@ it.each(['lv', 'ru', 'en'] as const)('renders %s home using shared contacts and 
   expect(html).toContain(`href="${BUSINESS.instagram}"`)
   expect(html).toContain(`href="/${locale}/cabinet/imanta"`)
   expect(html).toContain(`href="/${locale}/cabinet/center"`)
-  expect(html).toContain(`href="/${locale}/gallery"`)
+  expect(html).toContain(`href="/${locale}/cabinet/imanta#gallery"`)
+  expect(html).toContain(`href="/${locale}/cabinet/center#gallery"`)
 })
 
 it.each(['imanta', 'center'] as const)('renders %s cabinet with shared contacts and location-specific booking text', async (slug) => {

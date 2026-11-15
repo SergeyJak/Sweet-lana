@@ -7,6 +7,7 @@
 | Возможность | Код / источник |
 | --- | --- |
 | Главная на LV/RU/EN и выбор языка | `src/app/[locale]/page.tsx`, `src/proxy.ts` |
+| Общее меню, два кабинета и две ссылки на результаты | `SiteHeader.tsx`, `src/content/navigation.ts`; галереи: `/[locale]/cabinet/imanta#gallery` и `/[locale]/cabinet/center#gallery` |
 | Кабинеты Imanta и Center, услуги и WhatsApp | `src/app/[locale]/cabinet/[slug]/page.tsx` |
 | Публичная галерея с пустым состоянием | `src/app/[locale]/gallery/page.tsx` |
 | Слайдер до/после | `src/components/BeforeAfterSlider.tsx` |

@@ -1,10 +1,10 @@
+import SiteHeader from '@/components/SiteHeader'
 import GoogleReviews from '@/components/GoogleReviews'
 import CreamCarousel from '@/components/CreamCarousel'
 import type { Locale } from '@/lib/i18n'
 import { HOME_COPY } from '@/content/site'
 import { BUSINESS, buildWhatsAppUrl } from '@/lib/business'
 
-const ids = ['home', 'about', 'cabinets', 'skincare', 'contact'] as const
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: requested } = await params
@@ -17,27 +17,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <div className="absolute inset-0 bg-[url('/background.jpeg')] bg-cover bg-[position:57%_center] bg-no-repeat md:bg-center" />
         <div className="absolute inset-0 bg-white/30 md:bg-white/20" />
       </div>
-      <header className="sticky top-0 z-50 border-b border-[#f0dce4] bg-white/95 backdrop-blur-md">
-        <div className="relative mx-auto flex min-h-[72px] max-w-7xl items-center justify-between gap-2 px-4 sm:px-6 md:px-10">
-          <a href="#home" className="min-w-0 shrink-0 whitespace-nowrap font-serif text-[clamp(1.4rem,5vw,2rem)] font-semibold tracking-tight text-[#241e20]">{BUSINESS.name}<span className="text-[#d9a3b7]">.</span></a>
-          <nav aria-label={c.menu} className="hidden items-center gap-7 lg:flex">
-            {ids.map((id, i) => <a key={id} href={`#${id}`} className="text-xs font-semibold uppercase tracking-[0.12em] text-[#635657] transition hover:text-[#bc8075]">{c.nav[i]}</a>)}
-          </nav>
-          <div className="flex shrink-0 items-center gap-2 sm:gap-4">
-            <nav aria-label="Language" className="flex items-center gap-0.5 text-[11px] font-semibold tracking-wide sm:gap-1 sm:text-xs">
-              {(['ru', 'lv', 'en'] as const).map((lang) => <a key={lang} href={`/${lang}`} aria-current={lang === locale ? 'page' : undefined} className={`flex h-9 w-9 items-center justify-center rounded-full sm:h-10 sm:w-10 ${lang === locale ? 'bg-[#241e20] text-white' : 'text-[#736767] hover:bg-[#fbeef3]'}`}>{lang.toUpperCase()}</a>)}
-            </nav>
-            <details className="group lg:hidden">
-              <summary aria-label={c.menu} className="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-full border border-[#e7cbd5] text-lg text-[#241e20] [&::-webkit-details-marker]:hidden">
-                <span aria-hidden="true" className="group-open:hidden">☰</span><span aria-hidden="true" className="hidden group-open:inline">×</span>
-              </summary>
-              <nav aria-label={c.menu} className="absolute left-0 right-0 top-full flex flex-col border-b border-[#f0dce4] bg-white px-4 py-3 shadow-xl sm:left-auto sm:right-4 sm:w-72 sm:rounded-b-2xl">
-                {ids.map((id, i) => <a key={id} href={`#${id}`} className="rounded-lg px-4 py-3 text-sm font-medium hover:bg-[#fbeef3]">{c.nav[i]}</a>)}
-              </nav>
-            </details>
-          </div>
-        </div>
-      </header>
+      <SiteHeader locale={locale} />
 
       <main className="relative z-10">
         <section id="home" className="relative border-b border-[#f0dce4]/70">

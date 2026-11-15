@@ -35,7 +35,7 @@ export default function RootLayout({
         <meta name="color-scheme" content="light" />
 
       </head>
-      <body className="overflow-x-hidden font-sans antialiased">
+      <body className="font-sans antialiased">
         {children}
       </body>
     </html>
