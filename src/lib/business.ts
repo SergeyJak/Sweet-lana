@@ -1,5 +1,5 @@
 /** Shared details for the new site; unconfirmed fields stay empty. */
-export const DEFAULT_SITE_URL = 'http://localhost:3000'
+export const DEFAULT_SITE_URL = 'https://lanasweet.heysmart.lv'
 export const BUSINESS = {
   name: 'Lana Sweet Perfect',
   siteUrl: process.env.NEXT_PUBLIC_BASE_URL || DEFAULT_SITE_URL,
