@@ -1,3 +1,4 @@
+import BeforeAfterSlider from '@/components/BeforeAfterSlider'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import Link from 'next/link'
@@ -68,9 +69,20 @@ export default async function CabinetPage({ params }: { params: Promise<{ locale
             )}
           </section>
         </div>
+        <section id="gallery" aria-labelledby="cabinet-gallery-heading" className="mt-10 rounded-[2rem] border border-[#f0dce4] bg-white/90 p-6 backdrop-blur-sm md:p-10">
+          <div className="grid items-center gap-7 md:grid-cols-2">
+            <div>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#a05e78]">{office.title}</p>
+              <h2 id="cabinet-gallery-heading" className="font-serif text-4xl !text-[#241e20]">{locale === 'ru' ? 'Результаты до и после' : locale === 'lv' ? 'Rezultāti pirms un pēc' : 'Before & after results'}</h2>
+              <p className="mt-4 max-w-lg text-base leading-7 text-[#4f4148]">{locale === 'ru' ? 'Здесь появятся реальные фотографии результатов процедур именно этого кабинета.' : locale === 'lv' ? 'Šeit būs redzami īsti šī kabineta procedūru rezultātu fotoattēli.' : 'Real before-and-after photos from treatments at this location will appear here.'}</p>
+            </div>
+            <div className="mx-auto w-full max-w-[320px]">
+              <BeforeAfterSlider beforeLabel={locale === 'ru' ? 'До' : locale === 'lv' ? 'Pirms' : 'Before'} afterLabel={locale === 'ru' ? 'После' : locale === 'lv' ? 'Pēc' : 'After'} emptyLabel={locale === 'ru' ? 'Фото скоро' : locale === 'lv' ? 'Foto drīzumā' : 'Photos coming soon'} />
+            </div>
+          </div>
+        </section>
         <div className="mt-10 flex flex-wrap gap-3">
           <Link href={`/${locale}/cabinet/${slug === 'imanta' ? 'center' : 'imanta'}`} className="rounded-full border border-[#e7cbd5] bg-white/90 px-6 py-3 text-sm font-semibold text-[#241e20]">{slug === 'imanta' ? t.center.title : t.imanta.title} ↗</Link>
-          <Link href={`/${locale}/gallery`} className="rounded-full border border-[#e7cbd5] bg-white/90 px-6 py-3 text-sm font-semibold text-[#241e20]">{locale === 'ru' ? 'Галерея' : locale === 'lv' ? 'Galerija' : 'Gallery'} ↗</Link>
         </div>
       </main>
       <nav aria-label="WhatsApp and Instagram" className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-3 border-t border-[#e7cbd5] bg-white/95 p-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] shadow-lg backdrop-blur md:inset-x-auto md:bottom-6 md:right-6 md:flex md:flex-col md:rounded-2xl md:border">
