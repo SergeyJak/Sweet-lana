@@ -73,16 +73,16 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </section>
 
         <section aria-labelledby="qualifications-heading" className="relative mx-auto max-w-7xl px-5 pt-6 md:px-10 md:pt-8">
-          <a href={`/${locale}/certificates`} className="group grid overflow-hidden rounded-[1.75rem] border border-[#ead6de] bg-white/95 shadow-[0_10px_35px_rgba(63,37,48,0.06)] transition hover:-translate-y-0.5 hover:shadow-lg sm:grid-cols-[minmax(160px,0.38fr)_1fr]">
-            <div className="relative h-40 overflow-hidden bg-[#f8edf0] sm:h-full sm:min-h-[175px]">
+          <a href={`/${locale}/certificates`} className="group flex min-w-0 items-center overflow-hidden rounded-[1.75rem] border border-[#ead6de] bg-white/95 shadow-[0_10px_35px_rgba(63,37,48,0.06)] transition hover:-translate-y-0.5 hover:shadow-lg">
+            <div className="relative h-40 w-[38%] max-w-[210px] shrink-0 overflow-hidden bg-[#f8edf0] sm:h-44 sm:w-[32%]">
               <img src="/certificates-cover.webp" alt="" width="420" height="210" loading="lazy" decoding="async" className="h-full w-full object-cover" />
             </div>
-            <div className="flex items-center justify-between gap-4 p-6 sm:p-8">
+            <div className="flex min-w-0 flex-1 items-center gap-3 p-4 sm:p-8">
               <div>
                 <p className="mb-2 text-xs font-semibold uppercase tracking-[0.17em] text-[#9b627b]">{locale === 'ru' ? 'Квалификация специалиста' : locale === 'lv' ? 'Speciālistes kvalifikācija' : 'Professional qualifications'}</p>
-                <h2 id="qualifications-heading" className="font-serif text-3xl !text-[#241e20] sm:text-4xl">{locale === 'ru' ? 'Дипломы и сертификаты' : locale === 'lv' ? 'Diplomi un sertifikāti' : 'Diplomas & certificates'}</h2>
-                <p className="mt-3 text-sm leading-6 text-[#5c4e55]">{locale === 'ru' ? 'Образование, обучение и профессиональное развитие Светланы.' : locale === 'lv' ? 'Svetlanas izglītība, apmācības un profesionālā pilnveide.' : 'Svetlana’s education, training and professional development.'}</p>
-                <p className="mt-4 text-sm font-semibold text-[#8c536b]">{locale === 'ru' ? 'Посмотреть документы' : locale === 'lv' ? 'Apskatīt dokumentus' : 'View documents'} ↗</p>
+                <h2 id="qualifications-heading" className="font-serif text-[clamp(1.15rem,3.5vw,2.25rem)] leading-tight !text-[#241e20]">{locale === 'ru' ? 'Дипломы и сертификаты' : locale === 'lv' ? 'Diplomi un sertifikāti' : 'Diplomas & certificates'}</h2>
+                <p className="mt-2 hidden text-sm leading-6 text-[#5c4e55] sm:block">{locale === 'ru' ? 'Образование, обучение и профессиональное развитие Светланы.' : locale === 'lv' ? 'Svetlanas izglītība, apmācības un profesionālā pilnveide.' : 'Svetlana’s education, training and professional development.'}</p>
+                <p className="mt-3 text-xs font-semibold text-[#8c536b] sm:text-sm">{locale === 'ru' ? 'Посмотреть документы' : locale === 'lv' ? 'Apskatīt dokumentus' : 'View documents'} ↗</p>
               </div>
             </div>
           </a>
