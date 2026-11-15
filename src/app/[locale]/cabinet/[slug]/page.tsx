@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
-import { isValidLocale, type Locale } from '@/lib/i18n'
+import { getHreflangAlternates, getOpenGraphLocale, isValidLocale, type Locale } from '@/lib/i18n'
 import { CABINET_COPY } from '@/content/site'
 import { BUSINESS, buildWhatsAppUrl } from '@/lib/business'
 type Slug = 'imanta' | 'center'
@@ -19,7 +19,19 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: `${CABINET_COPY[locale][slug].title} | ${BUSINESS.name}`,
     description: CABINET_COPY[locale][slug].description,
-    robots: { index: false, follow: false },
+    alternates: {
+      canonical: `/${locale}/cabinet/${slug}`,
+      languages: getHreflangAlternates(`/cabinet/${slug}`),
+    },
+    openGraph: {
+      title: `${CABINET_COPY[locale][slug].title} | ${BUSINESS.name}`,
+      description: CABINET_COPY[locale][slug].description,
+      url: `/${locale}/cabinet/${slug}`,
+      locale: getOpenGraphLocale(locale),
+      siteName: BUSINESS.name,
+      type: 'website',
+    },
+    robots: { index: true, follow: true },
   }
 }
 
