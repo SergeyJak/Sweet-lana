@@ -45,7 +45,7 @@ export default async function CabinetPage({ params }: { params: Promise<{ locale
   const whatsapp = buildWhatsAppUrl(office.whatsapp)
   return (
     <div className="relative min-h-screen bg-white text-[#241e20]">
-      <div aria-hidden="true" className="pointer-events-none fixed inset-0 bg-[url('/background.jpeg')] bg-cover bg-center opacity-20" />
+      <div aria-hidden="true" className="pointer-events-none fixed -inset-2 bg-[url('/background.jpeg')] bg-cover bg-center opacity-20 blur-[3px]" />
       <SiteHeader locale={locale} path={`/cabinet/${slug}`} />
       <main className="relative z-10 mx-auto max-w-6xl px-5 pb-40 pt-12 sm:px-8 md:pt-20">
         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-[#93516d]">{t.locations} · {slug === 'imanta' ? '01' : '02'}</p>
