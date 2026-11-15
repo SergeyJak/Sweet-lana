@@ -1,19 +1,15 @@
 import GoogleReviews from '@/components/GoogleReviews'
-import BeforeAfterSlider from '@/components/BeforeAfterSlider'
+import CreamCarousel from '@/components/CreamCarousel'
 import type { Locale } from '@/lib/i18n'
 import { HOME_COPY } from '@/content/site'
 import { BUSINESS, buildWhatsAppUrl } from '@/lib/business'
 
-const ids = ['home', 'about', 'cabinets', 'gallery', 'contact'] as const
+const ids = ['home', 'about', 'cabinets', 'skincare', 'contact'] as const
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: requested } = await params
   const locale: Locale = requested === 'ru' || requested === 'en' ? requested : 'lv'
   const c = HOME_COPY[locale]
-  const panels = [
-    { id: 'gallery', title: c.gallery, text: c.galleryText, number: '01' },
-    { id: 'contact', title: c.contact, text: c.contactText, number: '02' },
-  ]
   return (
     <div className="relative min-h-screen bg-white text-[#241e20]">
       {/* Stable large viewport height prevents background resizing when mobile browser chrome changes. */}
@@ -25,7 +21,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <div className="relative mx-auto flex min-h-[72px] max-w-7xl items-center justify-between gap-2 px-4 sm:px-6 md:px-10">
           <a href="#home" className="min-w-0 shrink-0 whitespace-nowrap font-serif text-[clamp(1.4rem,5vw,2rem)] font-semibold tracking-tight text-[#241e20]">{BUSINESS.name}<span className="text-[#d9a3b7]">.</span></a>
           <nav aria-label={c.menu} className="hidden items-center gap-7 lg:flex">
-            {ids.map((id, i) => <a key={id} href={id === 'gallery' ? `/${locale}/gallery` : `#${id}`} className="text-xs font-semibold uppercase tracking-[0.12em] text-[#635657] transition hover:text-[#bc8075]">{c.nav[i]}</a>)}
+            {ids.map((id, i) => <a key={id} href={`#${id}`} className="text-xs font-semibold uppercase tracking-[0.12em] text-[#635657] transition hover:text-[#bc8075]">{c.nav[i]}</a>)}
           </nav>
           <div className="flex shrink-0 items-center gap-2 sm:gap-4">
             <nav aria-label="Language" className="flex items-center gap-0.5 text-[11px] font-semibold tracking-wide sm:gap-1 sm:text-xs">
@@ -101,38 +97,21 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </div>
         </section>
 
-        <section className="mx-auto grid max-w-7xl gap-5 px-5 py-10 md:grid-cols-2 md:px-10 md:py-16">
-          {panels.map((panel) => (
-            <article key={panel.id} id={panel.id} className="group relative flex min-h-64 flex-col justify-between overflow-hidden rounded-[2rem] border border-[#f0dce4] bg-white/85 backdrop-blur-sm p-8 shadow-[0_8px_35px_rgba(55,43,43,0.035)] md:p-11">
-              <div className="flex items-start justify-between">
-                <span className="text-xs font-semibold tracking-[0.3em] text-[#c5829e]">{panel.number} / 02</span>
-                <span className="text-xs text-[#a05e78]">{BUSINESS.name}</span>
-              </div>
-              <div>
-                <h2 className="mb-5 font-serif text-5xl font-medium text-[#241e20] md:text-6xl">{panel.title}</h2>
-                <p className="max-w-md text-base leading-7 text-[#4f4148]">{panel.text}</p>
-                {panel.id === 'gallery' && <a href={`/${locale}/gallery`} className="mt-6 inline-flex rounded-full bg-[#241e20] px-5 py-3 text-sm font-semibold text-white hover:bg-[#7e5267]">{c.galleryLink} ↗</a>}
-                {panel.id === 'contact' && <div className="mt-5 flex flex-wrap gap-3"><a href={`tel:${BUSINESS.phoneE164}`} className="inline-flex rounded-full border border-[#e7cbd5] bg-white/85 px-5 py-3 text-sm font-semibold text-[#241e20]">{BUSINESS.phoneDisplay}</a><a href={buildWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="inline-flex rounded-full border border-[#e7cbd5] bg-white/85 px-5 py-3 text-sm font-semibold text-[#241e20]">WhatsApp ↗</a></div>}
-                {panel.id === 'contact' && <a href={BUSINESS.instagram} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex rounded-full bg-[#241e20] px-5 py-3 text-sm font-semibold text-white hover:bg-[#7e5267]">{c.booking} ↗</a>}
-              </div>
-            </article>
-          ))}
-        </section>
-        <GoogleReviews locale={locale} />
-
-        <section aria-labelledby="before-after-heading" className="relative mx-auto max-w-7xl px-5 pb-10 md:px-10">
-          <div className="grid items-center gap-8 rounded-[2rem] border border-[#f0dce4] bg-white/90 p-6 backdrop-blur-sm md:grid-cols-2 md:p-10">
-            <div className="max-w-lg">
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-[#a05e78]">{BUSINESS.name}</p>
-              <h2 id="before-after-heading" className="font-serif text-4xl text-[#241e20] md:text-5xl">{c.gallery}</h2>
-              <p className="mt-5 text-base leading-7 text-[#4f4148]">{c.galleryText}</p>
-              <a href={`/${locale}/gallery`} className="mt-7 inline-flex rounded-full bg-[#241e20] px-6 py-3 text-sm font-semibold text-white hover:bg-[#7e5267]">{c.galleryLink} ↗</a>
-            </div>
-            <div className="mx-auto w-full max-w-sm">
-              <BeforeAfterSlider beforeLabel={locale === 'ru' ? 'До' : locale === 'lv' ? 'Pirms' : 'Before'} afterLabel={locale === 'ru' ? 'После' : locale === 'lv' ? 'Pēc' : 'After'} emptyLabel={c.galleryText} />
+        <CreamCarousel locale={locale} />
+        <section id="contact" className="relative mx-auto max-w-7xl px-5 py-10 md:px-10 md:py-16">
+          <div className="rounded-[2rem] border border-[#f0dce4] bg-white/90 p-7 backdrop-blur-sm md:p-11">
+            <h2 className="font-serif text-4xl !text-[#241e20] md:text-5xl">{c.contact}</h2>
+            <p className="mt-4 max-w-2xl text-base leading-7 text-[#4f4148]">{c.contactText}</p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a href={`tel:${BUSINESS.phoneE164}`} className="rounded-full border border-[#e7cbd5] bg-white/85 px-5 py-3 text-sm font-semibold text-[#241e20]">{BUSINESS.phoneDisplay}</a>
+              <a href={buildWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="rounded-full bg-[#241e20] px-5 py-3 text-sm font-semibold text-white">WhatsApp ↗</a>
+              <a href={BUSINESS.instagram} target="_blank" rel="noopener noreferrer" className="rounded-full border border-[#e7cbd5] bg-white/85 px-5 py-3 text-sm font-semibold text-[#241e20]">Instagram ↗</a>
             </div>
           </div>
         </section>
+        <GoogleReviews locale={locale} />
+
+
 
       </main>
       <nav aria-label="WhatsApp and Instagram" className="fixed inset-x-0 bottom-0 z-40 border-t border-[#e7cbd5] bg-white/95 px-3 pt-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] shadow-[0_-12px_35px_rgba(35,20,27,0.12)] backdrop-blur-md md:inset-x-auto md:bottom-7 md:right-7 md:flex md:flex-col md:gap-3 md:rounded-2xl md:border md:p-3">
