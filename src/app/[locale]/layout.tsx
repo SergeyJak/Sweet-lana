@@ -4,11 +4,12 @@ import type { ReactNode } from 'react'
 import { notFound } from 'next/navigation'
 import { isValidLocale } from '@/lib/i18n'
 
+// Public page metadata is defined by each page to avoid duplicated titles and URLs.
 export const metadata: Metadata = {
-  title: `${BUSINESS.name} | Косметология, Рига, Иманта`,
-  description: `${BUSINESS.name} — cosmetology in Riga, Imanta. 10 years of experience. Phone ${BUSINESS.phoneDisplay}.`,
-  robots: { index: false, follow: false },
+  title: BUSINESS.name,
+  robots: { index: true, follow: true },
 }
+
 export default async function LocaleLayout({ children, params }: {
   children: ReactNode
   params: Promise<{ locale: string }>
