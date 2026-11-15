@@ -7,6 +7,6 @@ export default function OpenGraphImage() {
   return new ImageResponse(
     <div style={{ display: 'flex', width: '100%', height: '100%', background: '#fffaf5', color: '#372b2b', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
       <div style={{ fontSize: 82, fontFamily: 'serif' }}>Lana Sweet Perfect</div>
-      <div style={{ fontSize: 26, marginTop: 20 }}>Coming soon</div>
+      <div style={{ fontSize: 26, marginTop: 20 }}>Svetlana Petrova · Cosmetology in Riga</div>
     </div>, size)
 }
