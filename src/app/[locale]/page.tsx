@@ -1,4 +1,26 @@
 import SiteHeader from '@/components/SiteHeader'
+import type { Metadata } from 'next'
+import { getHreflangAlternates, getOpenGraphLocale, isValidLocale } from '@/lib/i18n'
+
+const seo = {
+  ru: { title: 'Светлана Петрова — косметолог в Риге | Lana Sweet Perfect', description: 'Косметолог Светлана Петрова, Рига: уход за кожей в Иманте, пилинги, инъекции и аппаратная косметология в клинике Liderm. Два адреса и запись.' },
+  lv: { title: 'Svetlana Petrova — kosmetoloģe Rīgā | Lana Sweet Perfect', description: 'Kosmetoloģe Svetlana Petrova Rīgā: sejas kopšana Imantā, pīlingi un aparātu kosmetoloģija Liderm klīnikā. Divas atrašanās vietas.' },
+  en: { title: 'Svetlana Petrova — cosmetologist in Riga | Lana Sweet Perfect', description: 'Meet cosmetologist Svetlana Petrova in Riga. Skincare in Imanta and advanced aesthetic treatments at Liderm clinic. Two locations.' },
+} as const
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale: requested } = await params
+  const locale = isValidLocale(requested) ? requested : 'lv'
+  const page = seo[locale]
+  return {
+    title: page.title,
+    description: page.description,
+    alternates: { canonical: `/${locale}`, languages: getHreflangAlternates() },
+    openGraph: { title: page.title, description: page.description, url: `/${locale}`, siteName: BUSINESS.name, locale: getOpenGraphLocale(locale), type: 'website' },
+    robots: { index: true, follow: true },
+  }
+}
+
 import GoogleReviews from '@/components/GoogleReviews'
 import CreamCarousel from '@/components/CreamCarousel'
 import type { Locale } from '@/lib/i18n'
