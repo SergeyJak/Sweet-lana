@@ -68,7 +68,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#9b627b]">{BUSINESS.name}</p>
               <h2 id="about-heading" className="font-serif text-4xl !text-[#241e20] md:text-5xl">{c.about}</h2>
             </div>
-            <p className="max-w-3xl text-base leading-8 text-[#4f4148]">{c.aboutText}</p>
+            <p className="max-w-3xl whitespace-pre-line text-base leading-8 text-[#4f4148]">{c.aboutText}</p>
           </div>
         </section>
 
