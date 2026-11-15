@@ -75,7 +75,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <section aria-labelledby="qualifications-heading" className="relative mx-auto max-w-7xl px-5 pt-6 md:px-10 md:pt-8">
           <a href={`/${locale}/certificates`} className="group flex min-w-0 items-center overflow-hidden rounded-[1.75rem] border border-[#ead6de] bg-white/95 shadow-[0_10px_35px_rgba(63,37,48,0.06)] transition hover:-translate-y-0.5 hover:shadow-lg">
             <div className="relative h-40 w-[38%] max-w-[210px] shrink-0 overflow-hidden bg-[#f8edf0] sm:h-44 sm:w-[32%]">
-              <img src="/certificates-cover.webp" alt="" width="420" height="210" loading="lazy" decoding="async" className="h-full w-full object-cover" />
+              <img src="/certificates-cover.png" alt="" width="420" height="210" loading="lazy" decoding="async" className="h-full w-full object-cover" />
             </div>
             <div className="flex min-w-0 flex-1 items-center gap-3 p-4 sm:p-8">
               <div>
