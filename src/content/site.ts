@@ -3,7 +3,7 @@ import { BUSINESS } from '@/lib/business'
 // Current public content. The messages/ dictionaries are reserved for reusable sections.
 export const HOME_COPY = {
   ru: {
-    nav: ['Главная', 'О специалисте', 'Кабинеты', 'Галерея', 'Контакты'],
+    nav: ['Главная', 'О специалисте', 'Кабинеты', 'Косметика', 'Контакты'],
     eyebrow: 'Знакомство со специалистом', heroName: 'Светлана Петрова', heroRole: 'Косметолог · Медицинское образование · 10 лет практики', heroBlurb: 'Помогаю заботиться о здоровье и красоте кожи: от индивидуального ухода и пилингов до современных эстетических методик. Работаю в двух кабинетах Риги.',
     heading: BUSINESS.name,
     subtitle: 'Красота начинается с деталей.',
@@ -17,7 +17,7 @@ export const HOME_COPY = {
     reviewsTitle: 'Отзывы клиентов в Google', reviewsLink: 'Читать отзывы в Google Maps', reviewsNote: 'Рейтинг кабинета в Иманте. Данные проверены 14.11.2026.', menu: 'Меню', booking: 'Написать в Instagram', mapNote: `${BUSINESS.streetAddress}, Рига, Иманта.`, mapTitle: 'Как нас найти', call: 'Позвонить',
   },
   lv: {
-    nav: ['Sākums', 'Par speciālistu', 'Kabineti', 'Galerija', 'Kontakti'],
+    nav: ['Sākums', 'Par speciālistu', 'Kabineti', 'Kosmētika', 'Kontakti'],
     eyebrow: 'Iepazīstieties ar speciālisti', heroName: 'Svetlana Petrova', heroRole: 'Kosmetoloģe · Medicīniskā izglītība · 10 gadu pieredze', heroBlurb: 'Palīdzu rūpēties par ādas veselību un skaistumu: no individuālas kopšanas un pīlingiem līdz mūsdienīgām estētiskām metodēm. Pieņemu divās vietās Rīgā.', heading: BUSINESS.name, subtitle: 'Skaistums sākas detaļās.',
     intro: 'Divi kabineti Rīgā. Izvēlieties vietu un apskatiet tieši tur pieejamos pakalpojumus.',
     discover: 'Izvēlēties kabinetu', about: 'Par Svetlanu', aboutText: 'Svetlana Petrova ir kosmetoloģe ar medicīnisko izglītību un 10 gadu pieredzi. Specializējos plašā sejas procedūru klāstā: no klasiskām kopšanas metodēm līdz mikroadatu terapijai, mezoterapijai, ķīmiskajiem pīlingiem un sejas masāžai. Piedāvāju arī vaksāciju un šugaringu. Procedūras un mājas kopšanu pielāgoju individuāli.',
@@ -27,7 +27,7 @@ export const HOME_COPY = {
     soon: 'Drīzumā', footer: 'Kosmetoloģija · Rīga', reviewsTitle: 'Klientu atsauksmes Google', reviewsLink: 'Lasīt atsauksmes Google Maps', reviewsNote: 'Imantas kabineta vērtējums. Pārbaudīts 14.11.2026.', menu: 'Izvēlne', booking: 'Rakstīt Instagram', mapNote: `${BUSINESS.streetAddress}, Rīga, Imanta.`, mapTitle: 'Kā mūs atrast', call: 'Zvanīt',
   },
   en: {
-    nav: ['Home', 'About', 'Locations', 'Gallery', 'Contact'],
+    nav: ['Home', 'About', 'Locations', 'Skincare', 'Contact'],
     eyebrow: 'Meet your cosmetologist', heroName: 'Svetlana Petrova', heroRole: 'Cosmetologist · Medical education · 10 years of experience', heroBlurb: 'Helping you care for healthy, beautiful skin, from personalised skincare and peels to modern aesthetic treatments. Available at two locations in Riga.', heading: BUSINESS.name, subtitle: 'Beauty begins with the details.',
     intro: 'Two studios in Riga. Choose a location to see the treatments available there.',
     discover: 'Choose a location', about: 'About Svetlana', aboutText: 'Svetlana Petrova is a cosmetologist with a medical education and 10 years of experience. I specialise in a broad range of facial treatments, from traditional skincare to microneedling, mesotherapy, chemical peels and facial massage. I also offer hair removal with waxing and sugaring. Treatments and home skincare are tailored to individual needs.',
