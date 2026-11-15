@@ -32,7 +32,7 @@
 | Анимации, UI, хуки | `Reveal`, `PageTransition`, `Button`, `Card`, `FormField`, `Skeleton`, `src/hooks/` | Подключать по мере необходимости; `useLanguage` требует провайдера |
 | Секции Hero, Services, FAQ, Benefits, сравнения, карусель | `src/components/sections/`, `ProcedureCarousel.tsx` | Шаблоны с прежней специализацией: заменить демонстрационные тексты/изображения перед использованием |
 | Частные отзывы со скриншотами | `src/lib/testimonials.ts`, `src/components/reviews/`, пустые JSON-манифесты | Только новые отзывы с разрешением и обезличенные изображения; скрипт подготовки уже отсутствовал в исходном Sweet-lana |
-| Structured data и hreflang | `StructuredData.tsx`, `src/lib/seo/schema.ts`, `src/lib/i18n.ts` | Заполнить реальные данные, адаптировать схему услуг под новый бизнес; индексация пока выключена |
+| Structured data и hreflang | `StructuredData.tsx`, `src/lib/seo/schema.ts`, `src/lib/i18n.ts` | Заполнить реальные данные и адаптировать схему услуг под новый бизнес; главная и оба кабинета теперь доступны для индексации Google |
 
 ## Подключение сервисов позже
 
