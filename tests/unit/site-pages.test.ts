@@ -56,3 +56,12 @@ it('enables database gallery independently of admin and supports an independent 
   expect(storage.gallery).toHaveBeenCalledOnce()
   expect(storage.categories).toHaveBeenCalledOnce()
 })
+
+it.each(['lv', 'ru', 'en'] as const)('shows the confirmed Hanzas 18 address and map for the centre in %s', async (locale) => {
+  const html = renderToStaticMarkup(await CabinetPage({ params: Promise.resolve({ locale, slug: 'center' }) }))
+  expect(html).toContain('Hanzas iela 18')
+  expect(html).toContain('Hanzas%20iela%2018')
+  expect(html).not.toMatch(/address to be confirmed|adrese vēl tiks precizēta|адрес уточняется/i)
+  const home = renderToStaticMarkup(await Home({ params: Promise.resolve({ locale }) }))
+  expect(home).toContain('Hanzas iela 18')
+})

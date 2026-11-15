@@ -4,6 +4,8 @@ export const BUSINESS = {
   name: 'Lana Sweet Perfect',
   siteUrl: process.env.NEXT_PUBLIC_BASE_URL || DEFAULT_SITE_URL,
   streetAddress: 'Dammes iela 46A', addressLocality: 'Riga', postalCode: '', addressCountry: 'LV',
+  centerStreetAddress: 'Hanzas iela 18',
+  centerGoogleMapsEmbed: 'https://www.google.com/maps?q=Hanzas%20iela%2018%2C%20Riga%2C%20Latvia&output=embed',
   geo: { latitude: 0, longitude: 0 },
   phoneDisplay: '+371 26830682', phoneE164: '+37126830682', email: '', whatsappNumber: '37126830682',
   googleReviewsUrl: 'https://www.google.com/maps/search/?api=1&query=Sweet%20Perfect%20Kosmetologs%20Vaksacija&query_place_id=ChIJS-9SPebF7kYR7-LRQgp4ifY',
