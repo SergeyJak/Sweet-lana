@@ -72,6 +72,22 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </div>
         </section>
 
+        <section aria-labelledby="qualifications-heading" className="relative mx-auto max-w-7xl px-5 pt-6 md:px-10 md:pt-8">
+          <a href={`/${locale}/certificates`} className="group grid overflow-hidden rounded-[1.75rem] border border-[#ead6de] bg-white/95 shadow-[0_10px_35px_rgba(63,37,48,0.06)] transition hover:-translate-y-0.5 hover:shadow-lg sm:grid-cols-[minmax(160px,0.38fr)_1fr]">
+            <div className="relative h-40 overflow-hidden bg-[#f8edf0] sm:h-full sm:min-h-[175px]">
+              <img src="/certificates-cover.webp" alt="" width="420" height="210" loading="lazy" decoding="async" className="h-full w-full object-cover" />
+            </div>
+            <div className="flex items-center justify-between gap-4 p-6 sm:p-8">
+              <div>
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.17em] text-[#9b627b]">{locale === 'ru' ? 'Квалификация специалиста' : locale === 'lv' ? 'Speciālistes kvalifikācija' : 'Professional qualifications'}</p>
+                <h2 id="qualifications-heading" className="font-serif text-3xl !text-[#241e20] sm:text-4xl">{locale === 'ru' ? 'Дипломы и сертификаты' : locale === 'lv' ? 'Diplomi un sertifikāti' : 'Diplomas & certificates'}</h2>
+                <p className="mt-3 text-sm leading-6 text-[#5c4e55]">{locale === 'ru' ? 'Образование, обучение и профессиональное развитие Светланы.' : locale === 'lv' ? 'Svetlanas izglītība, apmācības un profesionālā pilnveide.' : 'Svetlana’s education, training and professional development.'}</p>
+                <p className="mt-4 text-sm font-semibold text-[#8c536b]">{locale === 'ru' ? 'Посмотреть документы' : locale === 'lv' ? 'Apskatīt dokumentus' : 'View documents'} ↗</p>
+              </div>
+            </div>
+          </a>
+        </section>
+
         <section id="cabinets" aria-labelledby="cabinets-title" className="relative mx-auto max-w-7xl px-5 pt-12 pb-8 md:px-10 md:pt-20">
           <div className="mb-8 max-w-3xl">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.26em] text-[#a05e78]">{BUSINESS.name}</p>
