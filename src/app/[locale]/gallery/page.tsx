@@ -37,7 +37,7 @@ export default async function Gallery({ params }: { params: Promise<{ locale: st
 
   return (
     <div className="sweet-gallery relative min-h-screen bg-white text-[#241e20]">
-      <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 bg-[url('/background.jpeg')] bg-cover bg-center opacity-20" />
+      <div aria-hidden="true" className="pointer-events-none fixed -inset-2 z-0 bg-[url('/background.jpeg')] bg-cover bg-center opacity-20 blur-[3px]" />
       <SiteHeader locale={locale} path="/gallery" />
       <main className="relative z-10 mx-auto max-w-7xl px-4 pb-36 pt-9 sm:px-6 md:px-10 md:pt-14">
         <p className="text-xs font-semibold uppercase leading-6 tracking-[0.18em] text-[#93516d] sm:tracking-[0.25em]">{c.caption}</p>
