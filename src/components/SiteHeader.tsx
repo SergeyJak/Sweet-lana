@@ -7,7 +7,7 @@ import { NAVIGATION_COPY } from '@/content/navigation'
 
 type Props = {
   locale: Locale
-  path?: '' | '/gallery' | '/cabinet/imanta' | '/cabinet/center'
+  path?: '' | '/gallery' | '/certificates' | '/cabinet/imanta' | '/cabinet/center'
 }
 
 export default function SiteHeader({ locale, path = '' }: Props) {
