@@ -46,14 +46,22 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
       <main className="relative z-10">
         <section id="home" className="relative border-b border-[#f0dce4]/70">
-          <div className="relative mx-auto flex min-h-[620px] max-w-7xl flex-col justify-center px-6 py-28 md:px-12">
-            <p className="mb-8 text-xs font-semibold uppercase tracking-[0.35em] text-[#a05e78]">{c.eyebrow}</p>
-            <h1 className="mb-7 max-w-5xl font-serif text-[clamp(3.1rem,12vw,10rem)] font-medium leading-[0.85] tracking-[-0.055em] text-[#241e20]">{BUSINESS.name}<span className="text-[#d9a3b7]">.</span></h1>
-            <p className="mb-5 max-w-2xl font-serif text-3xl italic text-[#7b5265] md:text-5xl">{c.subtitle}</p>
-            <p className="mb-10 max-w-lg text-base leading-8 text-[#3f3539]">{c.intro}</p>
-            <div className="flex flex-wrap items-center gap-3">
-              <a href={BUSINESS.instagram} target="_blank" rel="noopener noreferrer" className="inline-flex w-fit items-center gap-3 rounded-full bg-[#241e20] px-7 py-4 text-sm font-semibold text-white transition hover:bg-[#7e5267]">{c.booking} <span aria-hidden="true">↗</span></a>
-              <a href="#cabinets" className="inline-flex w-fit items-center gap-3 rounded-full border border-[#e7cbd5] bg-white/80 px-7 py-4 text-sm font-semibold text-[#241e20] transition hover:bg-[#fbeef3]">{c.discover} <span aria-hidden="true">↓</span></a>
+          <div className="mx-auto grid max-w-7xl items-center gap-8 px-5 pb-16 pt-9 sm:px-8 md:min-h-[660px] md:grid-cols-[1.02fr_0.98fr] md:gap-12 md:px-12 md:py-20">
+            <div className="order-2 max-w-xl md:order-1">
+              <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-[#925d71]">{c.eyebrow}</p>
+              <h1 className="font-serif text-[clamp(2.8rem,7vw,5.6rem)] font-medium leading-[1.06] tracking-[-0.04em] !text-[#241e20]">{c.heroName}</h1>
+              <p className="mt-5 max-w-lg text-sm font-semibold leading-6 text-[#8b596d] sm:text-base">{c.heroRole}</p>
+              <p className="mt-5 max-w-lg text-base leading-8 text-[#40353b]">{c.heroBlurb}</p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a href="#cabinets" className="inline-flex items-center rounded-full bg-[#241e20] px-7 py-4 text-sm font-semibold text-white transition hover:bg-[#7e5267]">{c.discover} <span aria-hidden="true" className="ml-2">↓</span></a>
+                <a href="#about" className="inline-flex items-center rounded-full border border-[#dcbac9] bg-white/90 px-7 py-4 text-sm font-semibold text-[#241e20] transition hover:bg-[#fbeef3]">{c.about} <span aria-hidden="true" className="ml-2">↗</span></a>
+              </div>
+            </div>
+            <div className="order-1 md:order-2">
+              <div className="relative mx-auto aspect-[4/4.4] max-w-[500px] overflow-hidden rounded-[2rem] border border-white/90 bg-[#f5edf0] shadow-[0_18px_55px_rgba(69,40,53,0.12)] sm:aspect-[4/4.5]">
+                <img src="/svetlana-portrait.webp" alt={c.heroName} width="600" height="600" className="h-full w-full object-cover object-center" />
+                <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#241e20]/[0.16] via-transparent to-white/[0.04]" />
+              </div>
             </div>
           </div>
         </section>
