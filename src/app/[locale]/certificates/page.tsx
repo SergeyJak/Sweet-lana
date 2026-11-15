@@ -39,7 +39,7 @@ export default async function CertificatesPage({ params }: { params: Promise<{ l
       <main className="relative z-10 mx-auto max-w-6xl px-5 pb-28 pt-10 md:px-10 md:pt-16">
         <a href={`/${locale}#about`} className="inline-flex items-center gap-2 text-sm font-semibold text-[#88556a] hover:underline">← {t.back}</a>
         <div className="mt-8 overflow-hidden rounded-[2rem] border border-[#efd9e2] bg-white/95 shadow-sm">
-          <div className="flex justify-center bg-gradient-to-r from-[#f8ecef] via-white to-[#f6e9ed]"><img src="/certificates-cover.webp" alt="" width="280" height="140" className="block h-auto w-full max-w-[560px] object-cover" /></div>
+          <div className="flex justify-center bg-gradient-to-r from-[#f8ecef] via-white to-[#f6e9ed]"><img src="/certificates-cover.webp" alt="" width="280" height="140" className="block h-auto w-full max-w-[420px] object-contain" /></div>
           <div className="p-6 sm:p-10">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#9b627b]">{t.overline}</p>
             <h1 className="mt-3 font-serif text-4xl leading-tight !text-[#241e20] sm:text-6xl">{t.title}</h1>
