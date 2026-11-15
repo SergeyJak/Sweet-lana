@@ -32,7 +32,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 <span aria-hidden="true" className="group-open:hidden">☰</span><span aria-hidden="true" className="hidden group-open:inline">×</span>
               </summary>
               <nav aria-label={c.menu} className="absolute left-0 right-0 top-full flex flex-col border-b border-[#f0dce4] bg-white px-4 py-3 shadow-xl sm:left-auto sm:right-4 sm:w-72 sm:rounded-b-2xl">
-                {ids.map((id, i) => <a key={id} href={id === 'gallery' ? `/${locale}/gallery` : `#${id}`} className="rounded-lg px-4 py-3 text-sm font-medium hover:bg-[#fbeef3]">{c.nav[i]}</a>)}
+                {ids.map((id, i) => <a key={id} href={`#${id}`} className="rounded-lg px-4 py-3 text-sm font-medium hover:bg-[#fbeef3]">{c.nav[i]}</a>)}
               </nav>
             </details>
           </div>
