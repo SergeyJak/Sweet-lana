@@ -1,3 +1,16 @@
+import type { Metadata } from 'next'
+import { getHreflangAlternates } from '@/lib/i18n'
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    robots: { index: false, follow: false },
+    alternates: isValidLocale(locale)
+      ? { canonical: `/${locale}/gallery`, languages: getHreflangAlternates('/gallery') }
+      : undefined,
+  }
+}
+
 import SiteHeader from '@/components/SiteHeader'
 import { isGalleryEnabled } from '@/lib/features'
 import { GALLERY_COPY } from '@/content/site'
