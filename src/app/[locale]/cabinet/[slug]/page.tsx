@@ -58,11 +58,7 @@ export default async function CabinetPage({ params }: { params: Promise<{ locale
           <section className="rounded-[2rem] border border-[#f0dce4] bg-white/90 p-7 backdrop-blur-sm md:p-10">
             <h2 className="font-serif text-4xl !text-[#241e20]">{t.address}</h2>
             <p className="mt-5 text-lg leading-8 text-[#4f4148]">{office.address}</p>
-            {slug === 'imanta' ? (
-              <iframe title={t.map} className="mt-6 h-72 w-full rounded-xl border border-[#f0dce4]" src={BUSINESS.googleMapsEmbed} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />
-            ) : (
-              <div className="mt-6 flex h-44 items-center justify-center rounded-xl border border-dashed border-[#e7cbd5] bg-[#fff8fb] px-6 text-center text-sm text-[#7b6770]">{office.address}</div>
-            )}
+            <iframe title={t.map} className="mt-6 h-72 w-full rounded-xl border border-[#f0dce4]" src={slug === 'imanta' ? BUSINESS.googleMapsEmbed : BUSINESS.centerGoogleMapsEmbed} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />
           </section>
         </div>
         <section id="gallery" aria-labelledby="cabinet-gallery-heading" className="mt-10 rounded-[2rem] border border-[#f0dce4] bg-white/90 p-6 backdrop-blur-sm md:p-10">

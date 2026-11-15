@@ -25,7 +25,7 @@ for (const locale of ['lv', 'ru', 'en']) {
     await expect(page.locator('iframe')).toHaveCount(1)
     await page.locator(`main a[href="/${locale}/cabinet/center"]`).last().click()
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
-    await expect(page.locator('iframe')).toHaveCount(0)
+    await expect(page.locator('iframe')).toHaveAttribute('src', /Hanzas%20iela%2018/)
     await page.locator('main a[href="#gallery"]').click()
     await expect(page).toHaveURL(new RegExp(`/${locale}/cabinet/center#gallery$`))
     await expect(page.locator('#cabinet-gallery-heading')).toBeInViewport()
