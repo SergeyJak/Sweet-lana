@@ -11,9 +11,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   const locale: Locale = requested === 'ru' || requested === 'en' ? requested : 'lv'
   const c = HOME_COPY[locale]
   const panels = [
-    { id: 'about', title: c.about, text: c.aboutText, number: '01' },
-    { id: 'gallery', title: c.gallery, text: c.galleryText, number: '02' },
-    { id: 'contact', title: c.contact, text: c.contactText, number: '03' },
+    { id: 'gallery', title: c.gallery, text: c.galleryText, number: '01' },
+    { id: 'contact', title: c.contact, text: c.contactText, number: '02' },
   ]
   return (
     <div className="relative min-h-screen bg-white text-[#241e20]">
@@ -66,6 +65,16 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </div>
         </section>
 
+        <section id="about" aria-labelledby="about-heading" className="relative mx-auto max-w-7xl px-5 pt-10 md:px-10 md:pt-16">
+          <div className="grid items-center gap-6 rounded-[2rem] border border-[#efdee5] bg-white/90 p-7 backdrop-blur-sm md:grid-cols-[0.3fr_0.7fr] md:p-12">
+            <div>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#9b627b]">{BUSINESS.name}</p>
+              <h2 id="about-heading" className="font-serif text-4xl !text-[#241e20] md:text-5xl">{c.about}</h2>
+            </div>
+            <p className="max-w-3xl text-base leading-8 text-[#4f4148]">{c.aboutText}</p>
+          </div>
+        </section>
+
         <section id="cabinets" aria-labelledby="cabinets-title" className="relative mx-auto max-w-7xl px-5 pt-12 pb-8 md:px-10 md:pt-20">
           <div className="mb-8 max-w-3xl">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.26em] text-[#a05e78]">{BUSINESS.name}</p>
@@ -92,12 +101,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </div>
         </section>
 
-        <section className="mx-auto grid max-w-7xl gap-5 px-5 py-10 md:grid-cols-3 md:px-10 md:py-16">
+        <section className="mx-auto grid max-w-7xl gap-5 px-5 py-10 md:grid-cols-2 md:px-10 md:py-16">
           {panels.map((panel) => (
             <article key={panel.id} id={panel.id} className="group relative flex min-h-64 flex-col justify-between overflow-hidden rounded-[2rem] border border-[#f0dce4] bg-white/85 backdrop-blur-sm p-8 shadow-[0_8px_35px_rgba(55,43,43,0.035)] md:p-11">
               <div className="flex items-start justify-between">
-                <span className="text-xs font-semibold tracking-[0.3em] text-[#c5829e]">{panel.number} / 03</span>
-                <span className="rounded-full bg-[#fceef4] px-4 py-2 text-xs text-[#9b627b]">{c.soon}</span>
+                <span className="text-xs font-semibold tracking-[0.3em] text-[#c5829e]">{panel.number} / 02</span>
+                <span className="text-xs text-[#a05e78]">{BUSINESS.name}</span>
               </div>
               <div>
                 <h2 className="mb-5 font-serif text-5xl font-medium text-[#241e20] md:text-6xl">{panel.title}</h2>
