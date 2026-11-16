@@ -185,6 +185,12 @@ test('contact links fit narrow screens and keep their destinations', async ({ pa
         expect(box!.height).toBeGreaterThanOrEqual(48)
       }
       expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width)
+      if (locale === 'lv' && width === 390) {
+        await page.evaluate(() => document.fonts.ready)
+        const screenshot = await card.screenshot({ type: 'jpeg', quality: 80, animations: 'disabled' })
+        await testInfo.attach('contact-mobile', { body: screenshot, contentType: 'image/jpeg' })
+        console.log('CONTACT_SCREENSHOT_BASE64:' + screenshot.toString('base64') + ':END_CONTACT_SCREENSHOT')
+      }
     }
   }
 })
