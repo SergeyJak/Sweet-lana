@@ -34,6 +34,8 @@ jobs:
         run: npm run typecheck
       - name: Current site unit tests
         run: npm run test:site
+        env:
+          NEXT_PUBLIC_BASE_URL: https://lanasweet.heysmart.lv
       - name: Reusable feature unit tests
         run: npm run test:reusable
       - name: Build

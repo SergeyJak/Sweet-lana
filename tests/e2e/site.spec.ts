@@ -162,3 +162,27 @@ test('header stays visible when navigating to the skincare section', async ({ pa
   await page.goto('/en#skincare')
   await expect.poll(async () => Math.round((await page.locator('header').boundingBox())!.y)).toBe(0)
 })
+
+test('contact links fit narrow screens and keep their destinations', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'mobile-chrome')
+  for (const locale of ['lv', 'ru', 'en']) {
+    for (const width of [320, 390]) {
+      await page.setViewportSize({ width, height: 844 })
+      await page.goto(`/${locale}#contact`)
+      const card = page.locator('#contact')
+      const links = card.locator('a')
+      await expect(links).toHaveCount(3)
+      await expect(links.nth(0)).toHaveAttribute('href', 'tel:+37126830682')
+      await expect(links.nth(1)).toHaveAttribute('href', /wa\.me/)
+      await expect(links.nth(2)).toHaveAttribute('href', /instagram\.com/)
+      for (const link of await links.all()) {
+        const box = await link.boundingBox()
+        expect(box).not.toBeNull()
+        expect(box!.x).toBeGreaterThanOrEqual(0)
+        expect(box!.x + box!.width).toBeLessThanOrEqual(width)
+        expect(box!.height).toBeGreaterThanOrEqual(48)
+      }
+      expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width)
+    }
+  }
+})
