@@ -85,10 +85,12 @@ test('optional routes remain unavailable without explicit activation', async ({ 
   }
 })
 
-test('pre-launch pages stay out of search and unsupported routes return 404', async ({ page, request }) => {
-  expect(await (await request.get('/robots.txt')).text()).toContain('Disallow: /')
+test('public pages allow search and unsupported routes return 404', async ({ page, request }) => {
+  const robots = await (await request.get('/robots.txt')).text()
+  expect(robots).toContain('Allow: /')
+  expect(robots).toContain('Disallow: /admin')
   await page.goto('/en')
-  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex, nofollow')
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'index, follow')
   expect((await request.get('/en/cabinet/unknown')).status()).toBe(404)
   expect((await request.get('/de')).status()).toBe(404)
 })
@@ -161,4 +163,34 @@ test('landscape menu scrolls above the contact bar and keeps its last link reach
 test('header stays visible when navigating to the skincare section', async ({ page }) => {
   await page.goto('/en#skincare')
   await expect.poll(async () => Math.round((await page.locator('header').boundingBox())!.y)).toBe(0)
+})
+
+test('contact links fit narrow screens and keep their destinations', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'mobile-chrome')
+  for (const locale of ['lv', 'ru', 'en']) {
+    for (const width of [320, 390]) {
+      await page.setViewportSize({ width, height: 844 })
+      await page.goto(`/${locale}#contact`)
+      const card = page.locator('#contact')
+      const links = card.locator('a')
+      await expect(links).toHaveCount(3)
+      await expect(links.nth(0)).toHaveAttribute('href', 'tel:+37126830682')
+      await expect(links.nth(1)).toHaveAttribute('href', /wa\.me/)
+      await expect(links.nth(2)).toHaveAttribute('href', /instagram\.com/)
+      for (const link of await links.all()) {
+        const box = await link.boundingBox()
+        expect(box).not.toBeNull()
+        expect(box!.x).toBeGreaterThanOrEqual(0)
+        expect(box!.x + box!.width).toBeLessThanOrEqual(width)
+        expect(box!.height).toBeGreaterThanOrEqual(48)
+      }
+      expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width)
+      if (locale === 'lv' && width === 390) {
+        await page.evaluate(() => document.fonts.ready)
+        const screenshot = await card.screenshot({ type: 'jpeg', quality: 80, animations: 'disabled' })
+        await testInfo.attach('contact-mobile', { body: screenshot, contentType: 'image/jpeg' })
+        console.log('CONTACT_SCREENSHOT_BASE64:' + screenshot.toString('base64') + ':END_CONTACT_SCREENSHOT')
+      }
+    }
+  }
 })
