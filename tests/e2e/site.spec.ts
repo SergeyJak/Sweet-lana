@@ -85,10 +85,12 @@ test('optional routes remain unavailable without explicit activation', async ({ 
   }
 })
 
-test('pre-launch pages stay out of search and unsupported routes return 404', async ({ page, request }) => {
-  expect(await (await request.get('/robots.txt')).text()).toContain('Disallow: /')
+test('public pages allow search and unsupported routes return 404', async ({ page, request }) => {
+  const robots = await (await request.get('/robots.txt')).text()
+  expect(robots).toContain('Allow: /')
+  expect(robots).toContain('Disallow: /admin')
   await page.goto('/en')
-  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex, nofollow')
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'index, follow')
   expect((await request.get('/en/cabinet/unknown')).status()).toBe(404)
   expect((await request.get('/de')).status()).toBe(404)
 })
