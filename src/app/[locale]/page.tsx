@@ -119,13 +119,18 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
         <CreamCarousel locale={locale} />
         <section id="contact" className="relative mx-auto max-w-7xl px-5 py-10 md:px-10 md:py-16">
-          <div className="rounded-[2rem] border border-[#f0dce4] bg-white/90 p-7 backdrop-blur-sm md:p-11">
-            <h2 className="font-serif text-4xl !text-[#241e20] md:text-5xl">{c.contact}</h2>
-            <p className="mt-4 max-w-2xl text-base leading-7 text-[#4f4148]">{c.contactText}</p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <a href={`tel:${BUSINESS.phoneE164}`} className="rounded-full border border-[#e7cbd5] bg-white/85 px-5 py-3 text-sm font-semibold text-[#241e20]">{BUSINESS.phoneDisplay}</a>
-              <a href={buildWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="rounded-full bg-[#241e20] px-5 py-3 text-sm font-semibold text-white">WhatsApp ↗</a>
-              <a href={BUSINESS.instagram} target="_blank" rel="noopener noreferrer" className="rounded-full border border-[#e7cbd5] bg-white/85 px-5 py-3 text-sm font-semibold text-[#241e20]">Instagram ↗</a>
+          <div className="rounded-[2rem] border border-[#f0dce4] bg-white/95 p-6 shadow-[0_8px_35px_rgba(55,43,43,0.05)] backdrop-blur-sm sm:p-8 md:flex md:items-center md:justify-between md:gap-12 md:p-11">
+            <div>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-[#a05e78]">Imanta · Centrs</p>
+              <h2 className="font-serif text-4xl !text-[#241e20] md:text-5xl">{c.contact}</h2>
+              <p className="mt-3 max-w-md text-sm leading-6 text-[#4f4148]">{locale === 'ru' ? 'При записи укажите удобный кабинет.' : locale === 'en' ? 'Please specify your preferred studio when booking.' : 'Piesakoties norādiet vēlamo kabinetu.'}</p>
+            </div>
+            <div className="mt-6 flex flex-col gap-3 md:mt-0 md:min-w-64">
+              <a href={`tel:${BUSINESS.phoneE164}`} className="flex min-h-12 items-center justify-between gap-4 rounded-2xl bg-[#f9edf2] px-5 py-3 text-sm font-semibold text-[#241e20] transition hover:bg-[#f4dce6]"><span>{BUSINESS.phoneDisplay}</span><span aria-hidden="true">↗</span></a>
+              <div className="grid grid-cols-2 gap-3">
+                <a href={buildWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="flex min-h-12 items-center justify-center rounded-full bg-[#241e20] px-3 py-3 text-sm font-semibold text-white transition hover:bg-[#7e5267]">WhatsApp ↗</a>
+                <a href={BUSINESS.instagram} target="_blank" rel="noopener noreferrer" className="flex min-h-12 items-center justify-center rounded-full border border-[#e7cbd5] bg-white px-3 py-3 text-sm font-semibold text-[#241e20] transition hover:bg-[#f9edf2]">Instagram ↗</a>
+              </div>
             </div>
           </div>
         </section>
