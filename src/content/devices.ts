@@ -289,6 +289,42 @@ export function isDeviceSlug(slug: string): slug is DeviceSlug {
 export function getDevice(slug: DeviceSlug) {
   return DEVICES.find(device => device.slug === slug)!
 }
+export const MORPHEUS_BURST_DEEP = {
+  ru: {
+    title: 'Технология Morpheus8 Burst Deep',
+    description: 'Burst Deep — насадка фракционной радиочастотной системы Morpheus8 для контролируемого воздействия и коагуляции мягких тканей на нескольких уровнях. Во время одного импульса 40 микроигл позволяют подавать биполярную радиочастотную энергию на разную глубину. Предусмотрены функции Burst и Scale.',
+    needles: '40 микроигл',
+    depth: 'Рабочая глубина: 2–7 мм',
+    profile: 'Термический профиль: +1,0 мм',
+    modes: 'Функции Burst и Scale',
+    note: 'Это технические характеристики насадки. Глубину и параметры специалист выбирает индивидуально.',
+    productAlt: 'Оборудование InMode Optimas MAX с насадками Morpheus8, фотография предоставлена Светланой',
+    treatmentAlt: 'Процедура Morpheus8: микроигольчатая радиочастотная обработка кожи',
+  },
+  lv: {
+    title: 'Morpheus8 Burst Deep tehnoloģija',
+    description: 'Burst Deep ir Morpheus8 frakcionētās radiofrekvences uzgalis kontrolētai mīksto audu apstrādei un koagulācijai vairākos dziļumos. Viena impulsa laikā 40 mikroadatas var pievadīt bipolāro radiofrekvences enerģiju dažādos dziļumos. Pieejamas Burst un Scale funkcijas.',
+    needles: '40 mikroadatas',
+    depth: 'Dziļums: 2–7 mm',
+    profile: 'Termiskais profils: +1,0 mm',
+    modes: 'Burst un Scale funkcijas',
+    note: 'Šie ir uzgaļa tehniskie parametri. Iedarbības dziļumu un procedūras iestatījumus speciālists izvēlas individuāli.',
+    productAlt: 'InMode Optimas MAX iekārta ar Morpheus8 uzgaļiem, Svetlanas iesniegtais foto',
+    treatmentAlt: 'Morpheus8 mikroadatu radiofrekvences procedūra',
+  },
+  en: {
+    title: 'Morpheus8 Burst Deep technology',
+    description: 'Burst Deep is a fractional radiofrequency tip used with Morpheus8 for controlled, multi-level soft-tissue treatment and coagulation. Its 40 microneedles can deliver bipolar RF energy at different depths during a single pulse. It includes Burst and Scale functions.',
+    needles: '40 microneedles',
+    depth: 'Depth: 2–7 mm',
+    profile: 'Thermal profile: +1.0 mm',
+    modes: 'Burst and Scale functions',
+    note: 'These are the technical specifications of the tip. A qualified practitioner selects the appropriate depth and treatment settings.',
+    productAlt: 'InMode Optimas MAX device with Morpheus8 handpieces, photo supplied by Svetlana',
+    treatmentAlt: 'Morpheus8 RF microneedling treatment in progress',
+  },
+} as const
+
 export const DEVICE_UI: Record<Locale, {concerns:string; how:string; suitable:string; book:string; back:string; seeMore:string; disclaimer:string; photo:string; listTitle:string;listIntro:string}> = {
   ru: {concerns:'Какие проблемы помогает решать',how:'Как работает',suitable:'Кому подойдёт',book:'Обсудить процедуру в WhatsApp',back:'Все аппараты Liderm Clinic',seeMore:'Подробнее о процедуре',disclaimer:'Эффект индивидуален. Подходящую процедуру и противопоказания специалист оценивает на консультации.',photo:'Иллюстративное фото модели аппарата',listTitle:'Аппаратные методики',listIntro:'Выберите аппарат, чтобы узнать, для каких задач его используют.'},
   lv: {concerns:'Kādas problēmas palīdz risināt',how:'Kā darbojas',suitable:'Kam piemērota',book:'Jautāt par procedūru WhatsApp',back:'Visas Liderm Clinic iekārtas',seeMore:'Vairāk par procedūru',disclaimer:'Rezultāti ir individuāli. Procedūras piemērotību un kontrindikācijas speciālists izvērtē konsultācijā.',photo:'Iekārtas modeļa ilustratīvs foto',listTitle:'Aparātu procedūras',listIntro:'Izvēlieties iekārtu, lai uzzinātu, kādām ādas vajadzībām to izmanto.'},
