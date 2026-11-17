@@ -49,14 +49,9 @@ export default async function DeviceDetailPage({params}: {params:Promise<Params>
 
         <div className="mt-6 grid items-start gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
           {slug === 'morpheus8' ? (
-            <div className="grid gap-4">
-              <figure className="overflow-hidden rounded-[2rem] border border-[#d9c6b4] bg-[#fffaf3] p-4 shadow-[0_12px_40px_rgba(91,61,45,0.09)] sm:p-6">
-                <img src="/devices/morpheus8-svetlana-product.webp" alt={MORPHEUS_BURST_DEEP[locale].productAlt} width={580} height={825} decoding="async" fetchPriority="high" className="mx-auto max-h-[490px] w-full object-contain" />
-              </figure>
-              <figure className="overflow-hidden rounded-[2rem] border border-[#d9c6b4] bg-[#fffaf3] p-3 shadow-[0_12px_40px_rgba(91,61,45,0.09)] sm:p-5">
-                <img src="/devices/morpheus8-svetlana-treatment.webp" alt={MORPHEUS_BURST_DEEP[locale].treatmentAlt} width={590} height={668} loading="lazy" decoding="async" className="mx-auto max-h-[450px] w-full rounded-xl object-contain" />
-              </figure>
-            </div>
+            <figure className="overflow-hidden rounded-[2rem] border border-[#d9c6b4] bg-[#fffaf3] p-4 shadow-[0_12px_40px_rgba(91,61,45,0.09)] sm:p-6">
+              <img src="/devices/morpheus8-svetlana-product.webp" alt={MORPHEUS_BURST_DEEP[locale].productAlt} width={580} height={825} decoding="async" fetchPriority="high" className="mx-auto max-h-[420px] w-full object-contain" />
+            </figure>
           ) : (
             <figure className="overflow-hidden rounded-[2rem] border border-[#d9c6b4] bg-[#fffaf3] shadow-[0_12px_40px_rgba(91,61,45,0.09)]">
               <DevicePhoto slug={device.slug} name={device.name} />
@@ -67,6 +62,11 @@ export default async function DeviceDetailPage({params}: {params:Promise<Params>
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#a06a53]">Liderm Clinic · {device.tech[locale]}</p>
             <h1 className="font-serif text-[clamp(2.6rem,7vw,4.4rem)] leading-tight !text-[#241e20]">{device.name}</h1>
             <p className="mt-5 text-base leading-8 text-[#594a41]">{info.summary}</p>
+            {slug === 'morpheus8' && (
+              <figure className="mt-6 overflow-hidden rounded-[1.6rem] border border-[#d9c6b4] bg-[#fffaf3] p-3 shadow-[0_10px_28px_rgba(91,61,45,0.06)]">
+                <img src="/devices/morpheus8-svetlana-treatment.webp" alt={MORPHEUS_BURST_DEEP[locale].treatmentAlt} width={590} height={668} loading="lazy" decoding="async" className="mx-auto max-h-[300px] w-full rounded-xl object-contain" />
+              </figure>
+            )}
             <section className="mt-7 rounded-[1.6rem] border border-[#d9c6b4] bg-[#fffaf3]/95 p-6 shadow-[0_10px_28px_rgba(91,61,45,0.06)]">
               <h2 className="font-serif text-2xl !text-[#241e20] sm:text-3xl">{ui.concerns}</h2>
               <ul className="mt-5 space-y-3">
