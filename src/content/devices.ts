@@ -52,7 +52,7 @@ export const DEVICES = [
   {
     "slug": "sylfirm-x",
     "name": "Sylfirm X",
-    "image": "https://skinclinic-yamamoto.com/images2/skin/slf0.png",
+    "image": "https://bwclinic.ru/assets/cache-images/uploaded/1744808147-ab4z7f.d6c2cf9e.png",
     "source": "https://skinclinic-yamamoto.com/sylfirm.html",
     "tech": {
       "ru": "Двухрежимный микроигольчатый RF",
@@ -98,7 +98,7 @@ export const DEVICES = [
   {
     "slug": "lumecca-peak-515",
     "name": "LUMECCA Peak 515",
-    "image": "https://miyahara-lc.jp/beauty/wp-content/uploads/2025/09/a7dc2d3fef4bc508b2a5b0b5097d6017.png",
+    "image": "https://premamedspa.com/storage/2025/04/product-lumecca-peak-ipl.png",
     "source": "https://miyahara-lc.jp/beauty/treatment/lumecca/",
     "tech": {
       "ru": "Интенсивный импульсный свет (IPL)",
@@ -144,7 +144,7 @@ export const DEVICES = [
   {
     "slug": "venus-legacy",
     "name": "Venus Legacy",
-    "image": "https://img.medicalexpo.es/images_me/photo-g/86413-17149401.jpg",
+    "image": "https://img.medicalexpo.com/images_me/photo-g/86413-17126582.jpg",
     "source": "https://www.medicalexpo.es/prod/venus-concept/product-86413-698121.html",
     "tech": {
       "ru": "Неинвазивный RF и магнитные импульсы",
@@ -190,7 +190,7 @@ export const DEVICES = [
   {
     "slug": "ultraformer-mpt",
     "name": "Ultraformer MPT",
-    "image": "https://esthergazituaga.com/img/cms/ultraformer-2.jpg",
+    "image": "https://images.squarespace-cdn.com/content/v1/608cbaaec491ae1e2f4b8ab7/e45ba436-88e3-44d1-a400-a88b56c62539/cryomed-aesthetics-ultraformer-mpt-ezgif.com-webp-to-jpg-converter.jpg?format=1500w",
     "source": "https://esthergazituaga.com/content/32-ultraformer-mpt-madrid",
     "tech": {
       "ru": "Сфокусированный ультразвук (HIFU)",
