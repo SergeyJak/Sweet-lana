@@ -42,7 +42,7 @@ export default async function DeviceDetailPage({params}: {params:Promise<Params>
 
   return (
     <div className="relative min-h-screen bg-[#f5f0e9] text-[#3d302b]">
-      <div aria-hidden="true" className="pointer-events-none fixed -inset-2 z-0 bg-[radial-gradient(ellipse_at_16%_18%,rgba(193,137,112,0.16),transparent_44%),radial-gradient(ellipse_at_90%_72%,rgba(153,114,75,0.13),transparent_46%),linear-gradient(135deg,#f8f3ed,#eee3d7)]" />
+      <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 h-[100lvh] w-full sveta-center-wallpaper" />
       <SiteHeader locale={locale} path={`/cabinet/center/device/${slug}`} />
       <main className="relative z-10 mx-auto max-w-6xl px-5 pb-40 pt-10 sm:px-8 md:pt-16">
         <Link href={`/${locale}/cabinet/center#services`} className="inline-flex min-h-12 items-center text-sm font-semibold text-[#955b49] hover:underline">← {ui.back}</Link>
