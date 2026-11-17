@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { getHreflangAlternates, getOpenGraphLocale, isValidLocale, type Locale } from '@/lib/i18n'
 import { CABINET_COPY } from '@/content/site'
 import { BUSINESS, buildWhatsAppUrl } from '@/lib/business'
+import { DEVICES } from '@/content/devices'
 type Slug = 'imanta' | 'center'
 
 function isSlug(value: string): value is Slug {
@@ -65,11 +66,25 @@ export default async function CabinetPage({ params }: { params: Promise<{ locale
           {locale === 'ru' ? 'Результаты до и после' : locale === 'lv' ? 'Rezultāti pirms un pēc' : 'Before & after results'} ↓
         </a>
         <div className="mt-12 grid gap-7 md:grid-cols-2">
-          <section className="rounded-[2rem] border border-[#f0dce4] bg-white/90 p-7 backdrop-blur-sm md:p-10">
+          <section id="services" className="scroll-mt-28 rounded-[2rem] border border-[#f0dce4] bg-white/90 p-7 backdrop-blur-sm md:p-10">
             <h2 className="font-serif text-4xl !text-[#241e20]">{t.services}</h2>
-            <ul className="mt-7 space-y-4">
-              {office.services.map(service => <li key={service} className="flex items-start gap-3 border-b border-[#f0dce4] pb-4 text-base text-[#4f4148]"><span className="text-[#be839a]">✦</span>{service}</li>)}
-            </ul>
+            {slug === 'center' ? (
+              <ul className="mt-6 space-y-1">
+                {DEVICES.map(device => (
+                  <li key={device.slug} className="border-b border-[#f0dce4] last:border-0">
+                    <Link href={`/${locale}/cabinet/center/device/${device.slug}`}
+                      className="group flex min-h-16 items-center justify-between gap-3 rounded-lg py-3 text-base text-[#4f4148] transition hover:bg-[#fdf4f7] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9b627b]">
+                      <span className="flex min-w-0 items-center gap-3"><span aria-hidden="true" className="shrink-0 text-[#be839a]">✦</span><span className="font-medium group-hover:text-[#8c506b]">{device.name}</span></span>
+                      <span aria-hidden="true" className="shrink-0 text-lg text-[#9b627b] transition group-hover:translate-x-1">↗</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <ul className="mt-7 space-y-4">
+                {office.services.map(service => <li key={service} className="flex items-start gap-3 border-b border-[#f0dce4] pb-4 text-base text-[#4f4148]"><span className="text-[#be839a]">✦</span>{service}</li>)}
+              </ul>
+            )}
             <p className="mt-5 text-sm text-[#7b6770]">{t.prices}</p>
           </section>
           <section className="rounded-[2rem] border border-[#f0dce4] bg-white/90 p-7 backdrop-blur-sm md:p-10">
