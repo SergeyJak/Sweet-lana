@@ -3,7 +3,9 @@ import { BUSINESS } from '@/lib/business'
 import { LOCALES } from '@/lib/i18n'
 
 const base = BUSINESS.siteUrl.replace(/\/$/, '')
-const paths = ['', '/cabinet/imanta', '/cabinet/center'] as const
+import { DEVICES } from '@/content/devices'
+
+const paths = ['', '/cabinet/imanta', '/cabinet/center', ...DEVICES.map(d => `/cabinet/center/device/${d.slug}`)]
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return paths.flatMap(path =>
