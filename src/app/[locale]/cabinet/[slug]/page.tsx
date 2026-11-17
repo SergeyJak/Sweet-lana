@@ -58,10 +58,6 @@ export default async function CabinetPage({ params }: { params: Promise<{ locale
         </div>
         <p className="mt-4 max-w-3xl font-serif text-2xl italic text-[#8a5e72] sm:text-3xl">{office.subtitle}</p>
         <p className="mt-6 max-w-2xl text-base leading-8 text-[#4f4148]">{office.description}</p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <a href={whatsapp} target="_blank" rel="noopener noreferrer" className="rounded-full bg-[#241e20] px-6 py-4 text-sm font-semibold text-white">{t.booking} ↗</a>
-          <a href={`tel:${BUSINESS.phoneE164}`} className="rounded-full border border-[#e7cbd5] bg-white/90 px-6 py-4 text-sm font-semibold text-[#241e20]">{BUSINESS.phoneDisplay}</a>
-        </div>
         <a href="#gallery" className="mt-6 inline-flex min-h-12 items-center rounded-full border border-[#e7cbd5] bg-white/90 px-5 py-3 text-sm font-semibold text-[#40353b]">
           {locale === 'ru' ? 'Результаты до и после' : locale === 'lv' ? 'Rezultāti pirms un pēc' : 'Before & after results'} ↓
         </a>
