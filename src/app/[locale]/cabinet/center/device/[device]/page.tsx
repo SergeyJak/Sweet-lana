@@ -5,7 +5,7 @@ import SiteHeader from '@/components/SiteHeader'
 import DevicePhoto from '@/components/DevicePhoto'
 import { BUSINESS, buildWhatsAppUrl } from '@/lib/business'
 import { CABINET_COPY } from '@/content/site'
-import { DEVICE_UI, DEVICES, getDevice, isDeviceSlug } from '@/content/devices'
+import { DEVICE_UI, DEVICES, MORPHEUS_BURST_DEEP, getDevice, isDeviceSlug } from '@/content/devices'
 import { getHreflangAlternates, getOpenGraphLocale, isValidLocale, type Locale } from '@/lib/i18n'
 
 type Params = { locale: string; device: string }
@@ -48,9 +48,20 @@ export default async function DeviceDetailPage({params}: {params:Promise<Params>
         <Link href={`/${locale}/cabinet/center#services`} className="inline-flex min-h-12 items-center text-sm font-semibold text-[#955b49] hover:underline">← {ui.back}</Link>
 
         <div className="mt-6 grid items-start gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
-          <figure className="overflow-hidden rounded-[2rem] border border-[#d9c6b4] bg-[#fffaf3] shadow-[0_12px_40px_rgba(91,61,45,0.09)]">
-            <DevicePhoto slug={device.slug} name={device.name} />
-          </figure>
+          {slug === 'morpheus8' ? (
+            <div className="grid gap-4">
+              <figure className="overflow-hidden rounded-[2rem] border border-[#d9c6b4] bg-[#fffaf3] p-4 shadow-[0_12px_40px_rgba(91,61,45,0.09)] sm:p-6">
+                <img src="/devices/morpheus8-svetlana-product.webp" alt={MORPHEUS_BURST_DEEP[locale].productAlt} width={580} height={825} decoding="async" fetchPriority="high" className="mx-auto max-h-[490px] w-full object-contain" />
+              </figure>
+              <figure className="overflow-hidden rounded-[2rem] border border-[#d9c6b4] bg-[#fffaf3] p-3 shadow-[0_12px_40px_rgba(91,61,45,0.09)] sm:p-5">
+                <img src="/devices/morpheus8-svetlana-treatment.webp" alt={MORPHEUS_BURST_DEEP[locale].treatmentAlt} width={590} height={668} loading="lazy" decoding="async" className="mx-auto max-h-[450px] w-full rounded-xl object-contain" />
+              </figure>
+            </div>
+          ) : (
+            <figure className="overflow-hidden rounded-[2rem] border border-[#d9c6b4] bg-[#fffaf3] shadow-[0_12px_40px_rgba(91,61,45,0.09)]">
+              <DevicePhoto slug={device.slug} name={device.name} />
+            </figure>
+          )}
 
           <div>
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#a06a53]">Liderm Clinic · {device.tech[locale]}</p>
@@ -74,6 +85,18 @@ export default async function DeviceDetailPage({params}: {params:Promise<Params>
                 <p className="mt-3 text-sm leading-7 text-[#594a41]">{info.suitable}</p>
               </section>
             </div>
+            {slug === 'morpheus8' && (
+              <section className="mt-7 rounded-[1.6rem] border border-[#d9c6b4] bg-[#fffaf3]/95 p-6 shadow-[0_10px_28px_rgba(91,61,45,0.06)]">
+                <h2 className="font-serif text-2xl !text-[#3d302b] sm:text-3xl">{MORPHEUS_BURST_DEEP[locale].title}</h2>
+                <p className="mt-3 text-sm leading-7 text-[#594a41]">{MORPHEUS_BURST_DEEP[locale].description}</p>
+                <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+                  {(['needles','depth','profile','modes'] as const).map(key => (
+                    <li key={key} className="rounded-xl border border-[#e3d4c5] bg-white/75 px-4 py-3 text-sm font-semibold text-[#674c3f]">{MORPHEUS_BURST_DEEP[locale][key]}</li>
+                  ))}
+                </ul>
+                <p className="mt-4 text-xs leading-6 text-[#826e60]">{MORPHEUS_BURST_DEEP[locale].note}</p>
+              </section>
+            )}
             <p className="mt-6 text-sm leading-6 text-[#826e60]">{ui.disclaimer}</p>
           </div>
         </div>
