@@ -278,6 +278,55 @@ export const DEVICES = [
         "suitable": "For people considering non-invasive light therapy, including alongside other treatments."
       }
     }
+  },
+  {
+    "slug": "lasemd-ultra",
+    "name": "LaseMD Ultra",
+    "image": "/devices/lasemd-ultra.webp",
+    "source": "https://www.cynosurelutronicemea.com/product/lasemd-ultra/",
+    "tech": {
+      "ru": "Фракционный тулиевый лазер 1927 нм",
+      "lv": "Frakcionēts tūlija lāzers 1927 nm",
+      "en": "1927 nm fractional thulium laser"
+    },
+    "text": {
+      "ru": {
+        "summary": "LaseMD Ultra от Lutronic — фракционная лазерная технология для бережного обновления кожи. Помогает улучшить её текстуру, тон и внешний вид пигментных изменений.",
+        "benefits": [
+          "Тусклый и неровный тон кожи",
+          "Следы фотоповреждения и солнечные пятна",
+          "Неровная текстура и шероховатость",
+          "Мелкие морщины и первые возрастные изменения",
+          "Некоторые виды доброкачественной пигментации"
+        ],
+        "how": "Фракционный тулиевый лазер с длиной волны 1927 нм создаёт множество контролируемых микрозон воздействия. Это стимулирует обновление поверхности кожи. Специалист подбирает параметры и последующий уход под её состояние.",
+        "suitable": "Тем, кто хочет улучшить качество кожи, выровнять тон и уменьшить видимые признаки фотоповреждения. Возможность процедуры определяется после консультации."
+      },
+      "lv": {
+        "summary": "Lutronic LaseMD Ultra ir frakcionēta lāzertehnoloģija saudzīgai ādas atjaunošanai. Tā palīdz uzlabot ādas tekstūru, toni un pigmentācijas izmaiņu izskatu.",
+        "benefits": [
+          "Blāvs un nevienmērīgs ādas tonis",
+          "Saules bojājumu pazīmes un pigmentācijas plankumi",
+          "Nevienmērīga ādas tekstūra un raupjums",
+          "Smalkas krunciņas un agrīnas novecošanas pazīmes",
+          "Atsevišķu veidu labdabīga pigmentācija"
+        ],
+        "how": "1927 nm frakcionētais tūlija lāzers rada kontrolētas mikroskopiskas iedarbības zonas, veicinot ādas virsmas atjaunošanos. Speciālists pielāgo procedūras parametrus un turpmāko kopšanu.",
+        "suitable": "Ja vēlaties atsvaidzināt ādas izskatu, izlīdzināt toni un mazināt saules iedarbības pazīmes. Procedūras piemērotību izvērtē konsultācijā."
+      },
+      "en": {
+        "summary": "Lutronic LaseMD Ultra is a fractional laser technology designed for gentle skin renewal. It may improve skin texture, tone and the appearance of pigment changes.",
+        "benefits": [
+          "Dull or uneven skin tone",
+          "Signs of sun damage and sun spots",
+          "Rough or uneven skin texture",
+          "Fine lines and early signs of ageing",
+          "Selected types of benign pigmentation"
+        ],
+        "how": "The 1927 nm fractional thulium laser creates controlled microscopic treatment zones, supporting renewal of the skin surface. Treatment settings and aftercare are tailored individually.",
+        "suitable": "For people looking to refresh their complexion, even out skin tone and reduce visible photodamage, subject to a practitioner’s assessment."
+      }
+    }
   }
 ] as const
 
