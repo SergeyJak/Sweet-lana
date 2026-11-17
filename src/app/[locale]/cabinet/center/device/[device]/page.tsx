@@ -49,7 +49,7 @@ export default async function DeviceDetailPage({params}: {params:Promise<Params>
 
         <div className="mt-6 grid items-start gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
           <figure className="overflow-hidden rounded-[2rem] border border-[#ead9df] bg-white shadow-[0_12px_40px_rgba(60,39,49,0.08)]">
-            <DevicePhoto slug={device.slug} name={device.name} src={device.image} />
+            <DevicePhoto slug={device.slug} name={device.name} />
           </figure>
 
           <div>
