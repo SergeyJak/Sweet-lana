@@ -47,7 +47,7 @@ export default async function CabinetPage({ params }: { params: Promise<{ locale
   const isCenter = slug === 'center'
   return (
     <div className={`relative min-h-screen ${isCenter ? "bg-[#f5f0e9] text-[#3d302b]" : "bg-white text-[#241e20]"}`}>
-      <div aria-hidden="true" className={isCenter ? "pointer-events-none fixed -inset-2 bg-[radial-gradient(ellipse_at_16%_18%,rgba(193,137,112,0.16),transparent_44%),radial-gradient(ellipse_at_90%_72%,rgba(153,114,75,0.13),transparent_46%),linear-gradient(135deg,#f8f3ed,#eee3d7)]" : "pointer-events-none fixed -inset-2 bg-[url('/background.jpeg')] bg-cover bg-center opacity-20 blur-[3px]"} />
+      <div aria-hidden="true" className={isCenter ? "pointer-events-none fixed inset-0 z-0 h-[100lvh] w-full sveta-center-wallpaper" : "pointer-events-none fixed -inset-2 bg-[url('/background.jpeg')] bg-cover bg-center opacity-20 blur-[3px]"} />
       <SiteHeader locale={locale} path={`/cabinet/${slug}`} />
       <main className="relative z-10 mx-auto max-w-6xl px-5 pb-40 pt-12 sm:px-8 md:pt-20">
         <p className={`mb-4 text-xs font-semibold uppercase tracking-[0.25em] ${isCenter ? "text-[#955b49]" : "text-[#93516d]"}`}>{t.locations} · {slug === 'imanta' ? '01' : '02'}</p>

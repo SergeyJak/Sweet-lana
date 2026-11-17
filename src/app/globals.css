@@ -416,3 +416,23 @@ nav {
 
 /* Keep the document width stable when a native review dialog locks scrolling. */
 html { scrollbar-gutter: stable; }
+
+/* Liderm / centre cabinet wallpaper: exact artwork from pictures.
+   100lvh keeps the mobile image stable as browser chrome collapses. */
+.sveta-center-wallpaper {
+  background-color: #f7e8df;
+  background-image:
+    linear-gradient(rgba(255, 249, 243, .12), rgba(255, 249, 243, .12)),
+    url('/_next/image?url=%2Fbackgrounds%2Fsveta-center-desktop.png&w=1920&q=75');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+@media (max-width: 767px) {
+  .sveta-center-wallpaper {
+    background-image:
+      linear-gradient(rgba(255, 249, 243, .11), rgba(255, 249, 243, .11)),
+      url('/_next/image?url=%2Fbackgrounds%2Fsveta-center-mobile.png&w=1080&q=75');
+    background-position: center center;
+  }
+}
