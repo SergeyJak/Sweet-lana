@@ -75,7 +75,6 @@ export default async function DeviceDetailPage({params}: {params:Promise<Params>
               </section>
             </div>
             <p className="mt-6 text-sm leading-6 text-[#77636e]">{ui.disclaimer}</p>
-            <a href={buildWhatsAppUrl(message)} target="_blank" rel="noopener noreferrer" className="mt-7 inline-flex min-h-14 items-center justify-center rounded-full bg-[#241e20] px-7 py-4 text-center text-sm font-semibold text-white transition hover:bg-[#7e5267]">{ui.book} ↗</a>
           </div>
         </div>
         <section className="mt-12">
