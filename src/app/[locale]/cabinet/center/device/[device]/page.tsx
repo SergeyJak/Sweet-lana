@@ -48,15 +48,13 @@ export default async function DeviceDetailPage({params}: {params:Promise<Params>
         <Link href={`/${locale}/cabinet/center#services`} className="inline-flex min-h-12 items-center text-sm font-semibold text-[#955b49] hover:underline">← {ui.back}</Link>
 
         <div className="mt-6 grid items-start gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
-          {slug === 'morpheus8' ? (
-            <figure className="overflow-hidden rounded-[2rem] border border-[#d9c6b4] bg-[#fffaf3] p-4 shadow-[0_12px_40px_rgba(91,61,45,0.09)] sm:p-6">
-              <img src="/devices/morpheus8-svetlana-product.webp" alt={MORPHEUS_BURST_DEEP[locale].productAlt} width={580} height={825} decoding="async" fetchPriority="high" className="mx-auto max-h-[420px] w-full object-contain" />
-            </figure>
-          ) : (
-            <figure className="overflow-hidden rounded-[2rem] border border-[#d9c6b4] bg-[#fffaf3] shadow-[0_12px_40px_rgba(91,61,45,0.09)]">
-              <DevicePhoto slug={device.slug} name={device.name} />
-            </figure>
-          )}
+          <figure className="w-full overflow-hidden rounded-[2rem] border border-[#d9c6b4] bg-[#fffaf3] shadow-[0_12px_40px_rgba(91,61,45,0.09)]">
+            <DevicePhoto
+              slug={device.slug}
+              name={slug === 'morpheus8' ? MORPHEUS_BURST_DEEP[locale].productAlt : device.name}
+              src={slug === 'morpheus8' ? '/devices/morpheus8-svetlana-product.webp' : undefined}
+            />
+          </figure>
 
           <div>
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#a06a53]">Liderm Clinic · {device.tech[locale]}</p>
