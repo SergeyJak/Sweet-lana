@@ -6,7 +6,7 @@ export const DEVICES = [
   {
     "slug": "morpheus8",
     "name": "Morpheus8",
-    "image": "https://www.revuclinic.lt/wp-content/uploads/2023/08/morpheus8-Revu-Clinic.png",
+    "image": "/devices/morpheus8.webp",
     "source": "https://www.revuclinic.lt/shop/morpheus8-procedura/",
     "tech": {
       "ru": "Микроигольчатый RF",
@@ -52,7 +52,7 @@ export const DEVICES = [
   {
     "slug": "sylfirm-x",
     "name": "Sylfirm X",
-    "image": "https://bwclinic.ru/assets/cache-images/uploaded/1744808147-ab4z7f.d6c2cf9e.png",
+    "image": "/devices/sylfirm-x.webp",
     "source": "https://skinclinic-yamamoto.com/sylfirm.html",
     "tech": {
       "ru": "Двухрежимный микроигольчатый RF",
@@ -98,7 +98,7 @@ export const DEVICES = [
   {
     "slug": "lumecca-peak-515",
     "name": "LUMECCA Peak 515",
-    "image": "https://premamedspa.com/storage/2025/04/product-lumecca-peak-ipl.png",
+    "image": "/devices/lumecca-peak-515.webp",
     "source": "https://miyahara-lc.jp/beauty/treatment/lumecca/",
     "tech": {
       "ru": "Интенсивный импульсный свет (IPL)",
@@ -144,7 +144,7 @@ export const DEVICES = [
   {
     "slug": "venus-legacy",
     "name": "Venus Legacy",
-    "image": "https://img.medicalexpo.com/images_me/photo-g/86413-17126582.jpg",
+    "image": "/devices/venus-legacy.webp",
     "source": "https://www.medicalexpo.es/prod/venus-concept/product-86413-698121.html",
     "tech": {
       "ru": "Неинвазивный RF и магнитные импульсы",
@@ -190,7 +190,7 @@ export const DEVICES = [
   {
     "slug": "ultraformer-mpt",
     "name": "Ultraformer MPT",
-    "image": "https://images.squarespace-cdn.com/content/v1/608cbaaec491ae1e2f4b8ab7/e45ba436-88e3-44d1-a400-a88b56c62539/cryomed-aesthetics-ultraformer-mpt-ezgif.com-webp-to-jpg-converter.jpg?format=1500w",
+    "image": "/devices/ultraformer-mpt.webp",
     "source": "https://esthergazituaga.com/content/32-ultraformer-mpt-madrid",
     "tech": {
       "ru": "Сфокусированный ультразвук (HIFU)",
@@ -236,7 +236,7 @@ export const DEVICES = [
   {
     "slug": "dermalux-tri-wave",
     "name": "Dermalux Tri-Wave",
-    "image": "https://images.squarespace-cdn.com/content/v1/67465262dee86455c1d9a90b/90a4d1c0-99aa-4051-b3ea-5399f43263ea/Tri-Wave-MD.jpeg",
+    "image": "/devices/dermalux-tri-wave.webp",
     "source": "https://www.dermaluxled.com.au/blog/which-dermalux-led-system-is-suitable-for-your-business-1",
     "tech": {
       "ru": "LED-светотерапия",
