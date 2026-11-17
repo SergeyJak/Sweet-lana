@@ -1,6 +1,8 @@
 'use client'
 
 import { useEffect, useRef, useState, type KeyboardEvent, type MouseEvent } from 'react'
+import { usePathname } from 'next/navigation'
+import { languageSwitchHref } from '@/lib/locale-route'
 import { BUSINESS } from '@/lib/business'
 import type { Locale } from '@/lib/i18n'
 import { NAVIGATION_COPY } from '@/content/navigation'
@@ -15,6 +17,8 @@ export default function SiteHeader({ locale, path = '' }: Props) {
   const mobile = useRef<HTMLDetailsElement>(null)
   const desktop = useRef<HTMLDetailsElement>(null)
   const [hash, setHash] = useState('')
+  const [search, setSearch] = useState('')
+  const pathname = usePathname()
   const home = `/${locale}`
   const locations = [
     { slug: 'imanta', name: c.imanta },
@@ -28,7 +32,10 @@ export default function SiteHeader({ locale, path = '' }: Props) {
   ]
 
   useEffect(() => {
-    const updateHash = () => setHash(window.location.hash)
+    const updateHash = () => {
+      setHash(window.location.hash)
+      setSearch(window.location.search)
+    }
     const closeOutside = (event: PointerEvent) => {
       for (const ref of [mobile, desktop]) {
         if (ref.current?.open && !ref.current.contains(event.target as Node)) {
@@ -57,7 +64,7 @@ export default function SiteHeader({ locale, path = '' }: Props) {
   const languageLinks = (mobileLayout: boolean) => (
     <nav aria-label={c.language} className={`flex items-center gap-2 ${mobileLayout ? '' : 'hidden xl:flex'}`}>
       {(['ru', 'lv', 'en'] as const).map(lang => (
-        <a key={lang} href={`/${lang}${path}${hash}`} lang={lang} hrefLang={lang}
+        <a key={lang} href={languageSwitchHref(pathname || `/${locale}${path}`, lang, search, hash)} lang={lang} hrefLang={lang}
           aria-current={lang === locale ? 'page' : undefined}
           className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-xs font-semibold ${lang === locale ? 'bg-[#241e20] text-white' : 'text-[#635657] hover:bg-[#fbeef3]'}`}>
           {lang.toUpperCase()}
