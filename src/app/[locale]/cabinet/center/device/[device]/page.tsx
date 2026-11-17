@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import SiteHeader from '@/components/SiteHeader'
+import DevicePhoto from '@/components/DevicePhoto'
 import { BUSINESS, buildWhatsAppUrl } from '@/lib/business'
 import { CABINET_COPY } from '@/content/site'
 import { DEVICE_UI, DEVICES, getDevice, isDeviceSlug } from '@/content/devices'
@@ -48,10 +49,7 @@ export default async function DeviceDetailPage({params}: {params:Promise<Params>
 
         <div className="mt-6 grid items-start gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
           <figure className="overflow-hidden rounded-[2rem] border border-[#ead9df] bg-white shadow-[0_12px_40px_rgba(60,39,49,0.08)]">
-            <div className="flex aspect-[4/3] items-center justify-center bg-gradient-to-b from-white to-[#fcf4f7] p-6 sm:p-9 lg:aspect-square">
-              <img src={device.image} alt={device.name} referrerPolicy="no-referrer" decoding="async" className="h-full w-full object-contain" />
-            </div>
-            <figcaption className="border-t border-[#f3e3ea] px-5 py-3 text-xs text-[#79636e]">{ui.photo} · <a href={device.source} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">{locale==='ru'?'Источник фото':locale==='lv'?'Foto avots':'Image source'}</a></figcaption>
+            <DevicePhoto slug={device.slug} name={device.name} src={device.image} />
           </figure>
 
           <div>
