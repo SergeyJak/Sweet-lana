@@ -106,12 +106,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 <p className="mt-7 text-sm font-semibold text-[#8e526d]">{c.choose} ↗</p>
               </div>
             </a>
-            <a href={`/${locale}/cabinet/center`} className="group flex min-h-72 flex-col justify-between rounded-[2rem] border border-[#ebd3dd] bg-[#fff7fa]/95 p-7 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-xl sm:p-10">
-              <div className="flex items-center justify-between"><span className="text-xs font-bold tracking-[0.25em] text-[#a05e78]">02</span><span className="rounded-full bg-white/90 px-4 py-2 text-xs font-semibold text-[#8e526d]">{c.centerArea} · {c.centerAddress}</span></div>
+            <a href={`/${locale}/cabinet/center`} className="group flex min-h-72 flex-col justify-between rounded-[2rem] border border-[#d7c1af] bg-[linear-gradient(145deg,#fffaf3,#eee0d1)] p-7 shadow-[0_10px_32px_rgba(92,57,40,0.08)] transition hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(92,57,40,0.14)] sm:p-10">
+              <div className="flex items-center justify-between"><span className="text-xs font-bold tracking-[0.25em] text-[#a05e78]">02</span><span className="rounded-full border border-[#dfcbb9] bg-[#fffaf3]/90 px-4 py-2 text-xs font-semibold text-[#8b604c]">{c.centerArea} · {c.centerAddress}</span></div>
               <div className="mt-10">
                 <h3 className="font-serif text-5xl !text-[#241e20]">{c.centerTitle}</h3>
                 <p className="mt-5 max-w-lg text-base leading-7 text-[#4f4148]">{c.centerDetail}</p>
-                <p className="mt-7 text-sm font-semibold text-[#8e526d]">{c.choose} ↗</p>
+                <p className="mt-7 text-sm font-semibold text-[#9d6452]">{c.choose} ↗</p>
               </div>
             </a>
           </div>
