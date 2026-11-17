@@ -41,52 +41,52 @@ export default async function DeviceDetailPage({params}: {params:Promise<Params>
      : `Hello! I would like to ask about the ${device.name} treatment at Liderm Clinic (Hanzas iela 18).`
 
   return (
-    <div className="relative min-h-screen bg-white text-[#241e20]">
-      <div aria-hidden="true" className="pointer-events-none fixed -inset-2 z-0 bg-[url('/background.jpeg')] bg-cover bg-center opacity-20 blur-[3px]" />
+    <div className="relative min-h-screen bg-[#f5f0e9] text-[#3d302b]">
+      <div aria-hidden="true" className="pointer-events-none fixed -inset-2 z-0 bg-[radial-gradient(ellipse_at_16%_18%,rgba(193,137,112,0.16),transparent_44%),radial-gradient(ellipse_at_90%_72%,rgba(153,114,75,0.13),transparent_46%),linear-gradient(135deg,#f8f3ed,#eee3d7)]" />
       <SiteHeader locale={locale} path={`/cabinet/center/device/${slug}`} />
       <main className="relative z-10 mx-auto max-w-6xl px-5 pb-40 pt-10 sm:px-8 md:pt-16">
-        <Link href={`/${locale}/cabinet/center#services`} className="inline-flex min-h-12 items-center text-sm font-semibold text-[#87566c] hover:underline">← {ui.back}</Link>
+        <Link href={`/${locale}/cabinet/center#services`} className="inline-flex min-h-12 items-center text-sm font-semibold text-[#955b49] hover:underline">← {ui.back}</Link>
 
         <div className="mt-6 grid items-start gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
-          <figure className="overflow-hidden rounded-[2rem] border border-[#ead9df] bg-white shadow-[0_12px_40px_rgba(60,39,49,0.08)]">
+          <figure className="overflow-hidden rounded-[2rem] border border-[#d9c6b4] bg-[#fffaf3] shadow-[0_12px_40px_rgba(91,61,45,0.09)]">
             <DevicePhoto slug={device.slug} name={device.name} />
           </figure>
 
           <div>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#9b627b]">Liderm Clinic · {device.tech[locale]}</p>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#a06a53]">Liderm Clinic · {device.tech[locale]}</p>
             <h1 className="font-serif text-[clamp(2.6rem,7vw,4.4rem)] leading-tight !text-[#241e20]">{device.name}</h1>
-            <p className="mt-5 text-base leading-8 text-[#4f4148]">{info.summary}</p>
-            <section className="mt-7 rounded-[1.6rem] border border-[#f0dce4] bg-white/90 p-6">
+            <p className="mt-5 text-base leading-8 text-[#594a41]">{info.summary}</p>
+            <section className="mt-7 rounded-[1.6rem] border border-[#d9c6b4] bg-[#fffaf3]/95 p-6 shadow-[0_10px_28px_rgba(91,61,45,0.06)]">
               <h2 className="font-serif text-2xl !text-[#241e20] sm:text-3xl">{ui.concerns}</h2>
               <ul className="mt-5 space-y-3">
                 {info.benefits.map(point => (
-                  <li key={point} className="flex items-start gap-3 text-base leading-6 text-[#4c3e45]"><span aria-hidden="true" className="text-[#ba8198]">✦</span><span>{point}</span></li>
+                  <li key={point} className="flex items-start gap-3 text-base leading-6 text-[#594a41]"><span aria-hidden="true" className="text-[#b37a65]">✦</span><span>{point}</span></li>
                 ))}
               </ul>
             </section>
             <div className="mt-7 grid gap-6 sm:grid-cols-2">
-              <section className="rounded-[1.4rem] bg-[#fff8fa]/95 p-5">
+              <section className="rounded-[1.4rem] border border-[#e3d4c5] bg-[#fff8f0]/95 p-5">
                 <h2 className="font-serif text-2xl !text-[#241e20]">{ui.how}</h2>
-                <p className="mt-3 text-sm leading-7 text-[#4f4148]">{info.how}</p>
+                <p className="mt-3 text-sm leading-7 text-[#594a41]">{info.how}</p>
               </section>
-              <section className="rounded-[1.4rem] bg-[#fff8fa]/95 p-5">
+              <section className="rounded-[1.4rem] border border-[#e3d4c5] bg-[#fff8f0]/95 p-5">
                 <h2 className="font-serif text-2xl !text-[#241e20]">{ui.suitable}</h2>
-                <p className="mt-3 text-sm leading-7 text-[#4f4148]">{info.suitable}</p>
+                <p className="mt-3 text-sm leading-7 text-[#594a41]">{info.suitable}</p>
               </section>
             </div>
-            <p className="mt-6 text-sm leading-6 text-[#77636e]">{ui.disclaimer}</p>
+            <p className="mt-6 text-sm leading-6 text-[#826e60]">{ui.disclaimer}</p>
           </div>
         </div>
         <section className="mt-12">
           <h2 className="font-serif text-3xl !text-[#241e20]">{ui.listTitle}</h2>
           <div className="mt-5 flex flex-wrap gap-3">
-            {DEVICES.filter(item => item.slug !== slug).map(item => <Link key={item.slug} href={`/${locale}/cabinet/center/device/${item.slug}`} className="rounded-full border border-[#e7cbd5] bg-white/90 px-5 py-3 text-sm font-semibold text-[#573f4b] hover:bg-[#fcecf3]">{item.name} ↗</Link>)}
+            {DEVICES.filter(item => item.slug !== slug).map(item => <Link key={item.slug} href={`/${locale}/cabinet/center/device/${item.slug}`} className="rounded-full border border-[#d9c4b1] bg-[#fffaf3]/95 px-5 py-3 text-sm font-semibold text-[#795344] hover:bg-[#f1e3d5]">{item.name} ↗</Link>)}
           </div>
         </section>
       </main>
-      <nav aria-label="WhatsApp and Instagram" className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-3 border-t border-[#e7cbd5] bg-white/95 p-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] shadow-lg backdrop-blur md:inset-x-auto md:bottom-6 md:right-6 md:flex md:flex-col md:rounded-2xl md:border">
+      <nav aria-label="WhatsApp and Instagram" className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-3 border-t border-[#dac9b8] bg-[#fffaf4]/95 p-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] shadow-lg backdrop-blur md:inset-x-auto md:bottom-6 md:right-6 md:flex md:flex-col md:rounded-2xl md:border">
         <a href={buildWhatsAppUrl(message)} target="_blank" rel="noopener noreferrer" className="rounded-full bg-[#241e20] px-6 py-3 text-center text-sm font-semibold text-white">WhatsApp</a>
-        <a href={BUSINESS.instagram} target="_blank" rel="noopener noreferrer" className="rounded-full border border-[#d9a3b7] bg-[#fceef4] px-6 py-3 text-center text-sm font-semibold text-[#241e20]">Instagram</a>
+        <a href={BUSINESS.instagram} target="_blank" rel="noopener noreferrer" className="rounded-full border border-[#c9a994] bg-[#f1dfd1] px-6 py-3 text-center text-sm font-semibold text-[#553b30]">Instagram</a>
       </nav>
     </div>
   )
