@@ -27,9 +27,8 @@ const products = [
   {
     slug: 'lumecca-peak-515',
     urls: [
-      'https://image.clinic.beauty.hotpepper.jp/public-image/H000532405/36d7f4ad-4108-47c6-b84f-337235035dfc.jpg?h=440&impolicy=clinic01&w=780',
-      'https://premamedspa.com/storage/2025/04/product-lumecca-peak-ipl.png',
-      'https://image.clinic.beauty.hotpepper.jp/public-image/H000720370/53c12492-e9de-4d9e-adfb-9cd6536fb731.jpg?h=400&impolicy=clinic01&w=710',
+      'https://www.lascos.com.ua/image/cache/inmode/optimas/lumeca_peak_lightoption4-900x900.png',
+      'https://www.lascos.com.ua/image/cache/inmode/optimas/lumeca_peak_lightoption4-700x700.png',
     ],
   },
   {
