@@ -70,7 +70,7 @@ export default async function CabinetPage({ params }: { params: Promise<{ locale
             <div className="mx-auto w-full max-w-[250px] sm:max-w-[320px] lg:max-w-[370px]">
               <Image
                 src="/liderm-clinic-reception.jpg"
-                alt={locale === 'ru' ? 'Ресепшен клиники Liderm, Hanzas iela 18, Рига' : locale === 'lv' ? 'Liderm klīnikas reģistratūra, Hanzas iela 18, Rīga' : 'Reception area at Liderm Clinic, Hanzas iela 18, Riga'}
+                alt={locale === 'ru' ? 'Ресепшен Liderm, Hanzas iela 18, Рига' : locale === 'lv' ? 'Liderm reģistratūra, Hanzas iela 18, Rīga' : 'Reception area at Liderm, Hanzas iela 18, Riga'}
                 width={880}
                 height={1564}
                 sizes="(min-width: 1024px) 370px, (min-width: 640px) 320px, 250px"
