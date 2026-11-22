@@ -1,4 +1,5 @@
 import SiteHeader from '@/components/SiteHeader'
+import Image from 'next/image'
 import type { Metadata } from 'next'
 import { getHreflangAlternates, getOpenGraphLocale, isValidLocale } from '@/lib/i18n'
 
@@ -106,9 +107,13 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 <p className="mt-7 text-sm font-semibold text-[#8e526d]">{c.choose} ↗</p>
               </div>
             </a>
-            <a href={`/${locale}/cabinet/center`} className="group flex min-h-72 flex-col justify-between rounded-[2rem] border border-[#d7c1af] bg-[linear-gradient(145deg,#fffaf3,#eee0d1)] p-7 shadow-[0_10px_32px_rgba(92,57,40,0.08)] transition hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(92,57,40,0.14)] sm:p-10">
-              <div className="flex items-center justify-between"><span className="text-xs font-bold tracking-[0.25em] text-[#a05e78]">02</span><span className="rounded-full border border-[#dfcbb9] bg-[#fffaf3]/90 px-4 py-2 text-xs font-semibold text-[#8b604c]">{c.centerArea} · {c.centerAddress}</span></div>
-              <div className="mt-10">
+            <a href={`/${locale}/cabinet/center`} className="group relative isolate flex min-h-72 flex-col justify-between overflow-hidden rounded-[2rem] border border-[#d7c1af] bg-[#f3e6da] p-7 shadow-[0_10px_32px_rgba(92,57,40,0.08)] transition hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(92,57,40,0.14)] sm:p-10">
+              <span aria-hidden="true" className="pointer-events-none absolute inset-0 block overflow-hidden">
+                <Image src="/liderm-clinic-reception.jpg" alt="" fill sizes="(min-width: 768px) 50vw, 100vw" className="scale-110 object-cover object-center blur-[6px]" />
+                <span className="absolute inset-0 block bg-[linear-gradient(145deg,rgba(255,250,243,0.78),rgba(245,232,216,0.73))]" />
+              </span>
+              <div className="relative z-10 flex items-center justify-between"><span className="text-xs font-bold tracking-[0.25em] text-[#a05e78]">02</span><span className="rounded-full border border-[#dfcbb9] bg-[#fffaf3]/90 px-4 py-2 text-xs font-semibold text-[#8b604c]">{c.centerArea} · {c.centerAddress}</span></div>
+              <div className="relative z-10 mt-10">
                 <h3 className="font-serif text-5xl !text-[#241e20]">{c.centerTitle}</h3>
                 <p className="mt-5 max-w-lg text-base leading-7 text-[#4f4148]">{c.centerDetail}</p>
                 <p className="mt-7 text-sm font-semibold text-[#9d6452]">{c.choose} ↗</p>
