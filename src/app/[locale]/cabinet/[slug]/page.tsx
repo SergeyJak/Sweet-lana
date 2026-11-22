@@ -3,6 +3,7 @@ import BeforeAfterSlider from '@/components/BeforeAfterSlider'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 
 import { getHreflangAlternates, getOpenGraphLocale, isValidLocale, type Locale } from '@/lib/i18n'
 import { CABINET_COPY } from '@/content/site'
@@ -50,6 +51,8 @@ export default async function CabinetPage({ params }: { params: Promise<{ locale
       <div aria-hidden="true" className={isCenter ? "pointer-events-none fixed inset-0 z-0 h-[100lvh] w-full sveta-center-wallpaper" : "pointer-events-none fixed -inset-2 bg-[url('/background.jpeg')] bg-cover bg-center opacity-20 blur-[3px]"} />
       <SiteHeader locale={locale} path={`/cabinet/${slug}`} />
       <main className="relative z-10 mx-auto max-w-6xl px-5 pb-40 pt-12 sm:px-8 md:pt-20">
+        <div className={isCenter ? "grid items-center gap-8 md:grid-cols-[1fr_0.85fr] md:gap-12" : ""}>
+          <div>
         <p className={`mb-4 text-xs font-semibold uppercase tracking-[0.25em] ${isCenter ? "text-[#955b49]" : "text-[#93516d]"}`}>{t.locations} · {slug === 'imanta' ? '01' : '02'}</p>
         <div className="flex flex-wrap items-center gap-5 sm:gap-7">
           {slug === 'imanta' && (
@@ -62,6 +65,21 @@ export default async function CabinetPage({ params }: { params: Promise<{ locale
         <a href="#gallery" className={`mt-6 inline-flex min-h-12 items-center rounded-full border px-5 py-3 text-sm font-semibold ${isCenter ? "border-[#d9c4b1] bg-[#fffaf3]/95 text-[#795344] hover:bg-[#f1e3d5]" : "border-[#e7cbd5] bg-white/90 text-[#40353b]"}`}>
           {locale === 'ru' ? 'Результаты до и после' : locale === 'lv' ? 'Rezultāti pirms un pēc' : 'Before & after results'} ↓
         </a>
+          </div>
+          {isCenter && (
+            <div className="mx-auto w-full max-w-[370px]">
+              <Image
+                src="/liderm-clinic-reception.jpg"
+                alt={locale === 'ru' ? 'Ресепшен клиники Liderm, Hanzas iela 18, Рига' : locale === 'lv' ? 'Liderm klīnikas reģistratūra, Hanzas iela 18, Rīga' : 'Reception area at Liderm Clinic, Hanzas iela 18, Riga'}
+                width={880}
+                height={1564}
+                sizes="(min-width: 768px) 370px, (min-width: 400px) 370px, calc(100vw - 40px)"
+                priority
+                className="block h-auto w-full rounded-[2rem] border border-white/90 shadow-[0_18px_55px_rgba(69,40,53,0.12)]"
+              />
+            </div>
+          )}
+        </div>
         <div className="mt-12 grid gap-7 md:grid-cols-2">
           <section id="services" className={`scroll-mt-28 rounded-[2rem] border p-7 backdrop-blur-sm md:p-10 ${isCenter ? "border-[#d9c6b4] bg-[#fffaf3]/95 shadow-[0_14px_36px_rgba(91,61,45,0.07)]" : "border-[#f0dce4] bg-white/90"}`}>
             <h2 className="font-serif text-4xl !text-[#241e20]">{t.services}</h2>
