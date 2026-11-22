@@ -67,13 +67,13 @@ export default async function CabinetPage({ params }: { params: Promise<{ locale
         </a>
           </div>
           {isCenter && (
-            <div className="mx-auto w-full max-w-[370px]">
+            <div className="mx-auto w-full max-w-[250px] sm:max-w-[320px] lg:max-w-[370px]">
               <Image
                 src="/liderm-clinic-reception.jpg"
                 alt={locale === 'ru' ? 'Ресепшен клиники Liderm, Hanzas iela 18, Рига' : locale === 'lv' ? 'Liderm klīnikas reģistratūra, Hanzas iela 18, Rīga' : 'Reception area at Liderm Clinic, Hanzas iela 18, Riga'}
                 width={880}
                 height={1564}
-                sizes="(min-width: 768px) 370px, (min-width: 400px) 370px, calc(100vw - 40px)"
+                sizes="(min-width: 1024px) 370px, (min-width: 640px) 320px, 250px"
                 priority
                 className="block h-auto w-full rounded-[2rem] border border-white/90 shadow-[0_18px_55px_rgba(69,40,53,0.12)]"
               />
