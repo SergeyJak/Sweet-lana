@@ -68,7 +68,7 @@ export default async function CabinetPage({ params }: { params: Promise<{ locale
           </div>
           <div className="mx-auto w-full max-w-[250px] sm:max-w-[320px] lg:max-w-[370px]">
             <Image
-              src={isCenter ? '/liderm-clinic-reception.jpg' : '/sweet-perfect-interior.png'}
+              src={isCenter ? '/liderm-clinic-reception.jpg' : '/sweet-perfect-vanity.webp'}
               alt={isCenter
                 ? (locale === 'ru' ? 'Ресепшен Liderm, Hanzas iela 18, Рига' : locale === 'lv' ? 'Liderm reģistratūra, Hanzas iela 18, Rīga' : 'Reception area at Liderm, Hanzas iela 18, Riga')
                 : (locale === 'ru' ? 'Интерьер кабинета Sweet Perfect, Dammes iela 46A, Рига' : locale === 'lv' ? 'Sweet Perfect kabineta interjers, Dammes iela 46A, Rīga' : 'Sweet Perfect studio interior, Dammes iela 46A, Riga')}
