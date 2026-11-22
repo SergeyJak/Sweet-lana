@@ -109,8 +109,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </a>
             <a href={`/${locale}/cabinet/center`} className="group relative isolate flex min-h-72 flex-col justify-between overflow-hidden rounded-[2rem] border border-[#d7c1af] bg-[#f3e6da] p-7 shadow-[0_10px_32px_rgba(92,57,40,0.08)] transition hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(92,57,40,0.14)] sm:p-10">
               <span aria-hidden="true" className="pointer-events-none absolute inset-0 block overflow-hidden">
-                <Image src="/liderm-clinic-reception.jpg" alt="" fill sizes="(min-width: 768px) 50vw, 100vw" className="scale-110 object-cover object-center blur-[6px]" />
-                <span className="absolute inset-0 block bg-[linear-gradient(145deg,rgba(255,250,243,0.78),rgba(245,232,216,0.73))]" />
+                <Image src="/liderm-clinic-reception.jpg" alt="" fill sizes="(min-width: 768px) 50vw, 100vw" className="scale-110 object-cover object-center blur-[2px]" />
+                <span className="absolute inset-0 block bg-[linear-gradient(145deg,rgba(255,250,243,0.62),rgba(245,232,216,0.65))]" />
               </span>
               <div className="relative z-10 flex items-center justify-between"><span className="text-xs font-bold tracking-[0.25em] text-[#a05e78]">02</span><span className="rounded-full border border-[#dfcbb9] bg-[#fffaf3]/90 px-4 py-2 text-xs font-semibold text-[#8b604c]">{c.centerArea} · {c.centerAddress}</span></div>
               <div className="relative z-10 mt-10">
