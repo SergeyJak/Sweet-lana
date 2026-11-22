@@ -40,11 +40,12 @@ it.each(['imanta', 'center'] as const)('renders %s cabinet with shared contacts 
 it('uses the real Liderm reception photo inside the home card and as a clear clinic portrait', async () => {
   const home = renderToStaticMarkup(await Home({ params: Promise.resolve({ locale: 'en' }) }))
   expect(home).toContain('liderm-clinic-reception.jpg')
-  expect(home).toContain('blur-[6px]')
+  expect(home).toContain('blur-[2px]')
 
   const center = renderToStaticMarkup(await CabinetPage({ params: Promise.resolve({ locale: 'en', slug: 'center' }) }))
   expect(center).toContain('liderm-clinic-reception.jpg')
   expect(center).toContain('Reception area at Liderm Clinic')
+  expect(center).toContain('max-w-[250px] sm:max-w-[320px] lg:max-w-[370px]')
 
   const imanta = renderToStaticMarkup(await CabinetPage({ params: Promise.resolve({ locale: 'en', slug: 'imanta' }) }))
   expect(imanta).not.toContain('liderm-clinic-reception.jpg')
