@@ -47,7 +47,7 @@ it.each(['lv', 'ru', 'en'] as const)('shows a readable Sweet Perfect room photo 
 
 it.each(['lv', 'ru', 'en'] as const)('shows the Sweet Perfect studio photo as an unblurred hero on the Imanta location page in %s', async (locale) => {
   const html = renderToStaticMarkup(await CabinetPage({ params: Promise.resolve({ locale, slug: 'imanta' }) }))
-  expect(html).toContain('sweet-perfect-vanity.webp')
+  expect(html).toContain('sweet-perfect-vanity-gray-pink.webp')
   expect(html).toContain('max-w-[250px] sm:max-w-[320px] lg:max-w-[370px]')
   expect(html).toContain('rounded-[2rem]')
   expect(html).not.toContain('liderm-clinic-reception.jpg')
