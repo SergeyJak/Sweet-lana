@@ -35,10 +35,10 @@ export default async function DeviceDetailPage({params}: {params:Promise<Params>
   const info=device.text[locale]
   const ui=DEVICE_UI[locale]
   const message=locale==='lv'
-     ? `Labdien! Vēlos konsultāciju par ${device.name} procedūru Liderm Clinic (Hanzas iela 18).`
+     ? `Labdien! Vēlos konsultāciju par ${device.name} procedūru Liderm (Hanzas iela 18).`
      : locale==='ru'
-     ? `Здравствуйте! Хочу проконсультироваться по процедуре ${device.name} в Liderm Clinic (Hanzas iela 18).`
-     : `Hello! I would like to ask about the ${device.name} treatment at Liderm Clinic (Hanzas iela 18).`
+     ? `Здравствуйте! Хочу проконсультироваться по процедуре ${device.name} в Liderm (Hanzas iela 18).`
+     : `Hello! I would like to ask about the ${device.name} treatment at Liderm (Hanzas iela 18).`
 
   return (
     <div className="relative min-h-screen bg-[#f5f0e9] text-[#3d302b]">
@@ -57,7 +57,7 @@ export default async function DeviceDetailPage({params}: {params:Promise<Params>
           </figure>
 
           <div>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#a06a53]">Liderm Clinic · {device.tech[locale]}</p>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#a06a53]">Liderm · {device.tech[locale]}</p>
             <h1 className="font-serif text-[clamp(2.6rem,7vw,4.4rem)] leading-tight !text-[#241e20]">{device.name}</h1>
             <p className="mt-5 text-base leading-8 text-[#594a41]">{info.summary}</p>
             {slug === 'morpheus8' && (
