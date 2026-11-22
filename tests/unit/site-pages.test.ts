@@ -37,6 +37,19 @@ it.each(['imanta', 'center'] as const)('renders %s cabinet with shared contacts 
   expect(html).toContain(slug === 'imanta' ? 'Imanta%20studio' : 'City%20Centre%20studio')
 })
 
+it('uses the real Liderm reception photo inside the home card and as a clear clinic portrait', async () => {
+  const home = renderToStaticMarkup(await Home({ params: Promise.resolve({ locale: 'en' }) }))
+  expect(home).toContain('liderm-clinic-reception.jpg')
+  expect(home).toContain('blur-[6px]')
+
+  const center = renderToStaticMarkup(await CabinetPage({ params: Promise.resolve({ locale: 'en', slug: 'center' }) }))
+  expect(center).toContain('liderm-clinic-reception.jpg')
+  expect(center).toContain('Reception area at Liderm Clinic')
+
+  const imanta = renderToStaticMarkup(await CabinetPage({ params: Promise.resolve({ locale: 'en', slug: 'imanta' }) }))
+  expect(imanta).not.toContain('liderm-clinic-reception.jpg')
+})
+
 it('does not contact storage when the public gallery is disabled even with a database URI', async () => {
   vi.stubEnv('ENABLE_PUBLIC_GALLERY', '')
   vi.stubEnv('MONGODB_URI', 'mongodb://unused.invalid')
