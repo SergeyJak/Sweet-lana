@@ -51,7 +51,7 @@ export default async function CabinetPage({ params }: { params: Promise<{ locale
       <div aria-hidden="true" className={isCenter ? "pointer-events-none fixed inset-0 z-0 h-[100lvh] w-full sveta-center-wallpaper" : "pointer-events-none fixed -inset-2 bg-[url('/background.jpeg')] bg-cover bg-center opacity-20 blur-[3px]"} />
       <SiteHeader locale={locale} path={`/cabinet/${slug}`} />
       <main className="relative z-10 mx-auto max-w-6xl px-5 pb-40 pt-12 sm:px-8 md:pt-20">
-        <div className={isCenter ? "grid items-center gap-8 md:grid-cols-[1fr_0.85fr] md:gap-12" : ""}>
+        <div className="grid items-center gap-8 md:grid-cols-[1fr_0.85fr] md:gap-12">
           <div>
         <p className={`mb-4 text-xs font-semibold uppercase tracking-[0.25em] ${isCenter ? "text-[#955b49]" : "text-[#93516d]"}`}>{t.locations} · {slug === 'imanta' ? '01' : '02'}</p>
         <div className="flex flex-wrap items-center gap-5 sm:gap-7">
@@ -66,19 +66,19 @@ export default async function CabinetPage({ params }: { params: Promise<{ locale
           {locale === 'ru' ? 'Результаты до и после' : locale === 'lv' ? 'Rezultāti pirms un pēc' : 'Before & after results'} ↓
         </a>
           </div>
-          {isCenter && (
-            <div className="mx-auto w-full max-w-[250px] sm:max-w-[320px] lg:max-w-[370px]">
-              <Image
-                src="/liderm-clinic-reception.jpg"
-                alt={locale === 'ru' ? 'Ресепшен Liderm, Hanzas iela 18, Рига' : locale === 'lv' ? 'Liderm reģistratūra, Hanzas iela 18, Rīga' : 'Reception area at Liderm, Hanzas iela 18, Riga'}
-                width={880}
-                height={1564}
-                sizes="(min-width: 1024px) 370px, (min-width: 640px) 320px, 250px"
-                priority
-                className="block h-auto w-full rounded-[2rem] border border-white/90 shadow-[0_18px_55px_rgba(69,40,53,0.12)]"
-              />
-            </div>
-          )}
+          <div className="mx-auto w-full max-w-[250px] sm:max-w-[320px] lg:max-w-[370px]">
+            <Image
+              src={isCenter ? '/liderm-clinic-reception.jpg' : '/sweet-perfect-interior.png'}
+              alt={isCenter
+                ? (locale === 'ru' ? 'Ресепшен Liderm, Hanzas iela 18, Рига' : locale === 'lv' ? 'Liderm reģistratūra, Hanzas iela 18, Rīga' : 'Reception area at Liderm, Hanzas iela 18, Riga')
+                : (locale === 'ru' ? 'Интерьер кабинета Sweet Perfect, Dammes iela 46A, Рига' : locale === 'lv' ? 'Sweet Perfect kabineta interjers, Dammes iela 46A, Rīga' : 'Sweet Perfect studio interior, Dammes iela 46A, Riga')}
+              width={isCenter ? 880 : 1122}
+              height={isCenter ? 1564 : 1402}
+              sizes="(min-width: 1024px) 370px, (min-width: 640px) 320px, 250px"
+              priority
+              className="block h-auto w-full rounded-[2rem] border border-white/90 shadow-[0_18px_55px_rgba(69,40,53,0.12)]"
+            />
+          </div>
         </div>
         <div className="mt-12 grid gap-7 md:grid-cols-2">
           <section id="services" className={`scroll-mt-28 rounded-[2rem] border p-7 backdrop-blur-sm md:p-10 ${isCenter ? "border-[#d9c6b4] bg-[#fffaf3]/95 shadow-[0_14px_36px_rgba(91,61,45,0.07)]" : "border-[#f0dce4] bg-white/90"}`}>
