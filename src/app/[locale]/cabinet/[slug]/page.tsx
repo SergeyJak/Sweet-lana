@@ -106,6 +106,11 @@ export default async function CabinetPage({ params }: { params: Promise<{ locale
             <h2 className="font-serif text-4xl !text-[#241e20]">{t.address}</h2>
             <p className={`mt-5 text-lg leading-8 ${isCenter ? "text-[#594a41]" : "text-[#4f4148]"}`}>{office.address}</p>
             <iframe title={t.map} className={`mt-6 h-72 w-full rounded-xl border ${isCenter ? "border-[#d9c6b4]" : "border-[#f0dce4]"}`} src={slug === 'imanta' ? BUSINESS.googleMapsEmbed : BUSINESS.centerGoogleMapsEmbed} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />
+            {slug === 'imanta' && (
+              <a href={BUSINESS.googleMapsDirections} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex min-h-12 items-center rounded-full border border-[#e7cbd5] bg-white/95 px-5 py-3 text-sm font-semibold text-[#8e526d] transition hover:bg-[#f9edf2]">
+                {locale === 'ru' ? 'Sweet Perfect в Google Картах' : locale === 'lv' ? 'Sweet Perfect Google kartēs' : 'Sweet Perfect on Google Maps'} <span aria-hidden="true" className="ml-2">↗</span>
+              </a>
+            )}
           </section>
         </div>
         <section id="gallery" aria-labelledby="cabinet-gallery-heading" className={`mt-10 rounded-[2rem] border p-6 backdrop-blur-sm md:p-10 ${isCenter ? "border-[#d9c6b4] bg-[#fffaf3]/95 shadow-[0_14px_36px_rgba(91,61,45,0.07)]" : "border-[#f0dce4] bg-white/90"}`}>

@@ -71,6 +71,15 @@ it('enables database gallery independently of admin and supports an independent 
   expect(storage.categories).toHaveBeenCalledOnce()
 })
 
+it.each(['lv', 'ru', 'en'] as const)('points the Imanta map to the Sweet Perfect business rather than just the street address in %s', async (locale) => {
+  const html = renderToStaticMarkup(await CabinetPage({ params: Promise.resolve({ locale, slug: 'imanta' }) }))
+  const mapUrl = new URL(BUSINESS.googleMapsEmbed)
+  expect(mapUrl.searchParams.get('q')).toBe('Sweet Perfect - Kosmetologs | Vaksācija, Dammes iela 46A, Rīga, Latvia')
+  expect(html).toContain('Sweet%20Perfect%20-%20Kosmetologs%20%7C%20Vaks%C4%81cija')
+  expect(html).toContain('query_place_id=ChIJS-9SPebF7kYR7-LRQgp4ifY')
+  expect(BUSINESS.googleMapsDirections).toBe(BUSINESS.googleReviewsUrl)
+})
+
 it.each(['lv', 'ru', 'en'] as const)('shows the confirmed Hanzas 18 address and map for the centre in %s', async (locale) => {
   const html = renderToStaticMarkup(await CabinetPage({ params: Promise.resolve({ locale, slug: 'center' }) }))
   expect(html).toContain('Hanzas iela 18')
