@@ -37,6 +37,14 @@ it.each(['imanta', 'center'] as const)('renders %s cabinet with shared contacts 
   expect(html).toContain(slug === 'imanta' ? 'Imanta%20studio' : 'City%20Centre%20studio')
 })
 
+it.each(['lv', 'ru', 'en'] as const)('shows a readable Sweet Perfect room photo inside the first card for %s', async (locale) => {
+  const home = renderToStaticMarkup(await Home({ params: Promise.resolve({ locale }) }))
+  expect(home).toContain('sweet-perfect-room.webp')
+  expect(home).toContain('blur-[2px]')
+  expect(home).toContain('sweet-perfect-logo.webp')
+  expect(home).toContain('rgba(255,250,253,0.68)')
+})
+
 it('uses the real Liderm reception photo inside the home card and as a clear clinic portrait', async () => {
   const home = renderToStaticMarkup(await Home({ params: Promise.resolve({ locale: 'en' }) }))
   expect(home).toContain('liderm-clinic-reception.jpg')
