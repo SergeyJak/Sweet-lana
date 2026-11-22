@@ -96,9 +96,13 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <p className="mt-4 text-base leading-7 text-[#4f4148]">{c.cabinetsIntro}</p>
           </div>
           <div className="grid gap-5 md:grid-cols-2">
-            <a href={`/${locale}/cabinet/imanta`} className="group flex min-h-72 flex-col justify-between rounded-[2rem] border border-[#ebd3dd] bg-white/95 p-7 shadow-sm backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-xl sm:p-10">
-              <div className="flex items-center justify-between"><span className="text-xs font-bold tracking-[0.25em] text-[#a05e78]">01</span><span className="rounded-full bg-[#faedf2] px-4 py-2 text-xs font-semibold text-[#8e526d]">{c.imantaArea} · {BUSINESS.streetAddress}</span></div>
-              <div className="mt-10">
+            <a href={`/${locale}/cabinet/imanta`} className="group relative isolate flex min-h-72 flex-col justify-between overflow-hidden rounded-[2rem] border border-[#ebd3dd] bg-[#f9edf2] p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-xl sm:p-10">
+              <span aria-hidden="true" className="pointer-events-none absolute inset-0 block overflow-hidden">
+                <Image src="/sweet-perfect-room.webp" alt="" fill sizes="(min-width: 768px) 50vw, 100vw" className="scale-110 object-cover object-center blur-[2px]" />
+                <span className="absolute inset-0 block bg-[linear-gradient(145deg,rgba(255,250,253,0.68),rgba(252,242,247,0.68))]" />
+              </span>
+              <div className="relative z-10 flex items-center justify-between"><span className="text-xs font-bold tracking-[0.25em] text-[#a05e78]">01</span><span className="rounded-full bg-[#faedf2] px-4 py-2 text-xs font-semibold text-[#8e526d]">{c.imantaArea} · {BUSINESS.streetAddress}</span></div>
+              <div className="relative z-10 mt-10">
                 <div className="flex items-center gap-4 sm:gap-6">
                   <img src="/sweet-perfect-logo.webp" alt="Sweet Perfect Cosmetology" width="300" height="300" loading="lazy" decoding="async" className="h-24 w-24 shrink-0 rounded-full border border-[#f0dce4] bg-white object-contain sm:h-28 sm:w-28" />
                   <h3 className="font-serif text-4xl !text-[#241e20] sm:text-5xl">{c.imantaTitle}</h3>
