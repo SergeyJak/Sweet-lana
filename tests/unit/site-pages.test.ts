@@ -45,6 +45,15 @@ it.each(['lv', 'ru', 'en'] as const)('shows a readable Sweet Perfect room photo 
   expect(home).toContain('rgba(255,250,253,0.68)')
 })
 
+it.each(['lv', 'ru', 'en'] as const)('shows the Sweet Perfect studio photo as an unblurred hero on the Imanta location page in %s', async (locale) => {
+  const html = renderToStaticMarkup(await CabinetPage({ params: Promise.resolve({ locale, slug: 'imanta' }) }))
+  expect(html).toContain('sweet-perfect-interior.png')
+  expect(html).toContain('max-w-[250px] sm:max-w-[320px] lg:max-w-[370px]')
+  expect(html).toContain('rounded-[2rem]')
+  expect(html).not.toContain('liderm-clinic-reception.jpg')
+  expect(html).not.toContain('blur-[2px]')
+})
+
 it('uses the real Liderm reception photo inside the home card and as a clear clinic portrait', async () => {
   const home = renderToStaticMarkup(await Home({ params: Promise.resolve({ locale: 'en' }) }))
   expect(home).toContain('liderm-clinic-reception.jpg')
