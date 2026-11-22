@@ -4,9 +4,9 @@ import type { Metadata } from 'next'
 import { getHreflangAlternates, getOpenGraphLocale, isValidLocale } from '@/lib/i18n'
 
 const seo = {
-  ru: { title: 'Светлана Петрова — косметолог в Риге | Lana Sweet Perfect', description: 'Косметолог Светлана Петрова, Рига: уход за кожей в Иманте, пилинги, инъекции и аппаратная косметология в клинике Liderm. Два адреса и запись.' },
-  lv: { title: 'Svetlana Petrova — kosmetoloģe Rīgā | Lana Sweet Perfect', description: 'Kosmetoloģe Svetlana Petrova Rīgā: sejas kopšana Imantā, pīlingi un aparātu kosmetoloģija Liderm klīnikā. Divas atrašanās vietas.' },
-  en: { title: 'Svetlana Petrova — cosmetologist in Riga | Lana Sweet Perfect', description: 'Meet cosmetologist Svetlana Petrova in Riga. Skincare in Imanta and advanced aesthetic treatments at Liderm clinic. Two locations.' },
+  ru: { title: 'Светлана Петрова — косметолог в Риге | Lana Sweet Perfect', description: 'Косметолог Светлана Петрова, Рига: уход за кожей в Иманте, пилинги, инъекции и аппаратная косметология в Liderm. Два адреса и запись.' },
+  lv: { title: 'Svetlana Petrova — kosmetoloģe Rīgā | Lana Sweet Perfect', description: 'Kosmetoloģe Svetlana Petrova Rīgā: sejas kopšana Imantā, pīlingi un aparātu kosmetoloģija Liderm. Divas atrašanās vietas.' },
+  en: { title: 'Svetlana Petrova — cosmetologist in Riga | Lana Sweet Perfect', description: 'Meet cosmetologist Svetlana Petrova in Riga. Skincare in Imanta and advanced aesthetic treatments at Liderm. Two locations.' },
 } as const
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -114,7 +114,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </span>
               <div className="relative z-10 flex items-center justify-between"><span className="text-xs font-bold tracking-[0.25em] text-[#a05e78]">02</span><span className="rounded-full border border-[#dfcbb9] bg-[#fffaf3]/90 px-4 py-2 text-xs font-semibold text-[#8b604c]">{c.centerArea} · {c.centerAddress}</span></div>
               <div className="relative z-10 mt-10">
-                <h3 className="font-serif text-5xl !text-[#241e20]">{c.centerTitle}</h3>
+                <div className="flex items-center gap-4 sm:gap-6">
+                  <img src="/liderm-logo.webp" alt="Liderm logo" width="640" height="640" loading="lazy" decoding="async" className="h-24 w-24 shrink-0 rounded-full border border-[#dfcbb9] bg-white object-contain sm:h-28 sm:w-28" />
+                  <h3 className="min-w-0 font-serif text-3xl !text-[#241e20] sm:text-5xl">{c.centerTitle}</h3>
+                </div>
                 <p className="mt-5 max-w-lg text-base leading-7 text-[#4f4148]">{c.centerDetail}</p>
                 <p className="mt-7 text-sm font-semibold text-[#9d6452]">{c.choose} ↗</p>
               </div>
