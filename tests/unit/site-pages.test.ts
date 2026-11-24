@@ -50,25 +50,25 @@ it.each(['lv', 'ru', 'en'] as const)('shows the Sweet Perfect studio photo as an
   expect(html).toContain('sweet-perfect-vanity-gray-pink.webp')
   expect(html).toContain('max-w-[250px] sm:max-w-[320px] lg:max-w-[370px]')
   expect(html).toContain('rounded-[2rem]')
-  expect(html).not.toContain('liderm-clinic-reception.jpg')
+  expect(html).not.toContain('liderm-clinic-reception.webp')
   expect(html).not.toContain('blur-[2px]')
 })
 
 it('uses the real Liderm reception photo inside the home card and as a clear clinic portrait', async () => {
   const home = renderToStaticMarkup(await Home({ params: Promise.resolve({ locale: 'en' }) }))
-  expect(home).toContain('liderm-clinic-reception.jpg')
+  expect(home).toContain('liderm-clinic-reception.webp')
   expect(home).toContain('liderm-logo.webp')
   expect(home).not.toContain('Liderm Clinic')
   expect(home).toContain('blur-[2px]')
 
   const center = renderToStaticMarkup(await CabinetPage({ params: Promise.resolve({ locale: 'en', slug: 'center' }) }))
-  expect(center).toContain('liderm-clinic-reception.jpg')
+  expect(center).toContain('liderm-clinic-reception.webp')
   expect(center).toContain('Reception area at Liderm')
   expect(center).not.toContain('Liderm Clinic')
   expect(center).toContain('max-w-[250px] sm:max-w-[320px] lg:max-w-[370px]')
 
   const imanta = renderToStaticMarkup(await CabinetPage({ params: Promise.resolve({ locale: 'en', slug: 'imanta' }) }))
-  expect(imanta).not.toContain('liderm-clinic-reception.jpg')
+  expect(imanta).not.toContain('liderm-clinic-reception.webp')
 })
 
 it('does not contact storage when the public gallery is disabled even with a database URI', async () => {
@@ -107,4 +107,27 @@ it.each(['lv', 'ru', 'en'] as const)('shows the confirmed Hanzas 18 address and 
   expect(html).not.toMatch(/address to be confirmed|adrese vēl tiks precizēta|адрес уточняется/i)
   const home = renderToStaticMarkup(await Home({ params: Promise.resolve({ locale }) }))
   expect(home).toContain('Hanzas iela 18')
+})
+
+it('prebuilds every localized public landing page without freezing the dynamic gallery', async () => {
+  const home = await import('@/app/[locale]/page')
+  const cabinet = await import('@/app/[locale]/cabinet/[slug]/page')
+  const certificates = await import('@/app/[locale]/certificates/page')
+  const gallery = await import('@/app/[locale]/gallery/page')
+  const locales = ['lv', 'ru', 'en']
+  expect(home.generateStaticParams()).toEqual(locales.map(locale => ({ locale })))
+  expect(certificates.generateStaticParams()).toEqual(locales.map(locale => ({ locale })))
+  expect(cabinet.generateStaticParams()).toEqual(locales.flatMap(locale => ['imanta', 'center'].map(slug => ({ locale, slug }))))
+  expect(gallery.dynamic).toBe('force-dynamic')
+})
+
+it('serves prebuilt local image assets instead of invoking the runtime optimizer on landing pages', async () => {
+  const home = renderToStaticMarkup(await Home({ params: Promise.resolve({ locale: 'en' }) }))
+  const center = renderToStaticMarkup(await CabinetPage({ params: Promise.resolve({ locale: 'en', slug: 'center' }) }))
+  expect(home).toContain('/optimized/svetlana-portrait.webp')
+  expect(home).toContain('/optimized/certificates-cover.webp')
+  expect(home).toContain('/optimized/liderm-clinic-reception.webp')
+  expect(center).toContain('/optimized/liderm-clinic-reception.webp')
+  expect(home).not.toContain('/_next/image?')
+  expect(center).not.toContain('/_next/image?')
 })

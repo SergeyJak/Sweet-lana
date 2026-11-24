@@ -423,7 +423,7 @@ html { scrollbar-gutter: stable; }
   background-color: #f7e8df;
   background-image:
     linear-gradient(rgba(255, 249, 243, .12), rgba(255, 249, 243, .12)),
-    url('/_next/image?url=%2Fbackgrounds%2Fsveta-center-desktop.png&w=1920&q=75');
+    url('/optimized/sveta-center-desktop.webp');
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -434,7 +434,7 @@ html { scrollbar-gutter: stable; }
   .sveta-center-wallpaper {
     background-image:
       linear-gradient(rgba(255, 249, 243, .11), rgba(255, 249, 243, .11)),
-      url('/_next/image?url=%2Fbackgrounds%2Fsveta-center-mobile.png&w=1080&q=75');
+      url('/optimized/sveta-center-mobile.webp');
     background-position: center center;
   }
 }

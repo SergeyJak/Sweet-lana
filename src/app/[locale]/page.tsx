@@ -9,6 +9,10 @@ const seo = {
   en: { title: 'Svetlana Petrova — cosmetologist in Riga | Lana Sweet Perfect', description: 'Meet cosmetologist Svetlana Petrova in Riga. Skincare in Imanta and advanced aesthetic treatments at Liderm. Two locations.' },
 } as const
 
+export function generateStaticParams() {
+  return (['lv', 'ru', 'en'] as const).map(locale => ({ locale }))
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale: requested } = await params
   const locale = isValidLocale(requested) ? requested : 'lv'
@@ -57,7 +61,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </div>
             <div className="order-1 md:order-2">
               <div className="mx-auto w-full max-w-[250px] sm:max-w-[320px] lg:max-w-[370px]">
-                <img src="/svetlana-portrait.png" alt={c.heroName} width="1024" height="1536" fetchPriority="high" decoding="async" className="block h-auto w-full rounded-[2rem] border border-white/90 shadow-[0_18px_55px_rgba(69,40,53,0.12)]" />
+                <img src="/optimized/svetlana-portrait.webp" alt={c.heroName} width="1024" height="1536" fetchPriority="high" decoding="async" className="block h-auto w-full rounded-[2rem] border border-white/90 shadow-[0_18px_55px_rgba(69,40,53,0.12)]" />
               </div>
             </div>
           </div>
@@ -76,7 +80,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <section aria-labelledby="qualifications-heading" className="relative mx-auto max-w-7xl px-5 pt-6 md:px-10 md:pt-8">
           <a href={`/${locale}/certificates`} className="group flex min-w-0 items-center overflow-hidden rounded-[1.75rem] border border-[#ead6de] bg-white/95 shadow-[0_10px_35px_rgba(63,37,48,0.06)] transition hover:-translate-y-0.5 hover:shadow-lg">
             <div className="relative h-40 w-[38%] max-w-[210px] shrink-0 overflow-hidden bg-[#f8edf0] sm:h-44 sm:w-[32%]">
-              <img src="/certificates-cover.png" alt="" width="420" height="210" loading="lazy" decoding="async" className="h-full w-full object-cover" />
+              <img src="/optimized/certificates-cover.webp" alt="" width="420" height="210" loading="lazy" decoding="async" className="h-full w-full object-cover" />
             </div>
             <div className="flex min-w-0 flex-1 items-center gap-3 p-4 sm:p-8">
               <div>
@@ -98,7 +102,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div className="grid gap-5 md:grid-cols-2">
             <a href={`/${locale}/cabinet/imanta`} className="group relative isolate flex min-h-72 flex-col justify-between overflow-hidden rounded-[2rem] border border-[#ebd3dd] bg-[#f9edf2] p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-xl sm:p-10">
               <span aria-hidden="true" className="pointer-events-none absolute inset-0 block overflow-hidden">
-                <Image src="/sweet-perfect-room.webp" alt="" fill sizes="(min-width: 768px) 50vw, 100vw" className="scale-110 object-cover object-center blur-[2px]" />
+                <Image unoptimized src="/sweet-perfect-room.webp" alt="" fill sizes="(min-width: 768px) 50vw, 100vw" className="scale-110 object-cover object-center blur-[2px]" />
                 <span className="absolute inset-0 block bg-[linear-gradient(145deg,rgba(255,250,253,0.68),rgba(252,242,247,0.68))]" />
               </span>
               <div className="relative z-10 flex items-center justify-between"><span className="text-xs font-bold tracking-[0.25em] text-[#a05e78]">01</span><span className="rounded-full bg-[#faedf2] px-4 py-2 text-xs font-semibold text-[#8e526d]">{c.imantaArea} · {BUSINESS.streetAddress}</span></div>
@@ -113,7 +117,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </a>
             <a href={`/${locale}/cabinet/center`} className="group relative isolate flex min-h-72 flex-col justify-between overflow-hidden rounded-[2rem] border border-[#d7c1af] bg-[#f3e6da] p-7 shadow-[0_10px_32px_rgba(92,57,40,0.08)] transition hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(92,57,40,0.14)] sm:p-10">
               <span aria-hidden="true" className="pointer-events-none absolute inset-0 block overflow-hidden">
-                <Image src="/liderm-clinic-reception.jpg" alt="" fill sizes="(min-width: 768px) 50vw, 100vw" className="scale-110 object-cover object-center blur-[2px]" />
+                <Image unoptimized src="/optimized/liderm-clinic-reception.webp" alt="" fill sizes="(min-width: 768px) 50vw, 100vw" className="scale-110 object-cover object-center blur-[2px]" />
                 <span className="absolute inset-0 block bg-[linear-gradient(145deg,rgba(255,250,243,0.62),rgba(245,232,216,0.65))]" />
               </span>
               <div className="relative z-10 flex items-center justify-between"><span className="text-xs font-bold tracking-[0.25em] text-[#a05e78]">02</span><span className="rounded-full border border-[#dfcbb9] bg-[#fffaf3]/90 px-4 py-2 text-xs font-semibold text-[#8b604c]">{c.centerArea} · {c.centerAddress}</span></div>
