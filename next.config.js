@@ -11,13 +11,13 @@ const nextConfig = {
   },
   compress: true,
   async headers() {
-    return [{
-      source: '/devices/:file*',
+    return ['/devices/:file*', '/optimized/:file*'].map(source => ({
+      source,
       headers: [{
         key: 'Cache-Control',
         value: 'public, max-age=86400, stale-while-revalidate=604800'
       }]
-    }]
+    }))
   },
 }
 

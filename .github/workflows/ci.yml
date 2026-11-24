@@ -69,6 +69,8 @@ jobs:
           cache: npm
       - name: Install
         run: npm ci
+      - name: Prepare website images
+        run: npm run prepare:site-images
       - name: Download Next build
         uses: actions/download-artifact@v8
         with:

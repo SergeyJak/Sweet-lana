@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/prepare-device-photos.cjs && next build",
+    "build": "npm run prepare:site-images && node scripts/prepare-device-photos.cjs && next build",
+    "postbuild": "node scripts/check-prerender.cjs",
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
@@ -13,7 +14,9 @@
     "test:e2e:ui": "playwright test --ui",
     "quality": "npm run typecheck && npm run test:unit && npm run build",
     "test:site": "vitest run tests/unit",
-    "test:reusable": "vitest run tests/reusable"
+    "test:reusable": "vitest run tests/reusable",
+    "prepare:site-images": "node scripts/prepare-site-images.cjs",
+    "predev": "npm run prepare:site-images"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "3.1142.0",
