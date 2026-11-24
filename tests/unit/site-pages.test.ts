@@ -32,7 +32,7 @@ it.each(['lv', 'ru', 'en'] as const)('renders %s home using shared contacts and 
 
 it.each(['imanta', 'center'] as const)('renders %s cabinet with shared contacts and location-specific booking text', async (slug) => {
   const html = renderToStaticMarkup(await CabinetPage({ params: Promise.resolve({ locale: 'en', slug }) }))
-  expect(html).toContain(`href="tel:${BUSINESS.phoneE164}"`)
+  expect(html).toContain(`href="https://wa.me/${BUSINESS.whatsappNumber}?text=`)
   expect(html).toContain(`href="${BUSINESS.instagram}"`)
   expect(html).toContain(slug === 'imanta' ? 'Imanta%20studio' : 'City%20Centre%20studio')
 })
@@ -107,18 +107,6 @@ it.each(['lv', 'ru', 'en'] as const)('shows the confirmed Hanzas 18 address and 
   expect(html).not.toMatch(/address to be confirmed|adrese vēl tiks precizēta|адрес уточняется/i)
   const home = renderToStaticMarkup(await Home({ params: Promise.resolve({ locale }) }))
   expect(home).toContain('Hanzas iela 18')
-})
-
-it('prebuilds every localized public landing page without freezing the dynamic gallery', async () => {
-  const home = await import('@/app/[locale]/page')
-  const cabinet = await import('@/app/[locale]/cabinet/[slug]/page')
-  const certificates = await import('@/app/[locale]/certificates/page')
-  const gallery = await import('@/app/[locale]/gallery/page')
-  const locales = ['lv', 'ru', 'en']
-  expect(home.generateStaticParams()).toEqual(locales.map(locale => ({ locale })))
-  expect(certificates.generateStaticParams()).toEqual(locales.map(locale => ({ locale })))
-  expect(cabinet.generateStaticParams()).toEqual(locales.flatMap(locale => ['imanta', 'center'].map(slug => ({ locale, slug }))))
-  expect(gallery.dynamic).toBe('force-dynamic')
 })
 
 it('serves prebuilt local image assets instead of invoking the runtime optimizer on landing pages', async () => {

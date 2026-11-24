@@ -1,3 +1,4 @@
+import { DEVICES } from '@/content/devices'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { DEFAULT_SITE_URL } from '@/lib/business'
 import { getHreflangAlternates } from '@/lib/i18n'
@@ -28,13 +29,16 @@ describe('organic search visibility', () => {
     expect(config.sitemap).toBe('https://lanasweet.heysmart.lv/sitemap.xml')
     expect(metadata.robots).toEqual({ index: true, follow: true })
   })
-  it('includes home and both studios in all languages, without unfinished gallery URLs', () => {
+  it('includes home, both studios and device pages in all languages, without unfinished gallery URLs', () => {
     const urls = sitemap().map(item => item.url)
-    expect(urls).toHaveLength(9)
+    expect(urls).toHaveLength(3 * (3 + DEVICES.length))
     for (const locale of ['lv', 'ru', 'en']) {
       expect(urls).toContain(`https://lanasweet.heysmart.lv/${locale}`)
       expect(urls).toContain(`https://lanasweet.heysmart.lv/${locale}/cabinet/imanta`)
       expect(urls).toContain(`https://lanasweet.heysmart.lv/${locale}/cabinet/center`)
+      for (const device of DEVICES) {
+        expect(urls).toContain(`https://lanasweet.heysmart.lv/${locale}/cabinet/center/device/${device.slug}`)
+      }
     }
     expect(urls.join(' ')).not.toContain('/gallery')
     expect(sitemap()[0]?.alternates?.languages?.['x-default']).toBe('https://lanasweet.heysmart.lv/lv')

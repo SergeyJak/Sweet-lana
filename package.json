@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "npm run prepare:site-images && node scripts/prepare-device-photos.cjs && next build",
+    "postbuild": "node scripts/check-prerender.cjs",
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",

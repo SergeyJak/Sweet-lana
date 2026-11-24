@@ -1,3 +1,4 @@
+import CurrentYear from '@/components/CurrentYear'
 import SiteHeader from '@/components/SiteHeader'
 import Image from 'next/image'
 import type { Metadata } from 'next'
@@ -171,7 +172,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-5 gap-y-2 text-xs text-[#786b69] sm:text-sm">
           <span className="font-serif text-lg text-[#241e20]">{BUSINESS.name}.</span>
           <span className="hidden sm:inline">{c.footer}</span>
-          <span>© {new Date().getFullYear()}</span>
+          <span>© <CurrentYear initialYear={new Date().getFullYear()} /></span>
         </div>
       </footer>
     </div>
